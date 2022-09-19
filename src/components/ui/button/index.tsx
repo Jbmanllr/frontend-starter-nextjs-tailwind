@@ -92,7 +92,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
   const haveIcon = !iconOnly && icon
  // 
   const rootClassName = cn(
-    'dark:highlight-white/20 overflow-hidden relative transition-colors duration-300 cursor-pointer outline-4 outline-gray-300 inline-flex leading-6 text-center justify-center items-center tracking-wide',
+    'dark:highlight-white/10 overflow-hidden relative transition-colors duration-300 cursor-pointer outline-4 outline-gray-300 inline-flex leading-6 text-center justify-center items-center tracking-wide',
     { ['shadow-md']: variant === 'contained' && shadow === 'md'},
     { ['active:scale-97']: scale === true },
     { ['']: variant === 'contained' },

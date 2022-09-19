@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+.dark-background-color {
+  @apply bg-slate-900;
+}
+
+
 .dot {
   background-color: currentColor;
   animation-name: blink;
