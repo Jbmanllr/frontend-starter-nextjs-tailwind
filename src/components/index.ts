@@ -1,7 +1,14 @@
 export { Header } from "./header";
 export { Logo } from "./logo";
 export { Main } from "./main";
-export { Button } from "./button";
+export { default as Button } from "./ui/button";
+export { default as Ripple } from "./ui/ripple";
+export { default as Breadcrumb } from "./breadcrumb";
+export { default as Pagination } from "./pagination";
+export { default as Layouts } from "./layouts";
+export { default as Loading } from "./ui/loading";
 export { Cards } from "./cards";
-export { Footer } from "./footer";
+export { default as Footer } from "./footer";
 export { Container } from "./container";
+export { ThemeSelectionMenu } from "./theme-selection-menu";
+export { GlobalSearch } from "./global-search";
