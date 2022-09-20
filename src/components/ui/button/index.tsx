@@ -69,7 +69,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     color = 'primary',
     size = 'md',
     shadow = 'md',
-    plainShadow = true,
+    plainShadow = false,
     ripple = true,
     scale = false,
     rounded = 'sm',
@@ -86,8 +86,6 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     ...rest
   } = props
   const ref = useRef<typeof Component>(null)
-
-  console.log('ICON', icon, iconOnly)
 
   const haveIcon = !iconOnly && icon
  // 
@@ -128,7 +126,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     { ['']: !iconOnly },
 
     { ['h-8 max-h-8 text-xs font-normal']: !iconOnly && size === '2xs' },
-    { ['h-9 max-h-9 text-xs font-normal']: !iconOnly && size === 'xs' },
+    { ['h-9 max-h-9 text-sm font-normal']: !iconOnly && size === 'xs' },
     { ['h-11 max-h-11 text-sm font-normal']: !iconOnly && size === 'sm' },
     { ['h-13 max-h-13 text-md font-normal']: !iconOnly && size === 'md' },
     { ['h-14 max-h-14 text-lg font-normal']: !iconOnly && size === 'lg' },
@@ -136,14 +134,14 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     { ['h-16 max-h-16 text-xl font-normal']: !iconOnly && size === '2xl' },
     { ['h-18 max-h-18 text-xl font-semibold']: !iconOnly && size === '3xl' },
 
-    { ['px-3']: haveIcon && size === '2xs' },
-    { ['px-3.5']: haveIcon && size === 'xs' },
-    { ['px-3.5']: haveIcon && size === 'sm' },
-    { ['px-4']: haveIcon && size === 'md' },
-    { ['px-4']: haveIcon && size === 'lg' },
-    { ['px-4']: haveIcon && size === 'xl' },
-    { ['px-5']: haveIcon && size === '2xl' },
-    { ['px-6']: haveIcon && size === '3xl' },
+    { ['pr-3.5 pl-3']: haveIcon && size === '2xs' },
+    { ['pr-4 pl-3.5']: haveIcon && size === 'xs' },
+    { ['pr-5 pl-4']: haveIcon && size === 'sm' },
+    { ['pr-6 pl-5']: haveIcon && size === 'md' },
+    { ['pr-7 pl-6']: haveIcon && size === 'lg' },
+    { ['pr-7 pl-6']: haveIcon && size === 'xl' },
+    { ['pr-7 pl-6']: haveIcon && size === '2xl' },
+    { ['pr-8 pl-7']: haveIcon && size === '3xl' },
 
     { ['px-3.5']: !iconOnly && !icon && size === '2xs' },
     { ['px-4']: !iconOnly && !icon && size === 'xs' },
@@ -154,14 +152,14 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     { ['px-7']: !iconOnly && !icon && size === '2xl' },
     { ['px-8']: !iconOnly && !icon && size === '3xl' },
 
-    { ['text-xs h-7 max-h-7 w-7']: iconOnly && size === '2xs' },
-    { ['text-xs h-8 max-h-8 w-8']: iconOnly && size === 'xs' },
-    { ['text-sm h-9 max-h-9 w-9']: iconOnly && size === 'sm' },
-    { ['text-sm h-11 max-h-11 w-11']: iconOnly && size === 'md' },
-    { ['text-md h-12 max-h-12 w-12']: iconOnly && size === 'lg' },
-    { ['text-lg h-13 max-h-13 w-13']: iconOnly && size === 'xl' },
-    { ['text-lg h-14 max-h-14 w-14']: iconOnly && size === '2xl' },
-    { ['text-lg h-16 max-h-16 w-16']: iconOnly && size === '3xl' },
+    { ['text-xs h-8 max-h-8 w-8']: iconOnly && size === '2xs' },
+    { ['text-xs h-9 max-h-9 w-9']: iconOnly && size === 'xs' },
+    { ['text-sm h-11 max-h-11 w-11']: iconOnly && size === 'sm' },
+    { ['text-sm h-13 max-h-13 w-13']: iconOnly && size === 'md' },
+    { ['text-md h-14 max-h-14 w-14']: iconOnly && size === 'lg' },
+    { ['text-lg h-15 max-h-15 w-15']: iconOnly && size === 'xl' },
+    { ['text-lg h-16 max-h-16 w-16']: iconOnly && size === '2xl' },
+    { ['text-lg h-18 max-h-18 w-18']: iconOnly && size === '3xl' },
 
     { ['bg-primary-500 hover:bg-primary-400 text-primary-100 ring-primary-400/30 outline-primary-400/30']: color === 'primary' && variant === 'contained' },
     { ['bg-secondary-500 hover:bg-secondary-400 text-secondary-100 ring-secondary-400/30 outline-secondary-400/30']: color === 'secondary' && variant === 'contained' },

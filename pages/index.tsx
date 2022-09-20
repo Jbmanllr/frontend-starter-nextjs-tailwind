@@ -2,12 +2,13 @@ import React, { Fragment, useEffect, useRef, useState } from "react";
 import cn from 'clsx'
 import { Menu, Transition, Combobox, Tab, Dialog, Disclosure, Popover } from '@headlessui/react'
 import { AtSymbolIcon, ChevronRightIcon, ChevronLeftIcon, AcademicCapIcon, ChevronDownIcon, PhoneIcon, EnvelopeIcon, CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
-import { Container, Header, Main, Footer, Cards, Button, Breadcrumb, Pagination } from "@components";
+import { Container, Header, Main, Footer, Cards, Button, Breadcrumb, Pagination, Card } from "@components";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
 
@@ -1056,18 +1057,37 @@ const Home: React.FC = () => {
           ))}
         </div>
       </div>
+
+      
+
+
+      
     </div>
 
 
+    <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">
 
+      <div className="relative mx-auto">
+        <ul role="list" className="mx-auto mt-12 grid gap-5 lg:max-w-none lg:grid-cols-2">
+          {posts.map((post, i) => (
+            <li key={i}>
+              <Link href={`/product`}>
+                <Card item={post} />
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      
+
+
+      
+    </div>
 
     <Pagination />
 
               </div>
-
-              
-
-             
 
             </div>
           </section>
