@@ -8,7 +8,7 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
-import { Container, Header, Main, Footer, Cards, Button, Breadcrumb, Pagination, Card } from "@components";
+import { Container, Header, Main, Footer, Cards, Button, Breadcrumb, Pagination, Card, Gridlist } from "@components";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
 
@@ -1068,15 +1068,7 @@ const Home: React.FC = () => {
     <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">
 
       <div className="relative mx-auto">
-        <ul role="list" className="mx-auto mt-12 grid gap-5 lg:max-w-none lg:grid-cols-2">
-          {posts.map((post, i) => (
-            <li key={i}>
-              <Link href={`/product`}>
-                <Card item={post} />
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <Gridlist variant='cards' layout='horizontal' data={posts} />
       </div>
 
       

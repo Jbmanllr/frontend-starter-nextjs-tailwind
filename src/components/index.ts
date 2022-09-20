@@ -8,6 +8,7 @@ export { default as Pagination } from "./pagination";
 export { default as Layouts } from "./layouts";
 export { default as Loading } from "./ui/loading";
 export { default as Card } from "./ui/card";
+export { default as Gridlist } from "./gridlist";
 export { Cards } from "./cards";
 export { default as Footer } from "./footer";
 export { Container } from "./container";
