@@ -189,7 +189,7 @@ const Home: React.FC = () => {
            {/*<img src="https://tailwindui.com/img/beams-basic.png" alt="" class="absolute top-0 left-1/2 -ml-[39rem] w-[113.125rem] max-w-none"></img>*/}
 
     <div className="flex flex-col justify-center relative overflow-hidden sm:py-12">
-  <div className="max-w-7xl mx-auto">
+  <div className="max-w-screen-2xl mx-auto">
     <div className="relative group">
       <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-10 group-hover:opacity-25 transition duration-1000 group-hover:duration-1000"></div>
       <div className="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
@@ -398,11 +398,14 @@ const Home: React.FC = () => {
         </Dialog>
       </Transition.Root>
 
-      <div className="mx-auto max-w-7xl py-16 px-4 sm:px-6 lg:px-8 rounded-lg mb-4">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-100">Workspace sale</h1>
-        <p className="mt-4 max-w-xl text-sm text-gray-700 dark:text-slate-400">
+      <div className="mx-auto max-w-screen-2xl py-16 px-4 sm:px-6 lg:px-8 rounded-lg mb-4">
+        <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-100">Workspace sale</h1>
+        <p className="mt-4 max-w-2xl text-xl font-bold text-gray-700 dark:text-slate-300">
+          Our thoughtfully designed workspace objects are crafted in limited runs.
+        </p>
+        <p className="mt-4 max-w-2xl text-lg text-gray-700 dark:text-slate-400">
           Our thoughtfully designed workspace objects are crafted in limited runs. Improve your productivity and
-          organization with these sale items before we run out.
+          organization with these sale items before we run out, workspace objects are crafted in limited runs.
         </p>
       <div className="flex mt-4 py-4 gap-4">
         <Button className="h-3" color="primary" size="lg" rounded='md' scale>Button</Button>
@@ -693,7 +696,7 @@ const Home: React.FC = () => {
         </h2>
 
         <div className="border-b border-gray-200 dark:border-slate-500 bg-white py-4 dark:bg-slate-600">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
             <Menu as="div" className="relative inline-block text-left">
               <div>
                 <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-slate-400">
@@ -805,7 +808,7 @@ const Home: React.FC = () => {
 
         {/* Active filters */}
         <div className="bg-gray-100 dark:bg-slate-700 shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
-          <div className="mx-auto max-w-7xl p-4 sm:flex sm:items-center sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-screen-2xl p-4 sm:flex sm:items-center sm:px-6 lg:px-8">
             <div className="text-sm font-medium text-gray-500 dark:text-slate-400">
               Filters
               <span className="sr-only">, active</span>
@@ -840,7 +843,7 @@ const Home: React.FC = () => {
     </div>
         
 
-        <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+        <main className="mx-auto px-4 sm:px-6 lg:px-8 max-w-screen-2xl">
           <div className="flex items-baseline justify-between border-b border-gray-200 dark:border-slate-600 pt-6 pb-6">
             <h1 className="text-4xl font-bold tracking-tight text-gray-900"></h1>
 
@@ -912,18 +915,18 @@ const Home: React.FC = () => {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                <ul role="list" className="space-y-4 border-b border-gray-200 dark:border-slate-700 pb-6 text-sm font-medium text-gray-900">
+                <ul role="list" className="transition-all space-y-2 border-b border-gray-200 dark:border-slate-700 pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
                     <li key={category.name}>
                       <a href={category.href}  className={cn(
-            category.current ? 'bg-gray-100 text-gray-900 dark:bg-slate-700 dark:text-slate-200' : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900',
+            category.current ? 'bg-gray-100 text-gray-900 dark:bg-slate-700 dark:text-slate-200' : 'text-gray-600 dark:text-gray-400 hover:bg-slate-700 hover:text-gray-900',
             'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
           )}>
                       <span className="truncate">{category.name}</span>
                         {category.count ? (
                           <span
                             className={cn(
-                              category.current ? 'bg-white dark:bg-slate-500 dark:text-slate-300' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-300',
+                              category.current ? 'bg-white dark:bg-slate-800 dark:text-slate-300' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-300',
                               'ml-auto inline-block py-0.5 px-3 text-xxs rounded-full'
                             )}
                           >

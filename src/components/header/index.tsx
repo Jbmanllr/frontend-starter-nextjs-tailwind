@@ -95,7 +95,7 @@ export const Header: React.FC = () => {
     return (
 
 <header className="dark:bg-slate-600 drop-shadow-sm bg-white/50 backdrop-blur-lg z-50">
-    <Popover className="relative max-w-7xl mx-auto">
+    <Popover className="relative max-w-screen-2xl mx-auto">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-6 md:justify-start md:space-x-10">
         <div>
           <a href="#" className="flex">
@@ -289,7 +289,7 @@ className="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text
               <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">Sign in</a>
               <Button 
                 color="primary" 
-                size="sm" 
+                size="xs" 
                 rounded='md' 
                 ripple 
                 icon={<PencilSquareIcon className="w-5" aria-hidden="true" />}

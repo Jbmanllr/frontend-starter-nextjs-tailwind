@@ -103,7 +103,7 @@ const Footer: FC<Props> = ({ className }) => {
     <footer className={cn('bg-slate-900 dark:bg-slate-800', className)} aria-labelledby="footer-heading">
         <div className='py-8 bg-slate-800 dark:bg-slate-700'></div>
         <span id="footer-heading" className="sr-only">Footer</span>
-        <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-12 lg:px-8">
+        <div className="mx-auto max-w-screen-2xl py-12 px-4 sm:px-6 lg:py-12 lg:px-8">
         <div className="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
             <div className="grid grid-cols-2 gap-8 xl:col-span-4">
             <div className="md:grid md:grid-cols-2 md:gap-8">
