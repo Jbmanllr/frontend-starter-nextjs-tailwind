@@ -68,6 +68,24 @@ const posts = [
         'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
     },
   },
+  {
+    title: 'Improve your customer experience',
+    href: '#',
+    category: { name: 'Case Study', href: '#' },
+    description:
+      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.',
+    date: 'Feb 12, 2020',
+    datetime: '2020-02-12',
+    imageUrl:
+      'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+    readingTime: '11 min',
+    author: {
+      name: 'Daniela Metz',
+      href: '#',
+      imageUrl:
+        'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+    },
+  },
 ]
 
 const people = [
@@ -1010,59 +1028,6 @@ const Home: React.FC = () => {
     </ul>
 
 
-
-    <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">
-
-      <div className="relative mx-auto">
-        <div className="mx-auto mt-12 grid gap-5 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <div key={post.title} className="ring-1 ring-slate-600/10 flex flex-col overflow-hidden rounded-lg shadow-lg">
-              <div className="flex-shrink-0">
-                <img className="h-48 w-full object-cover" src={post.imageUrl} alt="" />
-              </div>
-              <div className="flex flex-1 flex-col justify-between bg-white dark:bg-slate-800 dark:highlight-white/5 p-6">
-                <div className="flex-1">
-                  <p className="text-xs font-medium text-indigo-600">
-                    <a href={post.category.href} className="hover:underline dark:text-slate-400">
-                      {post.category.name}
-                    </a>
-                  </p>
-                  <a href={post.href} className="mt-2 block">
-                    <p className="text-md font-semibold text-gray-900 line-clamp-2 dark:text-slate-300">{post.title}</p>
-                    <p className="mt-3 text-sm text-gray-500 line-clamp-3">{post.description}</p>
-                  </a>
-                </div>
-                <div className="mt-6 flex items-center">
-                  <div className="flex-shrink-0">
-                    <a href={post.author.href}>
-                      <span className="sr-only">{post.author.name}</span>
-                      <img className="h-10 w-10 rounded-full" src={post.author.imageUrl} alt="" />
-                    </a>
-                  </div>
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900 dark:text-slate-500">
-                      <a href={post.author.href} className="hover:underline">
-                        {post.author.name}
-                      </a>
-                    </p>
-                    <div className="flex space-x-1 text-sm text-gray-500">
-                      <time dateTime={post.datetime}>{post.date}</time>
-                      <span aria-hidden="true">&middot;</span>
-                      <span>{post.readingTime} read</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      
-
-
-      
-    </div>
 
 
     <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">

@@ -7,6 +7,7 @@
 }
 
 
+
 .dot {
   background-color: currentColor;
   animation-name: blink;
@@ -88,6 +89,14 @@
 
     body.loading * {
         transition: none !important;
+    }
+
+    .site-background {
+        @apply bg-light-50 dark:bg-dark-900;
+    }
+
+    .site-foreground-accent-1 {
+        @apply bg-light-foreground dark:bg-dark-foreground-700/30;
     }
 
 }

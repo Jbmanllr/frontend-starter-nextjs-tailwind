@@ -90,7 +90,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
   const haveIcon = !iconOnly && icon
  // 
   const rootClassName = cn(
-    'dark:highlight-white/10 overflow-hidden relative transition-colors duration-300 cursor-pointer outline-4 outline-gray-300 inline-flex leading-6 text-center justify-center items-center tracking-wide',
+    'disabled:opacity-95 disabled:cursor-not-allowed disabled:scale-100 dark:highlight-white/10 overflow-hidden relative transition-colors duration-300 cursor-pointer outline-4 outline-gray-300 inline-flex leading-6 text-center justify-center items-center tracking-wide',
     { ['shadow-md']: variant === 'contained' && shadow === 'md'},
     { ['active:scale-97']: scale === true },
     { ['']: variant === 'contained' },
@@ -161,8 +161,8 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     { ['text-lg h-16 max-h-16 w-16']: iconOnly && size === '2xl' },
     { ['text-lg h-18 max-h-18 w-18']: iconOnly && size === '3xl' },
 
-    { ['bg-primary-500 hover:bg-primary-400 text-primary-100 ring-primary-400/30 outline-primary-400/30']: color === 'primary' && variant === 'contained' },
-    { ['bg-secondary-500 hover:bg-secondary-400 text-secondary-100 ring-secondary-400/30 outline-secondary-400/30']: color === 'secondary' && variant === 'contained' },
+    { ['bg-primary-500 hover:bg-primary-400 disabled:!bg-primary-500  text-primary-100 ring-primary-400/30 outline-primary-400/30']: color === 'primary' && variant === 'contained' },
+    { ['bg-secondary-500 hover:bg-secondary-400 disabled:!bg-secondary-500 text-secondary-100 ring-secondary-400/30 outline-secondary-400/30']: color === 'secondary' && variant === 'contained' },
     { ['bg-gray-400 text-gray-700 ring-gray-400/30 outline-gray-400/30']: color === 'tertiary' && variant === 'contained' },
     { ['bg-slate-500 text-slate-300 ring-slate-400/30 outline-slate-400/30']: color === 'light' && variant === 'contained' },
     { ['bg-slate-700 text-slate-300 ring-slate-600/30 outline-slate-600/30']: color === 'dark' && variant === 'contained' },
@@ -225,13 +225,13 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
       
       { icon && !iconOnly ? <i className={iconClassName}>{icon}</i> : '' }
       { icon && iconOnly ? !loading ? icon : '' : '' }
-      { children }
+      { loading ?  iconOnly ? '' : 'Loading...' : children }
       { loading && (
         <i className={cn((iconOnly ? '' : 'ml-3'), 'm-0 flex')}>
            <ClipLoader 
            speedMultiplier={0.9} 
-           color={'transparent'} 
-           loading={true} 
+           color={'transparent'}
+           loading={loading} 
            cssOverride={override} 
            size={ size === '2xs' || size === 'xs' || size === 'sm' ? 15 : size === 'md' || size === 'lg' ? 22 : size === 'xl' || size === '2xl' ? 28 : 25 } />
           {/*<Loading size={ size === '2xs' || size === 'xs' || size === 'sm' ? 'sm' : size === 'md' || size === 'lg' ? 'md' : size === 'xl' || size === '2xl' ? 'lg' : 'lg' } />*/}

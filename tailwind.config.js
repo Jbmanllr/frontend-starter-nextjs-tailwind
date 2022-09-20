@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors')
 const svgToDataUri = require('mini-svg-data-uri')
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
+const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
     purge: {
@@ -14,6 +15,11 @@ module.exports = {
     },
     darkMode: 'class',
     theme: {
+        screens: {
+          '2xs': '320px',
+          'xs': '475px',
+          ...defaultTheme.screens,
+        },
         extend: {
           padding: {
             '0.25': '0.10rem',
@@ -34,8 +40,16 @@ module.exports = {
           colors: ({ colors }) => ({
             primary: colors.purple,
             secondary: colors.blue,
-            'accent-dark': colors.slate,
-            'accent-light': colors.white,
+            light: colors.gray,
+            'light-foreground': colors.white,
+            'light-foreground-accent': colors.gray,
+            'light-text': colors.white,
+            'light-text-accent': colors.gray,
+            dark: colors.slate,
+            'dark-foreground': colors.slate,
+            'dark-foreground-accent': colors.gray,
+            'dark-text': colors.slate,
+            'dark-text-accent': colors.gray,
             info: colors.blue,
             success: colors.green,
             danger: colors.red,

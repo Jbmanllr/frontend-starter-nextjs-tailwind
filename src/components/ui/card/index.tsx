@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 //console.log('ITEM', item)
 
   const rootClassName = cn(
-    'flex overflow-hidden rounded-lg col-span-1 rounded-lg bg-white dark:bg-slate-700/30 dark:highlight-white/5 shadow-md shadow-gray-200/60',
+    'flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground-accent-1 dark:highlight-white/5 shadow-md shadow-gray-200/60',
     { ['horizontal flex-row h-40']: layout === 'horizontal', ['vertical flex-col divide-y divide-gray-200']: layout === 'vertical' },
     className
   )

@@ -3,27 +3,15 @@ import cn from 'clsx'
 import { Menu, Popover, Transition, Dialog } from '@headlessui/react'
 import { ThemeSelectionMenu, GlobalSearch } from "@components";
 import { 
-    MagnifyingGlassIcon, 
-    SunIcon,
-    ArchiveBoxIcon,
-    ArrowRightCircleIcon,
     ChevronDownIcon,
-    DocumentDuplicateIcon,
-    HeartIcon,
     PencilSquareIcon,
-    TrashIcon,
-    UserPlusIcon, 
-    ComputerDesktopIcon
 } from '@heroicons/react/20/solid'
 import { 
     Bars3Icon, 
     BellIcon, 
     XMarkIcon, 
-    Bars3BottomLeftIcon,
-    CalendarIcon,
     DocumentChartBarIcon,
     ChartBarIcon,
-    FolderIcon,
     HomeIcon,
     InboxIcon,
     UsersIcon,
@@ -94,9 +82,9 @@ const user = {
 export const Header: React.FC = () => {
     return (
 
-<header className="dark:bg-slate-600 drop-shadow-sm bg-white/50 backdrop-blur-lg z-50">
+<header className="dark:bg-slate-600 drop-shadow-sm bg-primary-700 backdrop-blur-lg z-50">
     <Popover className="relative max-w-screen-2xl mx-auto">
-      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-6 md:justify-start md:space-x-10">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 md:justify-start md:space-x-10">
         <div>
           <a href="#" className="flex">
             <span className="sr-only">Your Company</span>
