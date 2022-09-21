@@ -826,7 +826,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Active filters */}
-        <div className="bg-gray-100 dark:bg-slate-700 shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
+        <div className="site-foreground-accent-1 shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
           <div className="mx-auto max-w-screen-2xl p-4 sm:flex sm:items-center sm:px-6 lg:px-8">
             <div className="text-sm font-medium text-gray-500 dark:text-slate-400">
               Filters
@@ -934,18 +934,18 @@ const Home: React.FC = () => {
               {/* Filters */}
               <form className="hidden lg:block">
                 <h3 className="sr-only">Categories</h3>
-                <ul role="list" className="transition-all space-y-2 border-b border-gray-200 dark:border-slate-700 pb-6 text-sm font-medium text-gray-900">
+                <ul role="list" className="transition-all space-y-2 border-b pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
                     <li key={category.name}>
                       <a href={category.href}  className={cn(
-            category.current ? 'bg-gray-100 text-gray-900 dark:bg-slate-700 dark:text-slate-200' : 'text-gray-600 dark:text-gray-400 hover:bg-slate-700 hover:text-gray-900',
+            category.current ? 'site-foreground-accent-1 text-color-accent-2' : 'text-color-accent-1 hover:site-foreground-accent-1',
             'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
           )}>
                       <span className="truncate">{category.name}</span>
                         {category.count ? (
                           <span
                             className={cn(
-                              category.current ? 'bg-white dark:bg-slate-800 dark:text-slate-300' : 'bg-gray-100 text-gray-600 group-hover:bg-gray-200 dark:bg-slate-700 dark:text-slate-300',
+                              category.current ? 'site-background dark:text-slate-300' : 'site-foreground-accent-1 text-gray-600 group-hover:site-background dark:text-slate-300',
                               'ml-auto inline-block py-0.5 px-3 text-xxs rounded-full'
                             )}
                           >

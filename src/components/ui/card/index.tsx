@@ -24,7 +24,7 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 //console.log('ITEM', item)
 
   const rootClassName = cn(
-    'flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground-accent-1 dark:highlight-white/5 shadow-md shadow-gray-200/60',
+    'flex overflow-hidden rounded-lg col-span-1 rounded-lg dark:highlight-white/5 shadow-md shadow-gray-200/60',
     { ['horizontal flex-row h-40']: layout === 'horizontal', ['vertical flex-col divide-y divide-gray-200']: layout === 'vertical' },
     className
   )
@@ -59,30 +59,30 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
             </div>
             <div className={contentClassName}>
                 <div className="flex-1">
-                    <p className="text-xs font-medium text-indigo-600">
-                        <a href={item.category.href} className="hover:underline dark:text-slate-400">
+                    <p className="text-xs font-medium">
+                        <a href={item.category.href} className="hover:underline hover:text-color text-color-accent-2">
                             {item.category.name}
                         </a>
                     </p>
                     <a href={item.href} className="mt-2 block">
-                        <p className="text-md font-semibold text-gray-900 line-clamp-2 dark:text-slate-300">{item.title}</p>
-                        <p className="mt-3 text-sm text-gray-500 line-clamp-2">{item.description}</p>
+                        <p className="text-md font-semibold text-color hover:text-white line-clamp-2">{item.title}</p>
+                        <p className="mt-3 text-sm text-color-accent-1 line-clamp-3">{item.description}</p>
                     </a>
                 </div>
-                <div className="mt-6 flex items-center">
+                <div className="mt-4 flex items-center">
                     {/*<div className="flex-shrink-0">
                         <a href={item.author.href}>
                             <span className="sr-only">{item.author.name}</span>
                             <img className="h-10 w-10 rounded-full" src={item.author.imageUrl} alt="" />
                         </a>
   </div>*/}
-                    <div className="ml-3">
+                    <div className="ml-auto">
                        {/* <p className="text-sm font-medium text-gray-900 dark:text-slate-500">
                             <a href={item.author.href} className="hover:underline">
                                 {item.author.name}
                             </a>
 </p>*/}
-                        <div className="flex space-x-1 text-sm text-gray-500">
+                        <div className="flex space-x-1 text-xs text-color-accent-2">
                             <time dateTime={item.datetime}>{item.date}</time>
                             <span aria-hidden="true">&middot;</span>
                             <span>{item.readingTime} read</span>

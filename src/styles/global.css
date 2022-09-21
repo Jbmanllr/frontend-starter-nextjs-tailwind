@@ -91,12 +91,41 @@
         transition: none !important;
     }
 
+    /* :root {
+        --site-background: 255 115 179;
+        --color-secondary: 111 114 185;
+    }*/
+
     .site-background {
-        @apply bg-light-50 dark:bg-dark-900;
+        @apply bg-light-palette-50 dark:bg-dark-palette-900;
+    }
+
+    .site-foreground {
+        @apply bg-white dark:bg-dark-palette-800;
     }
 
     .site-foreground-accent-1 {
-        @apply bg-light-foreground dark:bg-dark-foreground-700/30;
+        @apply bg-light-palette-200/40 dark:bg-dark-palette-700;
+    }
+    
+    .site-foreground-accent-2 {
+        @apply bg-light-palette-200 dark:bg-dark-palette-700;
+    }
+
+    .text-color {
+        @apply text-light-text-palette-900 dark:text-dark-text-palette-100;
+    }
+
+    .text-color-accent-1 {
+        @apply text-light-text-palette-600 dark:text-dark-text-palette-300/90;
+    }
+
+    .text-color-accent-2 {
+        @apply text-light-text-palette-500 dark:text-dark-text-palette-400/80;
+    }
+
+    .text-color-accent-3 {
+        @apply text-light-text-palette-400 dark:text-dark-text-palette-300;
     }
 
 }
