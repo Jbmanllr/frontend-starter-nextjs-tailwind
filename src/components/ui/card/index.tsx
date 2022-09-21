@@ -24,14 +24,14 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 //console.log('ITEM', item)
 
   const rootClassName = cn(
-    'flex overflow-hidden rounded-lg col-span-1 rounded-lg dark:highlight-white/5 shadow-md shadow-gray-200/60',
+    'h-full flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground dark:highlight-white/5 shadow-md shadow-gray-200/60',
     { ['horizontal flex-row h-40']: layout === 'horizontal', ['vertical flex-col divide-y divide-gray-200']: layout === 'vertical' },
     className
   )
 
   const imgClassName = cn(
     'ob+ject-cover',
-    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full h-48']: layout === 'vertical' }
+    { ['w-40 h-40 p-4 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full h-48']: layout === 'vertical' }
   )
 
   const contentClassName = cn(
@@ -65,7 +65,7 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
                         </a>
                     </p>
                     <a href={item.href} className="mt-2 block">
-                        <p className="text-md font-semibold text-color hover:text-white line-clamp-2">{item.title}</p>
+                        <p className="text-md font-semibold text-dark hover:text-dark line-clamp-2">{item.title}</p>
                         <p className="mt-3 text-sm text-color-accent-1 line-clamp-3">{item.description}</p>
                     </a>
                 </div>
@@ -82,7 +82,7 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
                                 {item.author.name}
                             </a>
 </p>*/}
-                        <div className="flex space-x-1 text-xs text-color-accent-2">
+                        <div className="flex space-x-1 text-xs text-color-accent-3">
                             <time dateTime={item.datetime}>{item.date}</time>
                             <span aria-hidden="true">&middot;</span>
                             <span>{item.readingTime} read</span>

@@ -932,20 +932,20 @@ const Home: React.FC = () => {
 
             <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
               {/* Filters */}
-              <form className="hidden lg:block">
+              <form className="hidden lg:block mr-2">
                 <h3 className="sr-only">Categories</h3>
                 <ul role="list" className="transition-all space-y-2 border-b pb-6 text-sm font-medium text-gray-900">
                   {subCategories.map((category) => (
                     <li key={category.name}>
                       <a href={category.href}  className={cn(
-            category.current ? 'site-foreground-accent-1 text-color-accent-2' : 'text-color-accent-1 hover:site-foreground-accent-1',
-            'group flex items-center px-3 py-2 text-sm font-medium rounded-md'
+            category.current ? 'site-foreground-accent-1 text-color' : 'text-color-accent-1 hover:site-foreground-accent-1',
+            'group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors motion-reduce:transition-none duration-200'
           )}>
                       <span className="truncate">{category.name}</span>
                         {category.count ? (
                           <span
                             className={cn(
-                              category.current ? 'site-background dark:text-slate-300' : 'site-foreground-accent-1 text-gray-600 group-hover:site-background dark:text-slate-300',
+                              category.current ? 'site-background text-color' : 'group-hover:text-color site-foreground-accent-1 text-gray-600 group-hover:site-background dark:text-slate-300',
                               'ml-auto inline-block py-0.5 px-3 text-xxs rounded-full'
                             )}
                           >
@@ -1012,6 +1012,7 @@ const Home: React.FC = () => {
       <div className="relative mx-auto">
         <Gridlist variant='cards' layout='horizontal' data={posts} />
       </div>
+      
 
       
 
@@ -1026,6 +1027,75 @@ const Home: React.FC = () => {
             </div>
           </section>
         </main>
+<div className="max-w-screen-2xl mx-auto grid grid-cols-3 px-28 mb-12">
+<div className="">
+  <div className="p-10">
+  <h1 className="text-4xl font-bold mb-4 text-color">Lorem ipsum dolor sit amet, consectetur.</h1>
+  <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-color-accent-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+  <h3 className="text-xl mb-4 max-w-screen-lg text-color-accent-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+  <p className="max-w-screen-lg text-color-accent-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+  </div>
+</div>
+
+<div className="site-background-accent-1">
+  <div className="p-10">
+  <h1 className="text-4xl font-bold mb-4 text-slate-700">Lorem ipsum dolor sit amet, consectetur.</h1>
+  <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+  <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+  <p className="max-w-screen-lg text-slate-600/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+  </p>
+  </div>
+</div>
+
+<div className="site-background-accent-2">
+  <div className="p-10">
+  <h1 className="text-4xl font-bold mb-4 text-color text-slate-700/90">Lorem ipsum dolor sit amet, consectetur.</h1>
+  <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+  <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+  <p className="max-w-screen-lg text-slate-600/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </p>
+  </div>
+</div>
+
+<div className="site-background-accent-3">
+  <div className="p-10">
+    <h1 className="text-4xl font-bold mb-4 text-slate-600">Lorem ipsum dolor sit amet, consectetur.</h1>
+    <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+    <p className="max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </div>
+</div>
+
+<div className="site-background-accent-4">
+  <div className="p-10">
+    <h1 className="text-4xl font-bold mb-4 text-slate-300">Lorem ipsum dolor sit amet, consectetur.</h1>
+    <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-300/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+    <p className="max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </div>
+</div>
+
+<div className="bg-light-palette-900">
+  <div className="p-10">
+    <h1 className="text-4xl font-bold mb-4 text-slate-300">Lorem ipsum dolor sit amet, consectetur.</h1>
+    <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-300/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+    <p className="max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+  </div>
+</div>
+
+</div>
+
       </div>
     </div>
           

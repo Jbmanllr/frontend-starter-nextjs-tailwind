@@ -82,7 +82,7 @@ const user = {
 export const Header: React.FC = () => {
     return (
 
-<header className="dark:bg-slate-600 drop-shadow-sm bg-primary-700 backdrop-blur-lg z-50">
+<header className="dark:bg-slate-600 drop-shadow-sm bg-primary-700 backdrop-blur-lg z-50 fixed">
     <Popover className="relative max-w-screen-2xl mx-auto">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 md:justify-start md:space-x-10">
         <div>

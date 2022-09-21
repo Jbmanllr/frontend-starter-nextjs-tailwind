@@ -97,8 +97,29 @@
     }*/
 
     .site-background {
-        @apply bg-light-palette-50 dark:bg-dark-palette-900;
+        @apply bg-light-palette-50/50 dark:bg-dark-palette-900;
     }
+
+    .site-background-accent-1 {
+        @apply bg-light-palette-100 dark:bg-dark-palette-800;
+    }
+
+    .site-background-accent-2 {
+        @apply bg-light-palette-200/80 dark:bg-dark-palette-700;
+    }
+
+    .site-background-accent-3 {
+        @apply bg-light-palette-300 dark:bg-dark-palette-600;
+    }
+
+    .site-background-accent-4 {
+        @apply bg-light-palette-500 dark:bg-dark-palette-400;
+    }
+
+    .site-background-accent-5 {
+        @apply bg-light-palette-600 dark:bg-dark-palette-400;
+    }
+
 
     .site-foreground {
         @apply bg-white dark:bg-dark-palette-800;
@@ -113,21 +134,32 @@
     }
 
     .text-color {
-        @apply text-light-text-palette-900 dark:text-dark-text-palette-100;
+        @apply text-light-text-900 dark:text-white/95;
     }
 
     .text-color-accent-1 {
-        @apply text-light-text-palette-600 dark:text-dark-text-palette-300/90;
+        @apply text-light-text-600 dark:text-white/90;
     }
 
     .text-color-accent-2 {
-        @apply text-light-text-palette-500 dark:text-dark-text-palette-400/80;
+        @apply text-light-text-500 dark:text-white/75;
     }
 
     .text-color-accent-3 {
-        @apply text-light-text-palette-400 dark:text-dark-text-palette-300;
+        @apply text-light-text-400 dark:text-white/60;
     }
 
+    .text-color-accent- {
+        @apply text-light-text-400 dark:text-white/50;
+    }
+
+    .text-dark {
+        @apply text-dark-text-800;
+    }
+
+    .text-light {
+        @apply dark:text-white/90;
+    }
 }
 
 @layer components {
