@@ -1308,7 +1308,7 @@ const Home: React.FC = () => {
         <h3 className="text-lg mb-1 max-w-screen-lg text-info-100">Consectetur adipiscing.</h3>
         <p className="max-w-screen-lg text-info-200">Lorem ipsum dolor sit amet.</p>
       </div>
-      <div className="p-5">
+      <div className="p-5 border-t-2 border-inherit">
         <h1 className="text-2xl font-bold mb-1 text-info-400">Info.</h1>
         <h2 className="text-xl font-semibold mb-1 text-info-400">Dolor sit amet.</h2>
         <h3 className="text-lg mb-1 max-w-screen-lg text-info-400">Consectetur adipiscing.</h3>
@@ -1323,7 +1323,7 @@ const Home: React.FC = () => {
         <h3 className="text-lg mb-1 max-w-screen-lg text-info-500">Consectetur adipiscing.</h3>
         <p className="max-w-screen-lg text-info-500">Lorem ipsum dolor sit amet.</p>
       </div>
-      <div className="p-5">
+      <div className="p-5 border-t-2 border-inherit">
         <h1 className="text-2xl font-bold mb-1 text-info-900">Info.</h1>
         <h2 className="text-xl font-semibold mb-1 text-info-800">Dolor sit amet.</h2>
         <h3 className="text-lg mb-1 max-w-screen-lg text-info-800">Consectetur adipiscing.</h3>
@@ -1340,7 +1340,7 @@ const Home: React.FC = () => {
         <h3 className="text-lg mb-1 max-w-screen-lg text-success-100">Consectetur adipiscing.</h3>
         <p className="max-w-screen-lg text-success-100">Lorem ipsum dolor sit amet.</p>
       </div>
-      <div className="p-5">
+      <div className="p-5 border-t-2 border-inherit">
         <h1 className="text-2xl font-bold mb-1 text-success-700">Success.</h1>
         <h2 className="text-xl font-semibold mb-1 text-success-600">Dolor sit amet.</h2>
         <h3 className="text-lg mb-1 max-w-screen-lg text-success-600">Consectetur adipiscing.</h3>
