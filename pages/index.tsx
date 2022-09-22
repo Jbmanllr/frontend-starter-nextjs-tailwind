@@ -426,7 +426,7 @@ const Home: React.FC = () => {
           Our thoughtfully designed workspace objects are crafted in limited runs. Improve your productivity and
           organization with these sale items before we run out, workspace objects are crafted in limited runs.
         </p>
-      <div className="flex mt-4 py-4 gap-4">
+      <div className="mt-4 py-4 gap-4 grid grid-cols-2 md:grid-cols-4">
         <Button className="h-3" color="primary" size="lg" rounded='md' scale>Button</Button>
         <Button color="secondary" size="lg" rounded='md' scale>Button</Button>
         <Button color="tertiary" size="lg" rounded scale>Button</Button>
@@ -500,7 +500,7 @@ const Home: React.FC = () => {
         </div>
 
 
-        <div className="flex mt-2 py-2 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 mt-2 py-2 gap-5">
           <div className="flex gap-2">
             <Button variant='outlined' color="primary" size="2xs" rounded='md' icon={<FunnelIcon className="w-3.5" aria-hidden="true" />}  ripple>
               Outline 2XS
@@ -597,7 +597,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex mt-4 py-4 gap-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 mt-4 py-4 gap-5">
           <div className="flex gap-1">
             <Button color="primary" size="2xs" rounded='md' ripple>
               Lorem 2XS
@@ -662,7 +662,7 @@ const Home: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex py-3 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4 py-3 gap-5">
         <div className="flex gap-2">
         <Button color="white" size="xl" rounded='lg' ripple>
           Button XL
@@ -689,13 +689,13 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex mt-4 py-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 mt-4 py-4 gap-6">
         <Button variant='contained' color="primary">Button</Button>
         <Button variant='outlined' color="primary">Button</Button>
         <Button variant='text' color="primary">Button</Button>
       </div>
 
-      <div className="flex mt-4 py-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-4 mt-4 py-4 gap-6">
         <Button color="info">Button</Button>
         <Button color="success">Button</Button>
         <Button color="danger">Button</Button>
@@ -1027,72 +1027,365 @@ const Home: React.FC = () => {
             </div>
           </section>
         </main>
-<div className="max-w-screen-2xl mx-auto grid grid-cols-3 px-28 mb-12">
-<div className="">
-  <div className="p-10">
-  <h1 className="text-4xl font-bold mb-4 text-color">Lorem ipsum dolor sit amet, consectetur.</h1>
-  <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-color-accent-1">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-  <h3 className="text-xl mb-4 max-w-screen-lg text-color-accent-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-  <p className="max-w-screen-lg text-color-accent-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-  </div>
-</div>
-
-<div className="site-background-accent-1">
-  <div className="p-10">
-  <h1 className="text-4xl font-bold mb-4 text-slate-700">Lorem ipsum dolor sit amet, consectetur.</h1>
-  <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-  <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-  <p className="max-w-screen-lg text-slate-600/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-  </p>
-  </div>
-</div>
-
-<div className="site-background-accent-2">
-  <div className="p-10">
-  <h1 className="text-4xl font-bold mb-4 text-color text-slate-700/90">Lorem ipsum dolor sit amet, consectetur.</h1>
-  <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-  <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-  <p className="max-w-screen-lg text-slate-600/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  </p>
-  </div>
-</div>
-
-<div className="site-background-accent-3">
-  <div className="p-10">
-    <h1 className="text-4xl font-bold mb-4 text-slate-600">Lorem ipsum dolor sit amet, consectetur.</h1>
-    <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600/90">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-    <p className="max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<div className="max-w-screen-2xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-12 lg:px-28 mb-12">
+  <div className="">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-color">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-color-accent-1">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-color-accent-2">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-color-accent-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </p>
+    </div>
   </div>
+
+  <div className="site-background-accent-1">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-slate-700">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-slate-600">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-slate-600/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    </div>
+  </div>
+
+  <div className="site-background-accent-2">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-color text-slate-700/90">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-slate-600/90">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600/90">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-slate-600/70">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    </div>
+  </div>
+
+  <div className="site-background-accent-3">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-slate-600">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-slate-600/90">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-slate-600/90">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-slate-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="site-background-accent-4">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-slate-300">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-slate-300/80">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-slate-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-light-palette-900">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-slate-300">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-slate-300/80">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-slate-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
 </div>
 
-<div className="site-background-accent-4">
-  <div className="p-10">
-    <h1 className="text-4xl font-bold mb-4 text-slate-300">Lorem ipsum dolor sit amet, consectetur.</h1>
-    <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-300/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-    <p className="max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+
+
+<div className="max-w-screen-2xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-12 lg:px-28 mb-12">
+  <div className="bg-primary-500">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-white">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-100">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-primary-100">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-primary-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </p>
+    </div>
   </div>
+
+  <div className="bg-primary-50">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-primary-600">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-500">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-primary-500">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-primary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-100">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-primary-600">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-500">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-primary-500">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-primary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-200">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-500">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-400">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-400">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-300">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-600">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-500">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-500">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-400">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-700">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-600">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-600">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-600">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-100">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-200">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-200">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-700">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-200">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-300">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-800">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-200">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-300">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-primary-900">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-primary-200">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-primary-300">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-primary-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-primary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
 </div>
 
-<div className="bg-light-palette-900">
-  <div className="p-10">
-    <h1 className="text-4xl font-bold mb-4 text-slate-300">Lorem ipsum dolor sit amet, consectetur.</h1>
-    <h2 className="text-2xl font-semibold mb-4 max-w-screen-lg text-slate-300/80">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
-    <h3 className="text-xl mb-4 max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
-    <p className="max-w-screen-lg text-slate-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+<div className="max-w-screen-2xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-12 lg:px-28 mb-12">
+  <div className="bg-secondary-500">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-white">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-100">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-100">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-secondary-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </p>
+    </div>
   </div>
+
+  <div className="bg-secondary-50">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-secondary-600">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-500">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-500">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-secondary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-100">
+    <div className="p-6">
+    <h1 className="text-3xl font-bold mb-3 text-secondary-600">Lorem ipsum.</h1>
+    <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-500">Dolor sit amet.</h2>
+    <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-500">Consectetur adipiscing.</h3>
+    <p className="max-w-screen-lg text-secondary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-200">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-500">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-400">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-400">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-300">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-600">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-500">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-500">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-400">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-700">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-600">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-600">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-600">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-100">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-200">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-200">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-700">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-200">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-300">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-800">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-200">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-300">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
+  <div className="bg-secondary-900">
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-3 text-secondary-200">Lorem ipsum.</h1>
+      <h2 className="text-2xl font-semibold mb-3 max-w-screen-lg text-secondary-300">Dolor sit amet.</h2>
+      <h3 className="text-xl mb-4 max-w-screen-lg text-secondary-300">Consectetur adipiscing.</h3>
+      <p className="max-w-screen-lg text-secondary-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </p>
+    </div>
+  </div>
+
 </div>
+
+  <div className="max-w-screen-2xl mx-auto grid grid-cols-1 gap-3 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-12 lg:px-28 mb-12">
+
+  <div className="flex">
+    <div className="bg-info-600">
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-info-100">Info.</h1>
+        <h2 className="text-xl font-semibold mb-1 max-w-screen-lg text-info-100">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-info-100">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-info-200">Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-info-400">Info.</h1>
+        <h2 className="text-xl font-semibold mb-1 text-info-400">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-info-400">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-info-400">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+
+    <div className="bg-info-200">
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-info-600">Reverse.</h1>
+        <h2 className="text-xl font-semibold mb-1 max-w-screen-lg text-info-500">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-info-500">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-info-500">Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-info-900">Info.</h1>
+        <h2 className="text-xl font-semibold mb-1 text-info-800">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-info-800">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-info-800">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+
+  <div className="flex">
+    <div className="bg-success-400">
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-success-100">Success.</h1>
+        <h2 className="text-xl font-semibold mb-1 text-success-100">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-success-100">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-success-100">Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-success-700">Success.</h1>
+        <h2 className="text-xl font-semibold mb-1 text-success-600">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-success-600">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-success-600">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+
+    <div className="bg-success-200">
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-success-600">Reverse.</h1>
+        <h2 className="text-xl font-semibold mb-1 max-w-screen-lg text-success-500">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-success-500">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-success-500">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div className="flex">
+    <div className="bg-warning-400">
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-warning-100">Success.</h1>
+        <h2 className="text-xl font-semibold mb-1 text-warning-100">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-warning-100">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-warning-100">Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-warning-700">Success.</h1>
+        <h2 className="text-xl font-semibold mb-1 text-warning-600">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-warning-600">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-warning-600">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+
+    <div className="bg-warning-200">
+      <div className="p-5">
+        <h1 className="text-2xl font-bold mb-1 text-warning-600">Reverse.</h1>
+        <h2 className="text-xl font-semibold mb-1 max-w-screen-lg text-warning-500">Dolor sit amet.</h2>
+        <h3 className="text-lg mb-1 max-w-screen-lg text-warning-500">Consectetur adipiscing.</h3>
+        <p className="max-w-screen-lg text-warning-500">Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div>
+  </div>
+  
 
 </div>
 

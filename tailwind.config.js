@@ -53,7 +53,7 @@ module.exports = {
           },
           colors: ({ colors }) => ({
             primary: colors.purple,
-            secondary: colors.blue,
+            secondary: colors.teal,
             'light-palette': colors.slate,
             'dark-palette': colors.gray,
             'light-text': colors.slate,
@@ -97,7 +97,19 @@ module.exports = {
             },
             { values: flattenColorPalette(theme('backgroundColor')), type: 'color' }
           )
-    
+
+          matchUtilities(
+            {
+              "bg-shadow": (value) => ({
+                boxShadow: `0 0 0 10px ${value} inset`
+              })
+            },
+            { 
+              values: flattenColorPalette(theme("colors")), 
+              type: "color" 
+            }
+          )
+        
           matchUtilities(
             {
               highlight: (value) => ({ boxShadow: `inset 0 1px 0 0 ${value}` }),

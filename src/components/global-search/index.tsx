@@ -53,18 +53,9 @@ export const GlobalSearch: React.FC = () => {
     return (
 
         <>
-
-        <button
-        type="button"
-        className="shadow-md inline-flex items-center rounded-md border border-transparent bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-purple-300 dark:focus:ring-purple-800 px-3 py-2 text-sm leading-4 text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-      >
-        <EnvelopeIcon className="-ml-0.5 mr-2 h-4 w-4" aria-hidden="true" />
-        Button
-      </button>
       
-        <button type="button" className="bg-white dark:bg-slate-900 relative pointer-events-auto ml-5 flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1 pl-2 pr-4 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
-            <MagnifyingGlassIcon className="block h-6 w-6 mr-2" aria-hidden="true"/>
-            Search...<span className="ml-auto pl-3 flex-none text-xs font-semibold">Ctrl K</span>
+        <button type="button" className="bg-white dark:bg-slate-900 relative pointer-events-auto ml-5 flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 px-1.5 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
+            <MagnifyingGlassIcon className="block h-6 w-6" aria-hidden="true"/>
         </button>
       
 
