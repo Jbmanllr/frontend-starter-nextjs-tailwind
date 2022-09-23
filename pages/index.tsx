@@ -1,14 +1,20 @@
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import cn from 'clsx'
+import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { Menu, Transition, Combobox, Tab, Dialog, Disclosure, Popover } from '@headlessui/react'
 import { AtSymbolIcon, ChevronRightIcon, ChevronLeftIcon, AcademicCapIcon, ChevronDownIcon, PhoneIcon, EnvelopeIcon, CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 import Link from 'next/link'
+import { fetchData, Post } from '../src/mock-api/fake-posts'
+import axios from "axios";
 
 import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 
-import { Container, Header, Main, Footer, Cards, Button, Breadcrumb, Pagination, Card, Gridlist } from "@components";
+import { Container, Button, Pagination, Card, Gridlist, Table } from "@components";
+
+
+const queryClient = new QueryClient()
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
 
@@ -198,8 +204,22 @@ const filters = [
   },
 ]
 
+const fetchDataOptions = {
+  pageIndex: 4,
+  pageSize: 10,
+}
+
+
+
 const Home: React.FC = () => {
-    
+
+  const dataQuery = useQuery(
+    ['data', fetchDataOptions],
+    () => fetchData(fetchDataOptions),
+    { keepPreviousData: true }
+  )
+
+  console.log('LOG HOME DATA', dataQuery)
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false)
   const [open, setOpen] = useState(false)
 
@@ -1010,7 +1030,7 @@ const Home: React.FC = () => {
     <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">
 
       <div className="relative mx-auto">
-        <Gridlist variant='cards' layout='horizontal' data={posts} />
+        <Gridlist variant='cards' layout='horizontal' data={dataQuery} />
       </div>
       
 
@@ -1020,7 +1040,7 @@ const Home: React.FC = () => {
       
     </div>
 
-    <Pagination />
+    
 
               </div>
 
@@ -1391,7 +1411,9 @@ const Home: React.FC = () => {
 
       </div>
     </div>
-          
+ {/* <div className="w-full px-32 max-w-screen-2xl mx-auto">
+    <Table />
+                            </div>*/}
        
         </Container>
     );

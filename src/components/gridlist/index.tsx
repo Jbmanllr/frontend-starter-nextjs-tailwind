@@ -1,10 +1,13 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import cn from 'clsx'
 import Link from 'next/link'
 import Image, { ImageProps } from 'next/image'
-import { Card, Button } from "@components";
+import { Card, Button, Pagination } from "@components";
 import { RadioGroup } from '@headlessui/react'
 import { AtSymbolIcon, ChevronRightIcon, ChevronLeftIcon, AcademicCapIcon, ChevronDownIcon, PhoneIcon, EnvelopeIcon, CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+
+
+
 
 const layouts = [
   {
@@ -30,7 +33,20 @@ const placeholderImg = '/product-img-placeholder.svg'
 
 const GridList: FC<GridListProps> = ({ data, children, item, className, variant = 'default', defaultLayout = 'vertical' }) => {
 
-//console.log('ITEM', item)
+  const totalPages = data?.data?.pageCount
+
+  {/*useEffect(() => {
+    setPage(parseInt(data?.data?.page)-1)
+  });
+*/}
+  const [page, setPage] = useState<number>(0);
+
+  const handlePageChange = (page: number) => {
+    setPage(page);
+  };
+
+console.log('DATA IN GRID', data,)
+console.log('PAGE', page, data?.data?.page)
 const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
   const rootClassName = cn(
@@ -100,14 +116,22 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
     </div>
 
     <ul role="list" className={rootClassName}>
-        {data.map((item, i) => (
+        {data?.data?.rows?.map((item, i) => (
+          <>
+
             <li key={i}>
                 <Link href={`/product`}>
                   <Card item={item} layout={selectedLayout}/>
                 </Link>
             </li>
+            </>
         ))}
     </ul>
+    
+    <Pagination data={data}/>
+
+
+   
     </>
   )
 }

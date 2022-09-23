@@ -1,0 +1,1 @@
+export { Person, fetchData } from "./fake-people";
