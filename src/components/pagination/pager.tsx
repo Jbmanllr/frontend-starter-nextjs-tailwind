@@ -5,8 +5,12 @@ import Link from 'next/link'
 
 const Pager = (props) => {
 
+    //console.log('PAGER PROPS', props)
+
+    const isActivePage = props.active
+
   const prefixCls = `${props.rootPrefixCls}-item`;
-  const cls = cn(prefixCls, `${prefixCls}-${props.page} h-10 text-sm relative z-10 inline-flex items-center px-4 border border-light-palette-300 overflow-hidden first:rounded-l cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
+  const cls = cn(prefixCls, isActivePage ? 'text-primary-500 bg-primary-200/70 dark:bg-primary-200 ring-2 rounded ring-primary-500/50 dark:ring-primary-500/80 z-50 font-semibold' : 'border-light-palette-300 bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50', `${prefixCls}-${props.page} h-10 shadow border text-sm relative z-10 inline-flex items-center px-4 overflow-hidden first:rounded-l cursor-pointer focus:z-20`, {
     [`${prefixCls}-active`]: props.active,
     [`${prefixCls}-disabled`]: !props.page,
     [props.className]: !!props.className,

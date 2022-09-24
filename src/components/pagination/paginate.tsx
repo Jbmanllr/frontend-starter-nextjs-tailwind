@@ -5,6 +5,7 @@ import Pager from './pager';
 import Options from './options';
 import LOCALE from './locale/en_US';
 import Link from 'next/link'
+import { Button } from "@components";
 
 const KEYCODE ={
   ZERO: 48,
@@ -50,8 +51,8 @@ class Paginate extends React.Component {
     defaultPageSize: 10,
     onChange: noop,
     className: '',
-    selectPrefixCls: 'rc-select',
-    prefixCls: 'rc-pagination',
+    selectPrefixCls: 'my-select',
+    prefixCls: 'my-pagination',
     selectComponentClass: null,
     hideOnSinglePage: false,
     showPrevNextJumpers: true,
@@ -445,13 +446,13 @@ class Paginate extends React.Component {
       if (goButton) {
         if (typeof goButton === 'boolean') {
           gotoButton = (
-            <button
+            <Button
               type="button"
               onClick={this.handleGoTO}
               onKeyUp={this.handleGoTO}
             >
               {locale.jump_to_confirm}
-            </button>
+            </Button>
           );
         } else {
           gotoButton = (
@@ -486,7 +487,7 @@ class Paginate extends React.Component {
             title={showTitle ? locale.prev_page : null}
             onClick={this.prev}
             tabIndex={this.hasPrev() ? 0 : null}
-            onKeyPress={this.runIfEnterPrev}
+            onKeyUp={this.runIfEnterPrev}
             className={cn(`${prefixCls}-prev`, {
               [`${prefixCls}-disabled`]: !this.hasPrev(),
             })}
@@ -506,7 +507,7 @@ class Paginate extends React.Component {
               onKeyUp={this.handleKeyUp}
               onChange={this.handleKeyUp}
               onBlur={this.handleBlur}
-              size="3"
+              size={3}
             />
             <span className={`${prefixCls}-slash`}>/</span>
             {allPages}
@@ -515,7 +516,7 @@ class Paginate extends React.Component {
             title={showTitle ? locale.next_page : null}
             onClick={this.next}
             tabIndex={this.hasPrev() ? 0 : null}
-            onKeyPress={this.runIfEnterNext}
+            onKeyUp={this.runIfEnterNext}
             className={cn(`${prefixCls}-next `, {
               [`${prefixCls}-disabled`]: !this.hasNext(),
             })}
@@ -564,7 +565,7 @@ class Paginate extends React.Component {
             onClick={this.jumpPrev}
             tabIndex={0}
             onKeyUp={this.runIfEnterJumpPrev}
-            className={cn(`${prefixCls}-jump-prev relative z-10 inline-flex items-center h-10 w-10 border border-light-palette-300 overflow-hidden cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
+            className={cn(`${prefixCls}-jump-prev relative z-10 inline-flex items-center h-10 w-10 overflow-hidden cursor-pointer focus:z-20`, {
               [`${prefixCls}-jump-prev-custom-icon`]: !!jumpPrevIcon,
             })}
           >
@@ -582,7 +583,7 @@ class Paginate extends React.Component {
             tabIndex={0}
             onClick={this.jumpNext}
             onKeyUp={this.runIfEnterJumpNext}
-            className={cn(`${prefixCls}-jump-next h-10 w-10 relative z-10 inline-flex items-center border border-light-palette-300 overflow-hidden cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
+            className={cn(`${prefixCls}-jump-next h-10 w-10 relative z-10 inline-flex items-center overflow-hidden cursor-pointer focus:z-20`, {
               [`${prefixCls}-jump-next-custom-icon`]: !!jumpNextIcon,
             })}
           >
@@ -681,11 +682,12 @@ class Paginate extends React.Component {
 
     if (showTotal) {
       totalText = (
-        <div className={`${prefixCls}-total-text`}>
-          {showTotal(total, [
+        <div className={`${prefixCls}-total-text text-sm`}>
+          Page {current} of {total/pageSize}
+         {/* {showTotal(total, [
             total === 0 ? 0 : (current - 1) * pageSize + 1,
             current * pageSize > total ? total : current * pageSize,
-          ])}
+          ])}*/}
         </div>
       );
     }
@@ -703,13 +705,13 @@ class Paginate extends React.Component {
       >
         {totalText}
         <nav id={'pagination'} role="navigation" aria-label="pagination">
-          <ul className='shadow'>
+          <ul className='isolate inline-flex -space-x-px'>
             <li
               title={showTitle ? locale.prev_page : null}
               onClick={this.prev}
               tabIndex={prevDisabled ? null : 0}
               onKeyUp={this.runIfEnterPrev}
-              className={cn(`${prefixCls}-prev relative rounded-l z-10 inline-flex items-center px-4 py-2 border border-light-palette-300 overflow-hidden cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
+              className={cn(`${prefixCls}-prev shadow h-10 w-10 relative rounded-l z-10 inline-flex items-center border border-light-palette-300 overflow-hidden cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
                 [`${prefixCls}-disabled`]: prevDisabled,
               })}
               aria-disabled={prevDisabled}
@@ -718,13 +720,13 @@ class Paginate extends React.Component {
             </li>
           
               {pagerList}
-
+            {/*next button style*/}
             <div
               title={showTitle ? locale.next_page : null}
               onClick={this.next}
               tabIndex={nextDisabled ? null : 0}
               onKeyUp={this.runIfEnterNext}
-              className={cn(`${prefixCls}-next relative  rounded-r z-10 inline-flex items-center px-4 py-2 border border-light-palette-300 overflow-hidden cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
+              className={cn(`${prefixCls}-next shadow relative rounded-r z-10 inline-flex items-center w-10 h-10 border border-light-palette-300 overflow-hidden cursor-pointer bg-white dark:bg-dark-palette-800 dark:border-dark-palette-600 hover:bg-light-palette-50 focus:z-20`, {
                 [`${prefixCls}-disabled`]: nextDisabled,
               })}
               aria-disabled={nextDisabled}

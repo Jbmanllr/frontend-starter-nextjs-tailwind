@@ -6,6 +6,7 @@ import {
     ChevronRightIcon,
     EllipsisHorizontalIcon
 } from '@heroicons/react/20/solid'
+
 import { Paginate } from "@components";
 
 interface Props {
@@ -50,15 +51,14 @@ const Pagination: FC<Props> = ({ className, data }) => {
   return (
 
     <>
-
-<Paginate
-          className='flex mt-12'
+        <Paginate
+          className='flex justify-between gap-8 mt-12 py-3 items-center'
+          showLessItems
           pageSize={pageSize}
-          prevIcon={<ChevronLeftIcon className='h-5 w-5'/>}
-          nextIcon={<ChevronRightIcon className='h-5 w-5'/>}
-          jumpPrevIcon={<ChevronLeftIcon className='h-5 w-5'/>}
-          jumpNextIcon={<ChevronRightIcon className='h-5 w-5'/>}
-          nextPrevIcon={<ChevronRightIcon className='h-5 w-5'/>}
+          prevIcon={<ChevronLeftIcon className='h-5 w-10'/>}
+          nextIcon={<ChevronRightIcon className='h-5 w-10'/>}
+          jumpPrevIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800'/>}
+          jumpNextIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800'/>}
           total={10000}
           current={page}
           showTotal={(total, range) =>
@@ -67,21 +67,21 @@ const Pagination: FC<Props> = ({ className, data }) => {
           //totalBoundaryShowSizeChanger={4}
           //selectComponentClass={Select}
           showSizeChanger
-          showQuickJumper={{ goButton: <button type="button">>></button> }}
+          showQuickJumper={{ goButton: <button type="button"><ChevronRightIcon className='h-5 w-10'/></button> }}
           defaultPageSize={10}
           defaultCurrent={1}
           onShowSizeChange={onShowSizeChange}
           onChange={onChange}
         />
 
-        <Paginate
+      {/*<Paginate
           simple
+          current={page}
           showQuickJumper={{ goButton: true }}
           defaultCurrent={1}
           pageSize={pageSize}
           total={10000}
-        />
-
+        />*/}
   </>
   )
 }

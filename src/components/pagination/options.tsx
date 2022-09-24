@@ -1,5 +1,6 @@
 /* eslint react/prop-types: 0 */
 import React from 'react';
+import { Button } from "@components";
 
 const KEYCODE = {
     ZERO: 48,
@@ -149,24 +150,36 @@ class Options extends React.Component {
       if (goButton) {
         gotoButton =
           typeof goButton === 'boolean' ? (
-            <button
+            <Button
               type="button"
               onClick={this.go}
               onKeyUp={this.go}
               disabled={disabled}
-              className={`${prefixCls}-quick-jumper-button`}
+              className={`${prefixCls}-quick-jumper-button ff`}
             >
               {locale.jump_to_confirm}
-            </button>
+            </Button>
           ) : (
             <span onClick={this.go} onKeyUp={this.go}>
-              {goButton}
+              <Button
+              ripple
+              type="button"
+              color={'light'}
+              variant='contained'
+              size={'xs'}
+              onClick={this.go}
+              onKeyUp={this.go}
+              disabled={disabled}
+              className={`${prefixCls}-quick-jumper-button mr-3`}
+            >
+              Go
+            </Button>
             </span>
           );
       }
       goInput = (
         <div className={`${prefixCls}-quick-jumper`}>
-          {locale.jump_to}
+          
           <input
             disabled={disabled}
             type="text"
@@ -175,18 +188,20 @@ class Options extends React.Component {
             onKeyUp={this.go}
             onBlur={this.handleBlur}
             aria-label={locale.page}
+            placeholder={'Go to..'}
+            className={'w-24 text-sm text-light-palette-700 rounded shadow-sm border border-light-palette-300 mr-2'}
           />
-          {locale.page}
           {gotoButton}
+          
         </div>
       );
     }
 
     return (
-      <li className={`${prefixCls}`}>
+      <div className={`${prefixCls}`}>
         {changeSelect}
         {goInput}
-      </li>
+      </div>
     );
   }
 }
