@@ -33,20 +33,6 @@ const placeholderImg = '/product-img-placeholder.svg'
 
 const GridList: FC<GridListProps> = ({ data, children, item, className, variant = 'default', defaultLayout = 'vertical' }) => {
 
-  const totalPages = data?.data?.pageCount
-
-  {/*useEffect(() => {
-    setPage(parseInt(data?.data?.page)-1)
-  });
-*/}
-  const [page, setPage] = useState<number>(0);
-
-  const handlePageChange = (page: number) => {
-    setPage(page);
-  };
-
-console.log('DATA IN GRID', data,)
-console.log('PAGE', page, data?.data?.page)
 const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
   const rootClassName = cn(
@@ -117,14 +103,13 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
     <ul role="list" className={rootClassName}>
         {data?.data?.rows?.map((item, i) => (
-          <>
 
             <li key={i}>
                 <Link href={`/product`}>
                   <Card item={item} layout={selectedLayout}/>
                 </Link>
             </li>
-            </>
+  
         ))}
     </ul>
     

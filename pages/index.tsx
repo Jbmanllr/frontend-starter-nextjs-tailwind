@@ -205,13 +205,13 @@ const filters = [
 ]
 
 const fetchDataOptions = {
-  pageIndex: 4,
-  pageSize: 10,
+  pageIndex: 2,
+  pageSize: 4,
 }
 
 
 
-const Home: React.FC = () => {
+const Home: React.FC = ( data ) => {
 
   const dataQuery = useQuery(
     ['data', fetchDataOptions],
@@ -1029,11 +1029,14 @@ const Home: React.FC = () => {
 
     <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">
 
-      <div className="relative mx-auto">
+      {/*<div className="relative mx-auto">
         <Gridlist variant='cards' layout='horizontal' data={dataQuery} />
-      </div>
+                            </div>*/}
       
 
+      <div className="relative mx-auto">
+        <Gridlist variant='cards' layout='horizontal' data={data} />
+      </div>
       
 
 
@@ -1418,5 +1421,18 @@ const Home: React.FC = () => {
         </Container>
     );
 };
+
+
+// This gets called on every request
+export async function getServerSideProps() {
+  // Fetch data from external API
+  const res = await fetchData(fetchDataOptions)
+  const data = await res
+
+  console.log('SERVER SIDE FETCH', data.rows)
+
+  // Pass data to the page via props
+  return { props: { data } }
+}
 
 export default Home;

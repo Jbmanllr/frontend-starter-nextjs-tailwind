@@ -35,7 +35,6 @@ export function makeData(...lens: number[]) {
     return range(len).map((d): Post => {
       return {
         ...newPost(),
-        subRows: lens[depth + 1] ? makeDataLevel(depth + 1) : undefined,
       }
     })
   }
