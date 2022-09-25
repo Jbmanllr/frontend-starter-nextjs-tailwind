@@ -68,11 +68,11 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     variant = 'contained',
     color = 'primary',
     size = 'md',
-    shadow = 'md',
+    shadow = false,
     plainShadow = false,
     ripple = true,
     scale = false,
-    rounded = 'sm',
+    rounded = false,
     icon,
     iconOnly = false,
     children,
@@ -119,10 +119,18 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     { ['border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-gray-100']: color === 'warning' && variant === 'outlined' },
     
     { ['rounded-sm']: rounded === 'sm' },
-    { ['rounded-md']: rounded === 'md' || typeof rounded == "boolean"},
+    { ['rounded-md']: rounded === 'md' || rounded === true},
     { ['rounded-lg']: rounded === 'lg' },
     { ['rounded-xl']: rounded === 'xl' },
     { ['rounded-full']: rounded === 'full' },
+
+    { ['shadow-sm']: shadow === 'sm' },
+    { ['shadow']: shadow === true },
+    { ['shadow-md']: shadow === 'md' },
+    { ['shadow-lg']: shadow === 'lg' },
+    { ['shadow-xl']: shadow === 'xl' },
+    { ['shadow-xl']: shadow === '2xl' },
+
     { ['']: !iconOnly },
 
     { ['h-8 max-h-8 text-xs font-normal']: !iconOnly && size === '2xs' },
@@ -184,6 +192,8 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     { ['hover:bg-warning-300/25 text-warning-500 hover:dark:text-warning-400 dark:text-warning-300 ring-warning-400/30 outline-warning-400/30']: color === 'warning' && variant === 'text' },
     className
   )
+
+  //console.log('root classname', rootClassName)
 
   const iconClassName = cn(
     { ['mr-2']: size === '2xs' },

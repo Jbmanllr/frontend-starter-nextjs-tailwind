@@ -1035,7 +1035,7 @@ const Home: React.FC = ( data ) => {
       
 
       <div className="relative mx-auto">
-        <Gridlist variant='cards' layout='horizontal' data={data} />
+        <Gridlist variant='cards' layout='horizontal' data={dataQuery} />
       </div>
       
 

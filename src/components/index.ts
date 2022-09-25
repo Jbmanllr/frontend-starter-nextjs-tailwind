@@ -5,7 +5,7 @@ export { Main } from "./main";
 export { Container } from "./container";
 export { default as Breadcrumb } from "./breadcrumb";
 export { default as Pagination } from "./pagination";
-export { default as Paginate } from "./pagination/paginate";
+export { default as Paginate } from "./pagination/pagination";
 
 export { default as Gridlist } from "./gridlist";
 export { default as Table } from "./table";

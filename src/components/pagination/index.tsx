@@ -1,10 +1,12 @@
-import { FC, useState, useEffect } from 'react'
+import { FC, useState, useEffect, Fragment } from 'react'
 import Link from 'next/link'
 import cn from 'clsx'
 import { 
     ChevronLeftIcon,
     ChevronRightIcon,
-    EllipsisHorizontalIcon
+    EllipsisHorizontalIcon,
+    CheckIcon,
+    ChevronUpDownIcon
 } from '@heroicons/react/20/solid'
 
 import { Paginate } from "@components";
@@ -15,16 +17,24 @@ interface Props {
   data?: any
 }
 
-
+const pageSizes = [
+  { name: '4' },
+  { name: '20' },
+  { name: '30' },
+  { name: '50' },
+]
 
 
 const Pagination: FC<Props> = ({ className, data }) => {
 
+  const [selected, setSelected] = useState(pageSizes[0])
+
   let totalPages = data?.data?.pageCount
-  let pageSize = 4
+  let pageSize = selected.name
   let thisPageSize = data?.data?.rows.length
   let totalItems = totalPages*pageSize
 
+  const checkIcon = false
 
   console.log('Total Pages', totalPages, 'Page Size', pageSize)
 
@@ -54,17 +64,18 @@ const Pagination: FC<Props> = ({ className, data }) => {
         <Paginate
           className='flex justify-between gap-8 mt-12 py-3 items-center'
           showLessItems
-          pageSize={pageSize}
+          //pageSize={pageSize}
           prevIcon={<ChevronLeftIcon className='h-5 w-10'/>}
           nextIcon={<ChevronRightIcon className='h-5 w-10'/>}
           jumpPrevIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800'/>}
-          jumpNextIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800'/>}
+          jumpNextIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800 dark:hover:text-dark-palette-400'/>}
           total={10000}
           current={page}
+          pageSizeOptions={['4', '20', '50', '100']}
           showTotal={(total, range) =>
             `${range[0]} - ${range[1]} of ${total} items`
           }
-          //totalBoundaryShowSizeChanger={4}
+          totalBoundaryShowSizeChanger={4}
           //selectComponentClass={Select}
           showSizeChanger
           showQuickJumper={{ goButton: <button type="button"><ChevronRightIcon className='h-5 w-10'/></button> }}
@@ -74,6 +85,7 @@ const Pagination: FC<Props> = ({ className, data }) => {
           onChange={onChange}
         />
 
+      
       {/*<Paginate
           simple
           current={page}

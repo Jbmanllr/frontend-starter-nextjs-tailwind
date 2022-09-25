@@ -57,6 +57,8 @@ export async function fetchData(options: {
       (options.pageIndex + 1) * options.pageSize
     ),
     pageCount: Math.ceil(data.length / options.pageSize),
+    pageSize: options.pageSize,
     page: options.pageIndex.toString(),
+    total: data.length
   }
 }
