@@ -54,28 +54,27 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
   return (
   <>
-    <div className="px-4 py-4">
+    <div className="px-4 py-4 mt-12">
       <div className="ml-auto w-44">
         <RadioGroup value={selectedLayout} onChange={setSelectedLayout}>
           <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
-          <div className="space-y-2">
+          <div className="flex">
             {layouts.map((layout) => (
               <RadioGroup.Option
                 key={layout.id}
                 value={layout.id}
                 className=''>
                 {({ active, checked }) => (
-                  <><Button>Button</Button>
+                  <>
+                  <Button size={'xs'}>{layout.name}</Button>
                     <div className="flex w-full items-center justify-between">
                       <div className="flex items-center">
                         <div className="text-sm">
                           <RadioGroup.Label
                             as="p"
-                            className={`font-medium  ${
-                              checked ? 'text-white' : 'text-gray-900'
-                            }`}
+                            className={`font-medium sr-only`}
                           >
-                            {layout.name}
+                           {layout.name}
                           </RadioGroup.Label>
                           <RadioGroup.Description
                             as="span"
@@ -86,11 +85,6 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
                           </RadioGroup.Description>
                         </div>
                       </div>
-                      {checked && (
-                        <div className="shrink-0 text-white">
-                          <CheckIcon className="h-6 w-6" />
-                        </div>
-                      )}
                     </div>
                   </>
                 )}

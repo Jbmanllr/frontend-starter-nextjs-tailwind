@@ -138,7 +138,7 @@ class Options extends React.Component {
             <Listbox.Option
                 key={i}
                 className={({ active }) =>
-                    `relative cursor-default select-none py-2 px-6 ${
+                    `relative cursor-default select-none py-2 w-20 px-6 ${
                     active ? 'bg-primary-100 text-primary-900' : 'text-gray-900'
                     }`
                 }
@@ -172,9 +172,9 @@ class Options extends React.Component {
                 className={`${prefixCls}-size-changer`}
                 aria-label={locale.page_size}
             >
-                <div className="relative mt-1 w-18 border-light-palette-300 border rounded-md">
-                    <Listbox.Button className="relative w-full cursor-default rounded-md bg-white py-2 pl-3 pr-10 text-left shadow-md focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
-                        <span className="block truncate">{'selected.name'}</span>
+                <div className="relative mt-1 border-light-palette-300 border rounded-md">
+                    <Listbox.Button className="relative w-20 max-w-20 cursor-default border border-light-palette-200 dark:border-dark-palette-600 rounded bg-white py-2 pl-3 pr-10 text-left shadow focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+                        <span className="block truncate">{pageSize}</span>
                         <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
                         <ChevronUpDownIcon
                             className="h-5 w-5 text-gray-400"
@@ -188,7 +188,7 @@ class Options extends React.Component {
                         leaveFrom="opacity-100"
                         leaveTo="opacity-0"
                     >
-                        <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                        <Listbox.Options className="absolute mt-1 max-h-60 w-20 overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
                         {options}
                         </Listbox.Options>
                     </Transition>
@@ -240,8 +240,8 @@ class Options extends React.Component {
             onKeyUp={this.go}
             onBlur={this.handleBlur}
             aria-label={locale.page}
-            placeholder={'Go to..'}
-            className={'w-24 text-sm text-light-palette-700 shadow-sm border border-light-palette-300 rounded-l'}
+            placeholder={'Go to page'}
+            className={'w-24 text-xs text-light-palette-600 shadow-sm border border-light-palette-200 rounded-l'}
           />
           {gotoButton}
           
@@ -250,7 +250,7 @@ class Options extends React.Component {
     }
 
     return (
-      <div className={`${prefixCls}`}>
+      <div className={`${prefixCls} flex gap-4`}>
         {changeSelect}
         {goInput}
       </div>

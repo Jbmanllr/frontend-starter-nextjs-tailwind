@@ -17,21 +17,13 @@ interface Props {
   data?: any
 }
 
-const pageSizes = [
-  { name: '4' },
-  { name: '20' },
-  { name: '30' },
-  { name: '50' },
-]
-
+const pageSizeOptions = ['4', '20', '50', '100']
 
 const Pagination: FC<Props> = ({ className, data }) => {
 
-  const [selected, setSelected] = useState(pageSizes[0])
-
   let totalPages = data?.data?.pageCount
-  let pageSize = selected.name
-  let thisPageSize = data?.data?.rows.length
+  let pageSize = data?.data?.pageSize
+  let thisPageSize = data?.data?.rows?.length
   let totalItems = totalPages*pageSize
 
   const checkIcon = false
@@ -69,7 +61,7 @@ const Pagination: FC<Props> = ({ className, data }) => {
           nextIcon={<ChevronRightIcon className='h-5 w-10'/>}
           jumpPrevIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800'/>}
           jumpNextIcon={<EllipsisHorizontalIcon className='h-5 w-10 text-light-palette-400 hover:text-light-palette-800 dark:hover:text-dark-palette-400'/>}
-          total={10000}
+          total={totalItems}
           current={page}
           pageSizeOptions={['4', '20', '50', '100']}
           showTotal={(total, range) =>
@@ -79,7 +71,7 @@ const Pagination: FC<Props> = ({ className, data }) => {
           //selectComponentClass={Select}
           showSizeChanger
           showQuickJumper={{ goButton: <button type="button"><ChevronRightIcon className='h-5 w-10'/></button> }}
-          defaultPageSize={10}
+          defaultPageSize={pageSize}
           defaultCurrent={1}
           onShowSizeChange={onShowSizeChange}
           onChange={onChange}
