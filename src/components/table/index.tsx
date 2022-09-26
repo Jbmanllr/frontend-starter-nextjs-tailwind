@@ -136,6 +136,8 @@ import {
         debugTable: true,
       })
     
+      let selectedIdsArray = table.getSelectedRowModel().flatRows.map(row =>  row.id )
+
       return (
         <div className="p-2 overflow-scroll">
           <div>
@@ -147,23 +149,23 @@ import {
             />
           </div>
           <div className="h-2" />
-          <table className="min-w-full table-fixed divide-y divide-gray-300">
+          <table className="min-w-full table-auto divide-y divide-gray-300 shadow rounded-lg">
             <thead className='bg-gray-50'>
               {table.getHeaderGroups().map(headerGroup => (
-                <tr key={headerGroup.id}>
+                <tr key={headerGroup.id} className=''>
                   {headerGroup.headers.map(header => {
                     return (
-                      <th key={header.id} colSpan={header.colSpan} className={'bg-gray-200/90 border p-3 border-gray-300'}>
+                      <th key={header.id} colSpan={header.colSpan} className={'bg-gray-100 border p-3 relative border-gray-200'}>
                         {header.isPlaceholder ? null : (
                           <>
                           <div
                         {...{
                           className: header.column.getCanSort()
-                            ? 'cursor-pointer mb-3 bg-gray-300 px-3 select-none min-w-[12rem] py-1 pr-3 text-left text-sm font-semibold text-gray-900'
+                            ? 'absolute right-4 w-4 cursor-pointer mb-3 bg-gray-200 rounded-full px-3 select-none py-1 pr-3 text-left text-sm font-semibold text-gray-900'
                             : '',
                           onClick: header.column.getToggleSortingHandler(),
                         }}
-                      ><span className='font-normal'>sort</span></div>
+                      ><span className='font-normal'>*</span></div>
                       <span className='font-semibold'>
                             {flexRender(
                               header.column.columnDef.header,
@@ -190,15 +192,15 @@ import {
               {table.getRowModel().rows.map(row => {
                 return (
                   <>
-                  
-                  {console.log('ARRAY OF SELECTED ID', table.getSelectedRowModel().flatRows.map(row =>  row.id ))}
-                  {console.log('row ID', row.id, row.index, table.getSelectedRowModel().flatRows, table.getSelectedRowModel().flatRows.map(row =>  row.id ).includes(row.id))}
-                  <tr key={row.id} className={table.getSelectedRowModel().flatRows.map(row =>  row.id ).includes(row.id) ? 'bg-primary-500' :'bg-gray-100'}>
+                  {console.log('ARRAY OF SELECTED ID', selectedIdsArray)}
+                  {console.log('row ID', row.id, row.index)}
+
+                  <tr key={row.id} className={selectedIdsArray.includes(row.id) ? 'bg-primary-100 border-l-4 rounded text-primary-700 border-primary-400 hover:bg-primary-200' : row.index % 2 === 0 ? 'bg-light-palette-50 border-light-palette-100 hover:bg-light-palette-100' : 'bg-white hover:bg-light-palette-100 border-light-palette-100'}>
                     {row.getVisibleCells().map(cell => {
                       return (
                         <>
                         
-                        <td key={cell.id} className={table.getSelectedRowModel().flatRows.includes(cell.id) ? 'bg-primary-500' : undefined+' px-3 py-2 border'}>
+                        <td key={cell.id} className={parseInt(cell.id) % 2 === 0 ? 'px-3 py-2 border-r border-light-palette-200/50' : 'px-3 py-2 border-r border-light-palette-200/50'}>
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
@@ -211,8 +213,8 @@ import {
               })}
             </tbody>
             <tfoot>
-              <tr className={'bg-light-palette-200 py-3'}>
-                <td className="p-1">
+              <tr className={'bg-light-palette-100 py-3'}>
+                <td className="p-4">
                   <IndeterminateCheckbox
                     {...{
                       checked: table.getIsAllPageRowsSelected(),
@@ -352,7 +354,7 @@ import {
               column.setFilterValue((old: any) => [e.target.value, old?.[1]])
             }
             placeholder={`Min`}
-            className="w-28 h-8 shadow rounded border-none text-sm font-normal mt-2"
+            className="w-13 h-8 shadow rounded border-none text-sm font-normal mt-2"
           />
           <input
             type="number"
@@ -361,7 +363,7 @@ import {
               column.setFilterValue((old: any) => [old?.[0], e.target.value])
             }
             placeholder={`Max`}
-            className="w-28 h-8 shadow rounded border-none text-sm font-normal mt-2"
+            className="w-13 h-8 shadow rounded border-none text-sm font-normal mt-2"
           />
         </div>
       ) : (
