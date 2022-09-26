@@ -65,54 +65,40 @@ import {
             ),
           },
           {
-            header: 'Name',
-            footer: props => props.column.id,
-            columns: [
-              {
-                accessorKey: 'firstName',
-                cell: info => info.getValue(),
-                footer: props => props.column.id,
-              },
-              {
-                accessorFn: row => row.lastName,
-                id: 'lastName',
-                cell: info => info.getValue(),
-                header: () => <span>Last Name</span>,
-                footer: props => props.column.id,
-              },
-            ],
+            accessorKey: 'id',
+            header: 'ID',
+            size: 60,
           },
           {
-            header: 'Info',
-            footer: props => props.column.id,
-            columns: [
-              {
-                accessorKey: 'age',
-                header: () => 'Age',
-                footer: props => props.column.id,
-              },
-              {
-                header: 'More Info',
-                columns: [
-                  {
-                    accessorKey: 'visits',
-                    header: () => <span>Visits</span>,
-                    footer: props => props.column.id,
-                  },
-                  {
-                    accessorKey: 'status',
-                    header: 'Status',
-                    footer: props => props.column.id,
-                  },
-                  {
-                    accessorKey: 'progress',
-                    header: 'Profile Progress',
-                    footer: props => props.column.id,
-                  },
-                ],
-              },
-            ],
+            accessorKey: 'firstName',
+            cell: info => info.getValue(),
           },
+          {
+            accessorFn: row => row.lastName,
+            id: 'lastName',
+            cell: info => info.getValue(),
+            header: () => <span>Last Name</span>,
+          },
+          {
+            accessorKey: 'age',
+            header: () => 'Age',
+            size: 50,
+          },
+          {
+            accessorKey: 'visits',
+            header: () => <span>Visits</span>,
+            size: 50,
+          },
+          {
+            accessorKey: 'status',
+            header: 'Status',
+          },
+          {
+            accessorKey: 'progress',
+            header: 'Profile Progress',
+            size: 80,
+          },
+      
         ],
         []
       )
@@ -139,7 +125,7 @@ import {
       let selectedIdsArray = table.getSelectedRowModel().flatRows.map(row =>  row.id )
 
       return (
-        <div className="p-2 overflow-scroll">
+        <div className="p-2">
           <div>
             <input
               value={globalFilter ?? ''}

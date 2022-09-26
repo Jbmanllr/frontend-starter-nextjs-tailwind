@@ -1,6 +1,7 @@
 import {faker} from '@faker-js/faker'
 
 export type Person = {
+  id: number
   firstName: string
   lastName: string
   age: number
@@ -20,6 +21,7 @@ const range = (len: number) => {
 
 const newPerson = (): Person => {
   return {
+    id: faker.datatype.number(1000),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),
     age: faker.datatype.number(40),
