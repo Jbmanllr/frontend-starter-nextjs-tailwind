@@ -7,6 +7,8 @@ import React, {
   useMemo 
 } from 'react'
 
+//import { map }from 'lodash';
+
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 
 import { makeData, Person } from '../../mock-api/makeData'
@@ -187,23 +189,29 @@ import {
             <tbody>
               {table.getRowModel().rows.map(row => {
                 return (
-                  <tr key={row.id} className={'bg-gray-100'}>
+                  <>
+                  
+                  {console.log('ARRAY OF SELECTED ID', table.getSelectedRowModel().flatRows.map(row =>  row.id ))}
+                  {console.log('row ID', row.id, row.index, table.getSelectedRowModel().flatRows, table.getSelectedRowModel().flatRows.map(row =>  row.id ).includes(row.id))}
+                  <tr key={row.id} className={table.getSelectedRowModel().flatRows.map(row =>  row.id ).includes(row.id) ? 'bg-primary-500' :'bg-gray-100'}>
                     {row.getVisibleCells().map(cell => {
                       return (
+                        <>
+                        
                         <td key={cell.id} className={table.getSelectedRowModel().flatRows.includes(cell.id) ? 'bg-primary-500' : undefined+' px-3 py-2 border'}>
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
                           )}
                         </td>
-                      )
+                      </>)
                     })}
                   </tr>
-                )
+                  </>)
               })}
             </tbody>
             <tfoot>
-              <tr className={'bg-light-palette-500 py-3'}>
+              <tr className={'bg-light-palette-200 py-3'}>
                 <td className="p-1">
                   <IndeterminateCheckbox
                     {...{
