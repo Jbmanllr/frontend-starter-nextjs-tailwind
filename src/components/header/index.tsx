@@ -94,9 +94,9 @@ export const Header: React.FC = () => {
   
     return (
 
-<header className="dark:bg-slate-600 shadow-md bg-primary-700/90 backdrop-blur-sm z-50 fixed w-full">
+<header className="dark:bg-slate-600 shadow bg-white/70 backdrop-blur-sm z-50 fixed w-full">
     <Popover className="relative max-w-screen-2xl mx-auto">
-      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 md:justify-start md:space-x-10">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 md:justify-start md:space-x-10">
         <div>
           <a href="#" className="flex">
             <span className="sr-only">Your Company</span>

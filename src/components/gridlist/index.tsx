@@ -4,7 +4,7 @@ import Link from 'next/link'
 import Image, { ImageProps } from 'next/image'
 import { Card, Button, Pagination } from "@components";
 import { RadioGroup } from '@headlessui/react'
-import { AtSymbolIcon, ChevronRightIcon, ChevronLeftIcon, AcademicCapIcon, ChevronDownIcon, PhoneIcon, EnvelopeIcon, CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
+import { AtSymbolIcon, Bars3Icon ,ChevronRightIcon, ChevronLeftIcon, AcademicCapIcon, ChevronDownIcon, PhoneIcon, EnvelopeIcon, CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
 
 
 
@@ -36,7 +36,7 @@ const GridList: FC<GridListProps> = ({ data, children, item, className, variant 
 const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
   const rootClassName = cn(
-    'mx-auto mt-12 grid gap-5 lg:max-w-none',
+    'mx-auto grid gap-5 lg:max-w-none',
     { ['horizontal lg:grid-cols-2']: selectedLayout === 'horizontal', ['vertical xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4']: selectedLayout === 'vertical' },
     className
   )
@@ -54,10 +54,10 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
   return (
   <>
-    <div className="px-4 py-4 mt-12">
-      <div className="ml-auto w-44">
+    <div className="flex pb-5">
+      <div className="ml-auto">
         <RadioGroup value={selectedLayout} onChange={setSelectedLayout}>
-          <RadioGroup.Label className="sr-only">Server size</RadioGroup.Label>
+          <RadioGroup.Label className="sr-only">Select List Layout</RadioGroup.Label>
           <div className="flex">
             {layouts.map((layout) => (
               <RadioGroup.Option
@@ -66,7 +66,7 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
                 className=''>
                 {({ active, checked }) => (
                   <>
-                  <Button size={'xs'}>{layout.name}</Button>
+                  <Button color={'light'} size={'xs'}><Bars3Icon className='h-5 w-5'/></Button>
                     <div className="flex w-full items-center justify-between">
                       <div className="flex items-center">
                         <div className="text-sm">

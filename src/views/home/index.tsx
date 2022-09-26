@@ -80,7 +80,7 @@ const fetchDataOptions = {
   pageSize: 8,
 }
 
-const HomeView: FC = ( { data } ) => {
+const HomeView: FC = ( { data, isMounted } ) => {
 
    {/* const dataQuery = useQuery(
       ['data', fetchDataOptions],
@@ -820,7 +820,7 @@ const HomeView: FC = ( { data } ) => {
   
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
-                <form className="hidden lg:block mr-2">
+                <form className="dark:highlight-white/10 dark:border-dark-palette-700 hidden lg:block mr-6 md:mr-12 rounded-md shadow p-4 bg-white dark:bg-dark-palette-700">
                   <h3 className="sr-only">Categories</h3>
                   <ul role="list" className="transition-all space-y-2 border-b pb-6 text-sm font-medium text-gray-900">
                     {subCategories.map((category) => (
@@ -895,7 +895,7 @@ const HomeView: FC = ( { data } ) => {
                   
   
   
-      <div className="relative pt-16 pb-20 lg:pt-12 lg:pb-28">
+      <div className="relative pb-20 lg:pb-28">
   
         {/*<div className="relative mx-auto">
           <Gridlist variant='cards' layout='horizontal' data={dataQuery} />
@@ -907,7 +907,11 @@ const HomeView: FC = ( { data } ) => {
         </div>
         
   
-  
+        {isMounted ?
+    <div className="w-full max-w-screen-2xl mx-auto">
+        <Table />
+    </div> : 'LOADING TABLE'
+    }
         
       </div>
   
@@ -1282,12 +1286,6 @@ const HomeView: FC = ( { data } ) => {
   </div>
  </div>
 
-    {/*  
-    <div className="w-full px-32 max-w-screen-2xl mx-auto">
-        <Table />
-    </div>
-    */}
-         
     </Container>
     
       );

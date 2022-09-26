@@ -6,6 +6,10 @@ import { Provider } from "react-redux";
 import store from "@redux/store";
 import { ThemeProvider } from 'next-themes'
 import { Layouts } from '../src/components'
+import NextCookies from 'next-cookies';
+import { get } from 'lodash';
+import { DefaultSeo } from 'next-seo'
+import SEO from '../next-seo.config'
 
 //Style Imports
 import "tailwindcss/tailwind.css";
@@ -26,6 +30,7 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
                 <Provider store={store}>
                     <ThemeProvider attribute="class">
                         <Layouts>
+                            <DefaultSeo {...SEO} />
                             <Component {...pageProps} />
                         </Layouts>
                     </ThemeProvider>
@@ -35,5 +40,17 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
         
     );
 }
+
+// Only uncomment this method if you have blocking data requirements for
+// every single page in your application. This disables the ability to
+// perform automatic static optimization, causing every page in your app to
+// be server-side rendered.
+//
+// MyApp.getInitialProps = async (appContext) => {
+//   // calls page's `getInitialProps` and fills `appProps.pageProps`
+//   const appProps = await App.getInitialProps(appContext);
+//
+//   return { ...appProps }
+// }
 
 export default MyApp;

@@ -1,8 +1,13 @@
+import React, { 
+  HTMLProps, 
+  FC, 
+  useReducer,
+  useEffect, 
+  useState, 
+  useMemo 
+} from 'react'
 
-import React, { HTMLAttributes, HTMLProps, FC, useReducer, useLayoutEffect, useRef, useEffect, useState, useMemo } from 'react'
-import ReactDOM from 'react-dom/client'
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-
 
 import { makeData, Person } from '../../mock-api/makeData'
 //import { fetchData, Person } from '../../mock-api/fake-people'
@@ -22,11 +27,10 @@ import {
     
     interface TableProps {
         className?: string
-      }
-
+    }
       
     const Table: FC<TableProps> = ({ className }) => {
-
+      
       const rerender = useReducer(() => ({}), {})[1]
       const [sorting, setSorting] = useState<SortingState>([])
     
@@ -131,7 +135,7 @@ import {
       })
     
       return (
-        <div className="p-2">
+        <div className="p-2 overflow-scroll">
           <div>
             <input
               value={globalFilter ?? ''}
@@ -147,17 +151,18 @@ import {
                 <tr key={headerGroup.id}>
                   {headerGroup.headers.map(header => {
                     return (
-                      <th key={header.id} colSpan={header.colSpan}>
+                      <th key={header.id} colSpan={header.colSpan} className={'bg-gray-200/90 border p-3 border-gray-300'}>
                         {header.isPlaceholder ? null : (
                           <>
                           <div
                         {...{
                           className: header.column.getCanSort()
-                            ? 'cursor-pointer bg-red yoyo p-8 select-none min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900'
+                            ? 'cursor-pointer mb-3 bg-gray-300 px-3 select-none min-w-[12rem] py-1 pr-3 text-left text-sm font-semibold text-gray-900'
                             : '',
                           onClick: header.column.getToggleSortingHandler(),
                         }}
-                      >sort</div>
+                      ><span className='font-normal'>sort</span></div>
+                      <span className='font-semibold'>
                             {flexRender(
                               header.column.columnDef.header,
                               header.getContext()
@@ -165,7 +170,7 @@ import {
                             {{
                           asc: ' 🔼',
                           desc: ' 🔽',
-                        }[header.column.getIsSorted() as string] ?? null}
+                        }[header.column.getIsSorted() as string] ?? null}</span>
                             {header.column.getCanFilter() ? (
                               <div>
                                 <Filter column={header.column} table={table} />
@@ -182,10 +187,10 @@ import {
             <tbody>
               {table.getRowModel().rows.map(row => {
                 return (
-                  <tr key={row.id}>
+                  <tr key={row.id} className={'bg-gray-100'}>
                     {row.getVisibleCells().map(cell => {
                       return (
-                        <td key={cell.id} className={table.getSelectedRowModel().flatRows.includes(cell.id) ? 'bg-primary-500' : undefined+' py-2'}>
+                        <td key={cell.id} className={table.getSelectedRowModel().flatRows.includes(cell.id) ? 'bg-primary-500' : undefined+' px-3 py-2 border'}>
                           {flexRender(
                             cell.column.columnDef.cell,
                             cell.getContext()
@@ -198,7 +203,7 @@ import {
               })}
             </tbody>
             <tfoot>
-              <tr>
+              <tr className={'bg-light-palette-500 py-3'}>
                 <td className="p-1">
                   <IndeterminateCheckbox
                     {...{
@@ -339,7 +344,7 @@ import {
               column.setFilterValue((old: any) => [e.target.value, old?.[1]])
             }
             placeholder={`Min`}
-            className="w-24 border shadow rounded"
+            className="w-28 h-8 shadow rounded border-none text-sm font-normal mt-2"
           />
           <input
             type="number"
@@ -348,7 +353,7 @@ import {
               column.setFilterValue((old: any) => [old?.[0], e.target.value])
             }
             placeholder={`Max`}
-            className="w-24 border shadow rounded"
+            className="w-28 h-8 shadow rounded border-none text-sm font-normal mt-2"
           />
         </div>
       ) : (
@@ -357,7 +362,7 @@ import {
           value={(column.getFilterValue() ?? '') as string}
           onChange={e => column.setFilterValue(e.target.value)}
           placeholder={`Search...`}
-          className="w-36 border shadow rounded"
+          className="w-28 h-8 shadow rounded border-none text-sm font-normal mt-2"
         />
       )
     }

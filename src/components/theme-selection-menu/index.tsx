@@ -54,7 +54,7 @@ export const ThemeSelectionMenu: React.FC = () => {
                 leaveFrom="transform opacity-100 scale-100"
                 leaveTo="transform opacity-0 scale-95"
               >
-                <Listbox.Options className="border border-white border-opacity-10 bg-opacity-70 dark:bg-slate-800 backdrop-blur backdrop-filter p-2 absolute right-0 z-10 w-40 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                <Listbox.Options className="border border-white border-opacity-10 dark:bg-slate-800/90 backdrop-blur backdrop-filter p-2 absolute right-0 z-10 w-40 origin-top-right rounded-md bg-white/90 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                   {themes.map((theme) => (
                     <Listbox.Option
                       key={theme.id}
