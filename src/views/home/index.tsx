@@ -19,7 +19,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
-import { Container, Button, Gridlist, Table } from "@components";
+import { Container, Button, Gridlist, Table, Calendar } from "@components";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
 
@@ -820,7 +820,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
-                <form className="dark:highlight-white/10 dark:border-dark-palette-700 hidden lg:block mr-6 md:mr-12 rounded-md shadow p-4 bg-white dark:bg-dark-palette-700">
+                <form className="dark:highlight-white/10 dark:border-dark-palette-700 hidden lg:block mr-6 md:mr-10 rounded-md shadow p-4 bg-white dark:bg-dark-palette-700">
                   <h3 className="sr-only">Categories</h3>
                   <ul role="list" className="transition-all space-y-2 border-b pb-6 text-sm font-medium text-gray-900">
                     {subCategories.map((category) => (
@@ -893,25 +893,35 @@ const HomeView: FC = ( { data, isMounted } ) => {
                 <div className="lg:col-span-3">
                   {/* Replace with your content */}
                   
-  
-  
-      <div className="relative pb-20 lg:pb-28">
+      <div className="relative pb-20 lg:pb-28 divide-y">
   
         {/*<div className="relative mx-auto">
           <Gridlist variant='cards' layout='horizontal' data={dataQuery} />
-                              </div>*/}
+        </div>*/}
         
-  
         <div className="relative mx-auto">
           <Gridlist variant='cards' layout='horizontal' data={data} />
         </div>
-        
+
+        { /*    
+        <input type="datetime-local" id="meeting-time" step='2'
+            name="meeting-time" value="2018-06-12T19:00"
+            min="2018-06-07T00:00" max="2018-06-14T00:00">
+        </input>
   
+        <input type="color"></input>
+        <progress id="file" max="100" value="70"> 70% </progress>
+        */}
+
+        <div className="mt-20">
+            <Calendar />
+        </div>
+
         {isMounted ?
-    <div className="w-full max-w-screen-2xl mx-auto">
-        <Table />
-    </div> : 'LOADING TABLE'
-    }
+            <div className="w-full max-w-screen-2xl mx-auto mt-20">
+                <Table />
+            </div> : 'LOADING TABLE'
+        }
         
       </div>
   

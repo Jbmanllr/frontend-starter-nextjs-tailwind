@@ -52,7 +52,7 @@ module.exports = {
             'xxs': '.7rem',
           },
           colors: ({ colors }) => ({
-            primary: colors.purple,
+            primary: colors.blue,
             secondary: colors.teal,
             'light-palette': colors.gray,
             'dark-palette': colors.gray,

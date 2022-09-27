@@ -12,6 +12,7 @@ export { default as Table } from "./table";
 export { default as Footer } from "./footer";
 
 export { GlobalSearch } from "./global-search";
+export { default as Calendar } from "./calendar";
 export { ThemeSelectionMenu } from "./theme-selection-menu";
 
 export { default as Button } from "./ui/button";
