@@ -1,8 +1,12 @@
 import { Html, Head, Main, NextScript } from 'next/document'
 
+
+//${[(theme('bg-light-palette-600'))]}[bg(theme(colors.primary.500))]
+
+
 export default function Document() {
   return (
-    <Html className="dark">
+    <Html>
       <Head>
         <meta name="application-name" content="PWA App" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,7 +19,7 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#2B5797" />
         <meta name="msapplication-tap-highlight" content="no" />
       </Head>
-      <body className="site-background overflow-x-hidden">
+      <body className={`site-background overflow-x-hidden`}>
         <Main />
         <NextScript />
       </body>

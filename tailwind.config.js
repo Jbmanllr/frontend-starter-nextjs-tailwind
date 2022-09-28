@@ -15,11 +15,15 @@ module.exports = {
     },
     darkMode: 'class',
     theme: {
+      fill: ({ theme }) => ({
+        gray: theme('colors.gray')
+      }),
         screens: {
           '2xs': '320px',
           'xs': '475px',
           ...defaultTheme.screens,
         },
+        
         extend: {
           colors: {
             brown: {
@@ -39,6 +43,8 @@ module.exports = {
             '0.25': '0.10rem',
           },
           maxWidth: {
+            
+            'screen-xl': '1380px',
             '8xl': '1920px',
           },
           spacing: {
@@ -52,9 +58,9 @@ module.exports = {
             'xxs': '.7rem',
           },
           colors: ({ colors }) => ({
-            primary: colors.blue,
+            primary: colors.purple,
             secondary: colors.teal,
-            'light-palette': colors.gray,
+            'light-palette': colors.slate,
             'dark-palette': colors.gray,
             'light-text': colors.slate,
             'dark-text': colors.gray,
@@ -155,6 +161,70 @@ module.exports = {
               fontVariantLigatures: 'none',
             },
           })
+
+          addUtilities({
+            '.bg-light-color-accent-1': {
+              'background-color': theme('colors.light-palette.50'),
+            },
+            '.bg-light-color-accent-2': {
+              'background-color': theme('colors.light-palette.100'),
+            },
+            '.bg-light-color-accent-3': {
+              'background-color': theme('colors.light-palette.200'),
+            },
+            '.bg-light-color-accent-4': {
+              'background-color': theme('colors.light-palette.300'),
+            },
+            '.bg-light-color-accent-5': {
+              'background-color': theme('colors.light-palette.400'),
+            },
+            '.bg-light-color-accent-6': {
+              'background-color': theme('colors.light-palette.500'),
+            },
+            '.bg-light-color-accent-7': {
+              'background-color': theme('colors.light-palette.600'),
+            },
+            '.bg-light-color-accent-8': {
+              'background-color': theme('colors.light-palette.700'),
+            },
+            '.bg-light-color-accent-9': {
+              'background-color': theme('colors.light-palette.800'),
+            },
+            '.bg-light-color-accent-10': {
+              'background-color': theme('colors.light-palette.900'),
+            },
+            '.bg-dark-color-accent-1': {
+              'background-color': theme('colors.dark-palette.50'),
+            },
+            '.bg-dark-color-accent-2': {
+              'background-color': theme('colors.dark-palette.100'),
+            },
+            '.bg-dark-color-accent-3': {
+              'background-color': theme('colors.dark-palette.200'),
+            },
+            '.bg-dark-color-accent-4': {
+              'background-color': theme('colors.dark-palette.300'),
+            },
+            '.bg-dark-color-accent-5': {
+              'background-color': theme('colors.dark-palette.400'),
+            },
+            '.bg-dark-color-accent-6': {
+              'background-color': theme('colors.dark-palette.500'),
+            },
+            '.bg-dark-color-accent-7': {
+              'background-color': theme('colors.dark-palette.600'),
+            },
+            '.bg-dark-color-accent-8': {
+              'background-color': theme('colors.dark-palette.700'),
+            },
+            '.bg-dark-color-accent-9': {
+              'background-color': theme('colors.dark-palette.800'),
+            },
+            '.bg-dark-color-accent-10': {
+              'background-color': theme('colors.dark-palette.900'),
+            },
+          })
+        
         },
       ],
 };

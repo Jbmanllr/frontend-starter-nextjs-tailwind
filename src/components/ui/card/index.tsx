@@ -22,8 +22,8 @@ const placeholderImg = '/product-img-placeholder.svg'
 const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'default', layout = 'horizontal' }) => {
 
   const rootClassName = cn(
-    'h-full flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground dark:highlight-white/5 shadow-md shadow-gray-200/60',
-    { ['horizontal flex-row h-40']: layout === 'horizontal', ['vertical flex-col divide-y divide-gray-200']: layout === 'vertical' },
+    'border border-light-palette-100 dark:border-dark-palette-700/80 h-full flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground dark:highlight-white/5 shadow-md shadow-gray-200/60',
+    { ['horizontal flex-row h-40']: layout === 'horizontal', ['vertical flex-col divide-y divide-gray-200 dark:divide-dark-palette-700']: layout === 'vertical' },
     className
   )
 
@@ -63,8 +63,8 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
                         </a>
                     </p>
                     <a href={item.href} className="mt-2 block">
-                        <p className="text-md font-semibold text-dark hover:text-dark line-clamp-2">{item.title}</p>
-                        <p className="mt-3 text-sm text-color-accent-1 line-clamp-3">{item.text}</p>
+                        <p className="text-md font-semibold text-dark hover:text-dark line-clamp-2 dark:text-dark-palette-100">{item.title}</p>
+                        <p className="mt-3 text-sm text-color-accent-1 dark:text-dark-palette-100 line-clamp-3">{item.text}</p>
                     </a>
                 </div>
                 <div className="mt-4 flex items-center">

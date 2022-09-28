@@ -2,6 +2,7 @@ import React from "react";
 import { Fragment, useState } from 'react'
 import { MagnifyingGlassIcon, DocumentPlusIcon, EnvelopeIcon, FolderPlusIcon, HashtagIcon, TagIcon, FolderIcon } from '@heroicons/react/20/solid'
 import { Combobox, Dialog, Transition } from '@headlessui/react'
+import { Button } from "@components";
 
 
 const projects = [
@@ -31,7 +32,7 @@ export const GlobalSearch: React.FC = () => {
 
     const [query, setQuery] = useState('')
 
-    const [open, setOpen] = useState(true)
+    const [open, setOpen] = useState(false)
 
     const [rawQuery, setRawQuery] = useState('')
 
@@ -54,13 +55,17 @@ export const GlobalSearch: React.FC = () => {
 
         <>
       
-        <button type="button" className="bg-white dark:bg-slate-900 relative pointer-events-auto ml-5 flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 px-1.5 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700">
+        <button 
+        type="button" 
+        className="bg-white relative pointer-events-auto ml-5 flex items-center text-sm leading-6 text-slate-400 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 px-1.5 hover:ring-slate-300 dark:bg-slate-800 dark:highlight-white/5 dark:hover:bg-slate-700"
+        onClick={() => setOpen(true)}
+        >
             <MagnifyingGlassIcon className="block h-6 w-6" aria-hidden="true"/>
         </button>
       
 
 <Transition.Root show={open} as={Fragment} afterLeave={() => setQuery('')} appear>
-      <Dialog as="div" className="relative z-10" onClose={setOpen}>
+      <Dialog as="div" className="relative z-[100]" onClose={setOpen}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -70,7 +75,7 @@ export const GlobalSearch: React.FC = () => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-500 bg-opacity-25 transition-opacity" />
+          <div className="fixed inset-0 bg-dark-palette-900 bg-opacity-70 transition-opacity backdrop-blur-sm" />
         </Transition.Child>
 
         <div className="fixed inset-0 z-10 overflow-y-auto p-4 sm:p-6 md:p-20">

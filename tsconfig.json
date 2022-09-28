@@ -25,6 +25,12 @@
       "@components": [
         "src/components"
       ],
+      "@views/*": [
+        "src/views/*"
+      ],
+      "@views": [
+        "src/views"
+      ],
       "@public/*": [
         "public/*"
       ],

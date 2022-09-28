@@ -100,25 +100,175 @@
         @apply bg-light-palette-50/50 dark:bg-dark-palette-900;
     }
 
-    .site-background-accent-1 {
-        @apply bg-light-palette-100 dark:bg-dark-palette-800;
+    /* BG ACCENTS */
+    .background-accent-1 {
+        @apply bg-light-palette-50 dark:bg-dark-palette-800;
     }
-
-    .site-background-accent-2 {
-        @apply bg-light-palette-200/80 dark:bg-dark-palette-700;
+    .background-accent-2 {
+        @apply bg-light-palette-100 dark:bg-dark-palette-700;
     }
-
-    .site-background-accent-3 {
-        @apply bg-light-palette-300 dark:bg-dark-palette-600;
+    .background-accent-3 {
+        @apply bg-light-palette-200 dark:bg-dark-palette-600;
     }
-
-    .site-background-accent-4 {
+    .background-accent-4 {
+        @apply bg-light-palette-300 dark:bg-dark-palette-400;
+    }
+    .background-accent-5 {
+        @apply bg-light-palette-400 dark:bg-dark-palette-400;
+    }
+    .background-accent-6 {
         @apply bg-light-palette-500 dark:bg-dark-palette-400;
     }
-
-    .site-background-accent-5 {
+    .background-accent-7 {
         @apply bg-light-palette-600 dark:bg-dark-palette-400;
     }
+
+    .background-accent-8 {
+        @apply bg-light-palette-700 dark:bg-dark-palette-400;
+    }
+    .background-accent-9 {
+        @apply bg-light-palette-800 dark:bg-dark-palette-400;
+    }
+
+    .background-accent-10 {
+        @apply bg-light-palette-900 dark:bg-dark-palette-400;
+    }
+
+    /* BG LIGHT ACCENTS */
+
+    .background-light-accent-1 {
+        @apply bg-light-palette-50;
+    }
+    .background-light-accent-2 {
+        @apply bg-light-palette-100;
+    }
+    .background-light-accent-3 {
+        @apply bg-light-palette-200;
+    }
+    .background-light-accent-4 {
+        @apply bg-light-palette-300;
+    }
+    .background-light-accent-5 {
+        @apply bg-light-palette-400;
+    }
+    .background-light-accent-6 {
+        @apply bg-light-palette-500;
+    }
+    .background-light-accent-7 {
+        @apply bg-light-palette-600;
+    }
+    .background-light-accent-8 {
+        @apply bg-light-palette-700;
+    }
+
+    .background-light-accent-9 {
+        @apply bg-light-palette-800;
+    }
+    .background-light-accent-10 {
+        @apply bg-light-palette-900;
+    }
+
+    /* BG DARK ACCENTS */
+    .background-dark-accent-1 {
+        @apply bg-dark-palette-50;
+    }
+    .background-dark-accent-2 {
+        @apply bg-dark-palette-100;
+    }
+    .background-dark-accent-3 {
+        @apply bg-dark-palette-200;
+    }
+    .background-dark-accent-4 {
+        @apply bg-dark-palette-300;
+    }
+    .background-dark-accent-5 {
+        @apply bg-dark-palette-400;
+    }
+    .background-dark-accent-6 {
+        @apply bg-dark-palette-500;
+    }
+    .background-dark-accent-7 {
+        @apply bg-dark-palette-600;
+    }
+    .background-dark-accent-8 {
+        @apply bg-dark-palette-700;
+    }
+    .background-dark-accent-9 {
+        @apply bg-dark-palette-800;
+    }
+    .background-dark-accent-10 {
+        @apply bg-dark-palette-900;
+    }
+
+
+
+/* TEXT LIGHT ACCENTS */
+
+    .text-light-accent-1 {
+        @apply text-light-palette-50;
+    }
+    .text-light-accent-2 {
+        @apply text-light-palette-100;
+    }
+    .text-light-accent-3 {
+        @apply text-light-palette-200;
+    }
+    .text-light-accent-4 {
+        @apply text-light-palette-300;
+    }
+    .text-light-accent-5 {
+        @apply text-light-palette-400;
+    }
+    .text-light-accent-6 {
+        @apply text-light-palette-500;
+    }
+    .text-light-accent-7 {
+        @apply text-light-palette-600;
+    }
+    .text-light-accent-8 {
+        @apply text-light-palette-700;
+    }
+
+    .text-light-accent-9 {
+        @apply text-light-palette-800;
+    }
+    .text-light-accent-10 {
+        @apply text-light-palette-900;
+    }
+
+    /* BG DARK ACCENTS */
+    .text-dark-accent-1 {
+        @apply text-dark-palette-50;
+    }
+    .text-dark-accent-2 {
+        @apply text-dark-palette-100;
+    }
+    .text-dark-accent-3 {
+        @apply text-dark-palette-200;
+    }
+    .text-dark-accent-4 {
+        @apply text-dark-palette-300;
+    }
+    .text-dark-accent-5 {
+        @apply text-dark-palette-400;
+    }
+    .text-dark-accent-6 {
+        @apply text-dark-palette-500;
+    }
+    .text-dark-accent-7 {
+        @apply text-dark-palette-600;
+    }
+    .text-dark-accent-8 {
+        @apply text-dark-palette-700;
+    }
+    .text-dark-accent-9 {
+        @apply text-dark-palette-800;
+    }
+    .text-dark-accent-10 {
+        @apply text-dark-palette-900;
+    }
+
+
 
 
     .site-foreground {

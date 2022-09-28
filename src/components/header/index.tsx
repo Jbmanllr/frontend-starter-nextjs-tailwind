@@ -21,6 +21,7 @@ import {
     ArrowPathIcon
 } from '@heroicons/react/24/outline'
 import { Button } from "@components";
+import * as Toast from '@radix-ui/react-toast';
 
 const user = {
     name: 'Chelsea Hagon',
@@ -90,11 +91,65 @@ export const Header: React.FC = () => {
   function openModal() {
     setIsOpen(true)
   }
+  
 
+  const [open, setOpen] = React.useState(false);
+  const eventDateRef = React.useRef(new Date());
+  const timerRef = React.useRef(0);
+
+  React.useEffect(() => {
+    return () => clearTimeout(timerRef.current);
+  }, []);
   
     return (
 
-<header className="dark:bg-slate-600 shadow bg-white/70 backdrop-blur-sm z-50 fixed w-full">
+      
+
+<header className="dark:bg-slate-600 shadow bg-white/70 backdrop-blur-sm z-50 w-full">
+
+
+
+<Toast.Provider swipeDirection="right">
+      
+<Transition
+            show={open}
+            as={Fragment}
+            enter="transform ease-out duration-300 transition"
+            enterFrom="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+            enterTo="translate-y-0 opacity-100 sm:translate-x-0"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+      <Toast.Root open={open} onOpenChange={setOpen} className="fixed top-5 right-5 z-[100] pointer-events-auto w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+      <div className="p-4">
+                <div className="flex items-start">
+        <Toast.Title className="text-sm font-medium text-gray-900">Successfully saved!</Toast.Title>
+        <Toast.Description className="mt-1 text-sm text-gray-500" asChild>
+          toast
+        </Toast.Description>
+        <Toast.Action asChild altText="Goto schedule to undo">
+        <div className="ml-4 flex flex-shrink-0">
+                    <button
+                      type="button"
+                      className="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                      onClick={() => {
+                        setOpen(false)
+                      }}
+                    >
+                      <span className="sr-only">Close</span>
+                      <XMarkIcon className="h-5 w-5" aria-hidden="true" />
+                    </button>
+                    </div>
+        </Toast.Action>
+        </div>
+        </div>
+      </Toast.Root>
+      </Transition>
+      <Toast.Viewport />
+    </Toast.Provider>
+
+
     <Popover className="relative max-w-screen-2xl mx-auto">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 md:justify-start md:space-x-10">
         <div>
@@ -234,17 +289,7 @@ export const Header: React.FC = () => {
             </Popover>
           </Popover.Group>
           <div className="flex items-center md:ml-12">
-          <div className="fixed inset-0 flex items-center justify-center">
-
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div>
-
+        
 
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -304,6 +349,24 @@ export const Header: React.FC = () => {
           </div>
         </Dialog>
       </Transition>
+      <div className="">
+      <Button
+      size='2xs'
+        onClick={() => {
+          setOpen(true);
+        
+        }}
+      >
+        Toast
+      </Button>
+<button
+  type="button"
+  onClick={openModal}
+  className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+>
+  O
+</button>
+</div>
 
           <GlobalSearch />
 

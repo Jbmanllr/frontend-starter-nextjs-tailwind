@@ -4,7 +4,7 @@ import { fetchData, Post } from '../src/mock-api/fake-posts'
 import axios from "axios";
 import { NextSeo } from 'next-seo'
 
-import { HomeView } from "../src/views";
+import { HomeView } from "@views";
 
 function useMounted() {
   const [mounted, setMounted] = useState(false)
