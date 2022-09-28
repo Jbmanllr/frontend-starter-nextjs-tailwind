@@ -20,7 +20,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
-import { Container, Button, Gridlist, Table, Calendar } from "@components";
+import { Container, Button, Gridlist, Table, Calendar, Tag } from "@components";
 import { Profile, LogIn, SignIn } from "@views";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
@@ -932,6 +932,12 @@ const HomeView: FC = ( { data, isMounted } ) => {
         <div className="relative mx-auto">
           <Gridlist variant='cards' layout='horizontal' data={data} />
         </div>
+
+        <div className="mt-20">
+            <Tag />
+            <Tag />
+        </div>
+
 
         { /*    
         <input type="datetime-local" id="meeting-time" step='2'

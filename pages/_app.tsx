@@ -10,6 +10,8 @@ import NextCookies from 'next-cookies';
 import { get } from 'lodash';
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
+import * as ToastPrimitive from '@radix-ui/react-toast';
+import {Toast} from '@components';
 
 //Style Imports
 import "tailwindcss/tailwind.css";
@@ -24,19 +26,22 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
     const queryClient = new QueryClient();
 
     return (
-        
-        <QueryClientProvider client={queryClient}>
-            <Hydrate state={pageProps.dehydratedState}>
-                <Provider store={store}>
-                    <ThemeProvider attribute="class">
-                        <Layouts>
-                            <DefaultSeo {...SEO} />
-                            <Component {...pageProps} />
-                        </Layouts>
-                    </ThemeProvider>
-                </Provider>
-            </Hydrate>
-        </QueryClientProvider>
+        <ToastPrimitive.Provider label='Notifications' swipeDirection="right">
+            <Toast />
+            <QueryClientProvider client={queryClient}>
+                <Hydrate state={pageProps.dehydratedState}>
+                    <Provider store={store}>
+                        <ThemeProvider attribute="class">
+                            <Layouts>
+                                <DefaultSeo {...SEO} />
+                                <Component {...pageProps} />
+                            </Layouts>
+                        </ThemeProvider>
+                    </Provider>
+                </Hydrate>
+            </QueryClientProvider>
+            <ToastPrimitive.Viewport className="fixed top-5 right-5 z-[100] "/>
+        </ToastPrimitive.Provider>
         
     );
 }

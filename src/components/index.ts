@@ -16,7 +16,9 @@ export { default as Calendar } from "./calendar";
 export { ThemeSelectionMenu } from "./theme-selection-menu";
 
 export { default as Button } from "./ui/button";
+export { default as Tag } from "./ui/tag";
 //export { default as ButtonGroup } from "./ui/button-group";
 export { default as Ripple } from "./ui/ripple";
 export { default as Loading } from "./ui/loading";
 export { default as Card } from "./ui/card";
+export { default as Toast } from "./ui/toast";
