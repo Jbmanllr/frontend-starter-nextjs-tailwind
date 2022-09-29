@@ -933,9 +933,20 @@ const HomeView: FC = ( { data, isMounted } ) => {
           <Gridlist variant='cards' layout='horizontal' data={data} />
         </div>
 
-        <div className="mt-20">
-            <Tag />
-            <Tag />
+        <div className="flex mt-20 gap-4 py-8">
+            <Tag color='primary' size={'xs'} />
+            <Tag color='secondary' size={'sm'}/>
+            <Tag color='tertiary' size={'md'}/>
+            <Tag color='light' size={'lg'}/>
+            <Tag color='dark' size={'xl'}/>
+            <Tag color='light-accent' />
+            <Tag color='dark-accent' />
+            <Tag color='white'/>
+            <Tag color='success' />
+            <Tag color='danger' />
+            <Tag color='warning' />
+            <Tag color='info' />
+
         </div>
 
 

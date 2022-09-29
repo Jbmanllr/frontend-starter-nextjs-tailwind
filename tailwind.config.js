@@ -59,7 +59,8 @@ module.exports = {
           },
           colors: ({ colors }) => ({
             primary: colors.purple,
-            secondary: colors.teal,
+            secondary: colors.indigo,
+            tertiary: colors.violet,
             'light-palette': colors.slate,
             'dark-palette': colors.gray,
             'light-text': colors.slate,
