@@ -28,7 +28,7 @@ const Pagination: FC<Props> = ({ className, data }) => {
 
   const checkIcon = false
 
-  console.log('Total Pages', totalPages, 'Page Size', pageSize)
+  //console.log('Total Pages', totalPages, 'Page Size', pageSize)
 
   //useEffect(() => {
   //  setPage(parseInt(data?.data?.page))

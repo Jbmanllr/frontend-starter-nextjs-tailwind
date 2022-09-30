@@ -934,21 +934,77 @@ const HomeView: FC = ( { data, isMounted } ) => {
         </div>
 
         <div className="flex mt-20 gap-4 py-8">
-            <Tag color='primary' size={'xs'} />
-            <Tag color='secondary' size={'sm'}/>
-            <Tag color='tertiary' size={'md'}/>
-            <Tag color='light' size={'lg'}/>
-            <Tag color='dark' size={'xl'}/>
-            <Tag color='light-accent' />
-            <Tag color='dark-accent' />
-            <Tag color='white'/>
-            <Tag color='success' />
-            <Tag color='danger' />
-            <Tag color='warning' />
-            <Tag color='info' />
+            <Tag color='primary' size={'xs'} closable>
+                Extra Small
+            </Tag>
+            <Tag color='secondary' size={'sm'} closable>
+                Small
+            </Tag>
+            <Tag color='tertiary' size={'md'} closable>
+                Medium
+            </Tag>
+            <Tag color='light' size={'lg'} closable>
+                Large
+            </Tag>
+            <Tag color='dark' size={'xl'} closable>
+                Extra Large
+            </Tag>
+            <Tag color='light-accent' closable>
+                Medium
+            </Tag>
+            <Tag color='dark-accent' closable>
+                Medium
+            </Tag>
+            <Tag color='white' closable>
+                Medium
+            </Tag>
+            <Tag color='success' closable>
+                Medium
+            </Tag>
+            <Tag color='danger' closable>
+                Medium
+            </Tag>
+            <Tag color='warning' closable>
+            Medium
+            </Tag>
+            <Tag color='info' closable>
+                Medium
+            </Tag>
 
         </div>
+        <div className="flex mt-20 gap-4 py-8">
+            <Tag color='primary' size={'xs'} >
+                Extra Small
+            </Tag>
+            <Tag color='secondary' size={'sm'}>
+                Small
+            </Tag>
+            <Tag color='tertiary' size={'md'}>
+                Medium
+            </Tag>
+            <Tag color='light' size={'lg'}>
+                Large
+            </Tag>
+            <Tag color='dark' size={'xl'}>
+                Extra Large
+            </Tag>
+            <Tag color='white'>
+                Medium
+            </Tag>
+            <Tag color='success'>
+                Medium
+            </Tag>
+            <Tag color='danger'>
+                Medium
+            </Tag>
+            <Tag color='warning'>
+            Medium
+            </Tag>
+            <Tag color='info'>
+                Medium
+            </Tag>
 
+        </div>
 
         { /*    
         <input type="datetime-local" id="meeting-time" step='2'
@@ -964,7 +1020,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
             <Calendar />
         </div>
 
-        {isMounted ?
+        {false && isMounted ?
             <div className="w-full max-w-screen-2xl mx-auto mt-20">
                 <Table />
             </div> : 'LOADING TABLE'

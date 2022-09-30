@@ -81,20 +81,24 @@ import {
           },
           {
             accessorKey: 'age',
+            id: 'age',
             header: () => 'Age',
             size: 50,
           },
           {
             accessorKey: 'visits',
+            id: 'id',
             header: () => <span>Visits</span>,
             size: 50,
           },
           {
             accessorKey: 'status',
+            id: 'status',
             header: 'Status',
           },
           {
             accessorKey: 'progress',
+            id: 'progress',
             header: 'Profile Progress',
             size: 80,
           },
@@ -178,8 +182,8 @@ import {
               {table.getRowModel().rows.map(row => {
                 return (
                   <>
-                  {console.log('ARRAY OF SELECTED ID', selectedIdsArray)}
-                  {console.log('row ID', row.id, row.index)}
+                  {/*console.log('ARRAY OF SELECTED ID', selectedIdsArray)*/}
+                  {/*console.log('row ID', row.id, row.index)*/}
 
                   <tr key={row.id} className={selectedIdsArray.includes(row.id) ? 'bg-primary-100 dark:bg-primary-500 border-l-4 rounded text-primary-700 dark:text-primary-100 border-primary-400 hover:bg-primary-200 dark:hover:bg-primary-400' : row.index % 2 === 0 ? 'bg-light-palette-50 dark:bg-dark-palette-700 border-light-palette-100 hover:bg-light-palette-100' : 'bg-white dark:bg-dark-palette-900 hover:bg-light-palette-100 border-light-palette-100'}>
                     {row.getVisibleCells().map(cell => {

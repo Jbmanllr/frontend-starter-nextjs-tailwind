@@ -96,7 +96,7 @@ export const Header: React.FC = () => {
     return (
 
     
-<header className="dark:bg-slate-600 shadow bg-white/70 backdrop-blur-sm z-50 w-full">
+<header className="fixed dark:bg-slate-600 shadow bg-white/70 backdrop-blur-sm z-50 w-full">
 
     <Popover className="relative max-w-screen-2xl mx-auto">
       <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 md:justify-start md:space-x-10">
@@ -301,7 +301,7 @@ export const Header: React.FC = () => {
       <Button
       size='2xs'
         onClick={() => {
-          setOpen(true);
+          setToastOpen(true);
         
         }}
       >
