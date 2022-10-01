@@ -13,7 +13,13 @@ import {
     MinusIcon, 
     PlusIcon, 
     Squares2X2Icon,
-    StarIcon
+    StarIcon,
+    ChevronLeftIcon,
+    ChevronRightIcon,
+    UserCircleIcon,
+    TagIcon,
+    ChatBubbleLeftEllipsisIcon,
+    CalendarIcon
 } from '@heroicons/react/20/solid'
 
 import { XMarkIcon } from '@heroicons/react/24/outline'
@@ -25,7 +31,136 @@ import { Profile, LogIn, SignIn } from "@views";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
 
+const positions = [
+    {
+      id: 1,
+      title: 'Back End Developer',
+      department: 'Engineering',
+      closeDate: '2020-01-07',
+      closeDateFull: 'January 7, 2020',
+      applicants: [
+        {
+          name: 'Dries Vincent',
+          email: 'dries.vincent@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Lindsay Walton',
+          email: 'lindsay.walton@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Courtney Henry',
+          email: 'courtney.henry@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Tom Cook',
+          email: 'tom.cook@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+      ],
+    },
+    {
+      id: 2,
+      title: 'Front End Developer',
+      department: 'Engineering',
+      closeDate: '2020-01-07',
+      closeDateFull: 'January 7, 2020',
+      applicants: [
+        {
+          name: 'Whitney Francis',
+          email: 'whitney.francis@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Leonard Krasner',
+          email: 'leonard.krasner@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1519345182560-3f2917c472ef?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Floyd Miles',
+          email: 'floy.dmiles@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+      ],
+    },
+    {
+      id: 3,
+      title: 'User Interface Designer',
+      department: 'Design',
+      closeDate: '2020-01-14',
+      closeDateFull: 'January 14, 2020',
+      applicants: [
+        {
+          name: 'Emily Selman',
+          email: 'emily.selman@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1502685104226-ee32379fefbe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Kristin Watson',
+          email: 'kristin.watson@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+        {
+          name: 'Emma Dorsey',
+          email: 'emma.dorsey@example.com',
+          imageUrl:
+            'https://images.unsplash.com/photo-1505840717430-882ce147ef2d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+        },
+      ],
+    },
+  ]
 
+const activity = [
+    {
+      id: 1,
+      type: 'comment',
+      person: { name: 'Eduardo Benz', href: '#' },
+      imageUrl:
+        'https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. ',
+      date: '6d ago',
+    },
+    {
+      id: 2,
+      type: 'assignment',
+      person: { name: 'Hilary Mahy', href: '#' },
+      assigned: { name: 'Kristin Watson', href: '#' },
+      date: '2d ago',
+    },
+    {
+      id: 3,
+      type: 'tags',
+      person: { name: 'Hilary Mahy', href: '#' },
+      tags: [
+        { name: 'Bug', href: '#', color: 'bg-rose-500' },
+        { name: 'Accessibility', href: '#', color: 'bg-indigo-500' },
+      ],
+      date: '6h ago',
+    },
+    {
+      id: 4,
+      type: 'comment',
+      person: { name: 'Jason Meyers', href: '#' },
+      imageUrl:
+        'https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80',
+      comment:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tincidunt nunc ipsum tempor purus vitae id. Morbi in vestibulum nec varius. Et diam cursus quis sed purus nam. Scelerisque amet elit non sit ut tincidunt condimentum. Nisl ultrices eu venenatis diam.',
+      date: '2h ago',
+    },
+  ]
+  
 
 const reviews = {
     average: 4,
@@ -934,41 +1069,38 @@ const HomeView: FC = ( { data, isMounted } ) => {
         </div>
 
         <div className="flex mt-20 gap-4 py-8">
-            <Tag color='primary' size={'xs'} closable>
-                Extra Small
+            <Tag color='primary' size={'xs'} rounded closable>
+                XS
             </Tag>
-            <Tag color='secondary' size={'sm'} closable>
-                Small
+            <Tag color='secondary' size={'sm'} rounded closable>
+                SM
             </Tag>
-            <Tag color='tertiary' size={'md'} closable>
-                Medium
+            <Tag color='tertiary' size={'md'} rounded closable className="border-green-500">
+                MD
             </Tag>
-            <Tag color='light' size={'lg'} closable>
-                Large
+            <Tag color='tot' size={'md'} rounded closable>
+                MD
             </Tag>
-            <Tag color='dark' size={'xl'} closable>
-                Extra Large
+            <Tag color='tot-s1' size={'md'} rounded closable>
+                MD
             </Tag>
-            <Tag color='light-accent' closable>
-                Medium
+            <Tag color='tot-s2' size={'md'} rounded closable>
+                MD
             </Tag>
-            <Tag color='dark-accent' closable>
-                Medium
-            </Tag>
-            <Tag color='white' closable>
-                Medium
+            <Tag color='tot-s3' size={'md'} rounded closable>
+                MD
             </Tag>
             <Tag color='success' closable>
-                Medium
+                MD
             </Tag>
             <Tag color='danger' closable>
-                Medium
+                MD
             </Tag>
             <Tag color='warning' closable>
-            Medium
+            MD
             </Tag>
             <Tag color='info' closable>
-                Medium
+                MD
             </Tag>
 
         </div>
@@ -1015,6 +1147,336 @@ const HomeView: FC = ( { data, isMounted } ) => {
         <input type="color"></input>
         <progress id="file" max="100" value="70"> 70% </progress>
         */}
+
+    <div className="mt-20 py-10">
+        <div className="flex">
+
+        <span className="isolate inline-flex rounded-md shadow-sm">
+            <button
+                type="button"
+                className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+                Years
+            </button>
+            <button
+                type="button"
+                className="relative -ml-px inline-flex items-center border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+                Months
+            </button>
+            <button
+                type="button"
+                className="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+                Days
+            </button>
+        </span>
+
+        </div>
+        <div className="flex">
+        <span className="isolate inline-flex rounded-md shadow-sm">
+            <button
+                type="button"
+                className="relative inline-flex items-center rounded-l-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+                <span className="sr-only">Previous</span>
+                <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
+            </button>
+            <button
+                type="button"
+                className="relative -ml-px inline-flex items-center rounded-r-md border border-gray-300 bg-white px-2 py-2 text-sm font-medium text-gray-500 hover:bg-gray-50 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+            >
+                <span className="sr-only">Next</span>
+                <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
+            </button>
+            </span>
+            </div>
+        </div>
+
+
+        <div className="mt-20 py-10">
+        <div className="grid grid-cols-2 gap-6">
+        <div className="flow-root">
+      <ul role="list" className="-mb-8">
+        {activity.map((activityItem, activityItemIdx) => (
+          <li key={activityItem.id}>
+            <div className="relative pb-8">
+              {activityItemIdx !== activity.length - 1 ? (
+                <span className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true" />
+              ) : null}
+              <div className="relative flex items-start space-x-3">
+                {activityItem.type === 'comment' ? (
+                  <>
+                    <div className="relative">
+                      <img
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white"
+                        src={activityItem.imageUrl}
+                        alt=""
+                      />
+
+                      <span className="absolute -bottom-0.5 -right-1 rounded-tl bg-white px-0.5 py-px">
+                        <ChatBubbleLeftEllipsisIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                      </span>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div>
+                        <div className="text-sm">
+                          <a href={activityItem.person.href} className="font-medium text-gray-900">
+                            {activityItem.person.name}
+                          </a>
+                        </div>
+                        <p className="mt-0.5 text-sm text-gray-500">Commented {activityItem.date}</p>
+                      </div>
+                      <div className="mt-2 text-sm text-gray-700">
+                        <p>{activityItem.comment}</p>
+                      </div>
+                    </div>
+                  </>
+                ) : activityItem.type === 'assignment' ? (
+                  <>
+                    <div>
+                      <div className="relative px-1">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
+                          <UserCircleIcon className="h-5 w-5 text-gray-500" aria-hidden="true" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1 py-1.5">
+                      <div className="text-sm text-gray-500">
+                        <a href={activityItem.person.href} className="font-medium text-gray-900">
+                          {activityItem.person.name}
+                        </a>{' '}
+                        assigned{' '}
+                        <a href={activityItem.assigned.href} className="font-medium text-gray-900">
+                          {activityItem.assigned.name}
+                        </a>{' '}
+                        <span className="whitespace-nowrap">{activityItem.date}</span>
+                      </div>
+                    </div>
+                  </>
+                ) : activityItem.type === 'tags' ? (
+                  <>
+                    <div>
+                      <div className="relative px-1">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white">
+                          <TagIcon className="h-5 w-5 text-gray-500" aria-hidden="true" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1 py-0">
+                      <div className="text-sm leading-8 text-gray-500">
+                        <span className="mr-0.5">
+                          <a href={activityItem.person.href} className="font-medium text-gray-900">
+                            {activityItem.person.name}
+                          </a>{' '}
+                          added tags
+                        </span>{' '}
+                        <span className="mr-0.5">
+                          {activityItem.tags.map((tag) => (
+                            <Fragment key={tag.name}>
+                              <a
+                                href={tag.href}
+                                className="relative inline-flex items-center rounded-full border border-gray-300 px-3 py-0.5 text-sm"
+                              >
+                                <span className="absolute flex flex-shrink-0 items-center justify-center">
+                                  <span
+                                    className={cn(tag.color, 'h-1.5 w-1.5 rounded-full')}
+                                    aria-hidden="true"
+                                  />
+                                </span>
+                                <span className="ml-3.5 font-medium text-gray-900">{tag.name}</span>
+                              </a>{' '}
+                            </Fragment>
+                          ))}
+                        </span>
+                        <span className="whitespace-nowrap">{activityItem.date}</span>
+                      </div>
+                    </div>
+                  </>
+                ) : null}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+      </div>
+
+
+
+    <div className="overflow-hidden bg-white shadow sm:rounded-md">
+      <ul role="list" className="divide-y divide-gray-200">
+        {positions.map((position) => (
+          <li key={position.id}>
+            <a href="#" className="block hover:bg-gray-50">
+              <div className="flex items-center px-4 py-4 sm:px-6">
+                <div className="min-w-0 flex-1 sm:flex sm:items-center sm:justify-between">
+                  <div className="truncate">
+                    <div className="flex text-sm">
+                      <p className="truncate font-medium text-indigo-600">{position.title}</p>
+                      <p className="ml-1 flex-shrink-0 font-normal text-gray-500">in {position.department}</p>
+                    </div>
+                    <div className="mt-2 flex">
+                      <div className="flex items-center text-sm text-gray-500">
+                        <CalendarIcon className="mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
+                        <p>
+                          Closing on <time dateTime={position.closeDate}>{position.closeDateFull}</time>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="mt-4 flex-shrink-0 sm:mt-0 sm:ml-5">
+                    <div className="flex -space-x-1 overflow-hidden">
+                      {position.applicants.map((applicant) => (
+                        <img
+                          key={applicant.email}
+                          className="inline-block h-6 w-6 rounded-full ring-2 ring-white"
+                          src={applicant.imageUrl}
+                          alt={applicant.name}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+                <div className="ml-5 flex-shrink-0">
+                  <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                </div>
+              </div>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <div className="mt-6">
+        <a
+          href="#"
+          className="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+        >
+          View all
+        </a>
+      </div>
+    </div>
+
+
+    </div>
+
+        </div>
+
+
+
+
+        <div className="bg-indigo-700">
+      <div className="mx-auto max-w-7xl py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold tracking-tight text-white">
+          The world's most innovative companies use our app
+        </h2>
+        <div className="mt-8 flow-root lg:mt-10">
+          <div className="-mt-4 -ml-8 flex flex-wrap justify-between lg:-ml-4">
+            <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+              <img className="h-12" src="https://tailwindui.com/img/logos/tuple-logo-indigo-300.svg" alt="Tuple" />
+            </div>
+            <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+              <img className="h-12" src="https://tailwindui.com/img/logos/mirage-logo-indigo-300.svg" alt="Mirage" />
+            </div>
+            <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+              <img
+                className="h-12"
+                src="https://tailwindui.com/img/logos/statickit-logo-indigo-300.svg"
+                alt="StaticKit"
+              />
+            </div>
+            <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+              <img
+                className="h-12"
+                src="https://tailwindui.com/img/logos/transistor-logo-indigo-300.svg"
+                alt="Transistor"
+              />
+            </div>
+            <div className="mt-4 ml-8 flex flex-shrink-0 flex-grow lg:ml-4 lg:flex-grow-0">
+              <img
+                className="h-12"
+                src="https://tailwindui.com/img/logos/workcation-logo-indigo-300.svg"
+                alt="Workcation"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div className="bg-white">
+      <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+        <div className="lg:grid lg:grid-cols-2 lg:items-center lg:gap-8">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Used by the world's most average companies
+            </h2>
+            <p className="mt-3 max-w-3xl text-lg text-gray-500">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Et, egestas tempus tellus etiam sed. Quam a
+              scelerisque amet ullamcorper eu enim et fermentum, augue.
+            </p>
+            <div className="mt-8 sm:flex">
+              <div className="rounded-md shadow">
+                <a
+                  href="#"
+                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-5 py-3 text-base font-medium text-white hover:bg-indigo-700"
+                >
+                  Create Account
+                </a>
+              </div>
+              <div className="mt-3 sm:mt-0 sm:ml-3">
+                <a
+                  href="#"
+                  className="flex items-center justify-center rounded-md border border-transparent bg-indigo-100 px-5 py-3 text-base font-medium text-indigo-700 hover:bg-indigo-200"
+                >
+                  Contact Us
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+            <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+              <img
+                className="max-h-12"
+                src="https://tailwindui.com/img/logos/transistor-logo-gray-400.svg"
+                alt="Workcation"
+              />
+            </div>
+            <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+              <img className="max-h-12" src="https://tailwindui.com/img/logos/mirage-logo-gray-400.svg" alt="Mirage" />
+            </div>
+            <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+              <img className="max-h-12" src="https://tailwindui.com/img/logos/tuple-logo-gray-400.svg" alt="Tuple" />
+            </div>
+            <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+              <img
+                className="max-h-12"
+                src="https://tailwindui.com/img/logos/laravel-logo-gray-400.svg"
+                alt="Laravel"
+              />
+            </div>
+            <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+              <img
+                className="max-h-12"
+                src="https://tailwindui.com/img/logos/statickit-logo-gray-400.svg"
+                alt="StaticKit"
+              />
+            </div>
+            <div className="col-span-1 flex justify-center bg-gray-50 py-8 px-8">
+              <img
+                className="max-h-12"
+                src="https://tailwindui.com/img/logos/statamic-logo-gray-400.svg"
+                alt="Statamic"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
 
         <div className="mt-20">
             <Calendar />

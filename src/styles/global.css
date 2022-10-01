@@ -322,12 +322,152 @@
         background-color: red;
     }
 
+    .tag {
+        @apply inline-flex items-center h-min border;
+    }
+    .tag.closable.size-xs {
+        @apply py-0.5 pl-2 pr-0.5 text-xs font-normal;
+    }
+    .tag.closable.size-sm {
+        @apply py-1 pl-2 pr-1 text-xs font-normal;
+    }
+    .tag.closable.size-md {
+        @apply py-1.5 pl-2.5 pr-1.5 text-xs font-medium;
+    }
+    .tag.closable.size-lg {
+        @apply py-1.5 pl-3 pr-2 text-sm font-medium;
+    }
+    .tag.closable.size-xl {
+        @apply py-2 pl-3.5 pr-2.5 text-sm font-normal;
+    }
+
+
 }
 
 @layer utilities {
 
-    .test-utility {
-        background-color: red;
+    .bg-primary {
+        background-color: theme('colors.primary.500');
     }
+    .bg-secondary {
+        background-color: theme('colors.secondary.500');
+    }
+    .bg-tertiary {
+        background-color: theme('colors.tertiary.500');
+    }
+    .bg-info {
+        background-color: theme('colors.info.400');
+    }
+    .bg-success {
+        background-color: theme('colors.success.400');
+    }
+    .bg-danger {
+        background-color: theme('colors.danger.400');
+    }
+    .bg-warning {
+        background-color: theme('colors.warning.400');
+    }
+    .bg-default {
+        background-color: theme('colors.gray.200');
+    }
+
+
+    .text-primary {
+        color: theme('colors.primary.100');
+    }
+    .text-secondary {
+        color: theme('colors.secondary.100');
+    }
+    .text-tertiary {
+        color: theme('colors.tertiary.100');
+    }
+    .text-info {
+        color: theme('colors.info.900');
+    }
+    .text-success {
+        color: theme('colors.success.900');
+    }
+    .text-danger {
+        color: theme('colors.danger.900');
+    }
+    .text-warning {
+        color: theme('colors.warning.100');
+    }
+    .text-default {
+        color: theme('colors.black');
+    }
+
+
+    .border-primary {
+        border-color: theme('colors.primary.500');
+    }
+    .border-secondary {
+        border-color: theme('colors.secondary.500');
+    }
+    .border-tertiary {
+        border-color: theme('colors.tertiary.500');
+    }
+    .border-info {
+        border-color: theme('colors.info.400');
+    }
+    .border-success {
+        border-color: theme('colors.success.400');
+    }
+    .border-danger {
+        border-color: theme('colors.danger.400');
+    }
+    .border-warning {
+        border-color: theme('colors.warning.400');
+    }
+    .border-default {
+        border-color: theme('colors.default.500');
+    }
+
+
+    .fill-primary {
+        fill: theme('colors.primary.500');
+    }
+    .shadow-primary {
+        color: theme('colors.primary.500');
+    }
+
+
+    .primary {
+        @apply bg-primary border-primary text-white;
+    }
+    .secondary {
+        @apply bg-secondary border-secondary text-white;
+    }
+    .tertiary {
+        @apply bg-tertiary border-tertiary text-white;
+    }
+    .info {
+        @apply bg-info border-info text-info;
+    }
+    .success {
+        @apply bg-success border-success text-success;
+    }
+    .warning {
+        @apply bg-warning border-warning text-warning;
+    }
+    .danger {
+        @apply bg-danger border-danger text-danger;
+    }
+    .default {
+        @apply bg-default border-default text-default;
+    }
+    .tot {
+        @apply bg-white dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/70 text-light-palette-500 dark:text-dark-palette-300
+    }
+    .tot-s1 {
+        @apply bg-light-palette-100 border-light-palette-100 text-light-palette-600 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
+    }
+    .tot-s2 {
+        @apply bg-light-palette-300 border-light-palette-300 text-light-palette-700 dark:bg-dark-palette-500 dark:text-dark-palette-300 dark:border-dark-palette-500
+    }
+    .tot-s3 {
+        @apply bg-light-palette-400 border-light-palette-400 text-light-palette-100 dark:bg-dark-palette-300 dark:text-dark-palette-500 dark:border-dark-palette-500
+    }
+
 
 }

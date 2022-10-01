@@ -15,14 +15,15 @@ module.exports = {
     },
     darkMode: 'class',
     theme: {
-      fill: ({ theme }) => ({
-        gray: theme('colors.gray')
-      }),
-        screens: {
-          '2xs': '320px',
-          'xs': '475px',
-          ...defaultTheme.screens,
-        },
+          fill: ({ theme }) => ({
+            gray: theme('colors.gray')
+          }),
+
+          screens: {
+            '2xs': '320px',
+            'xs': '475px',
+            ...defaultTheme.screens,
+          },
         
         extend: {
           colors: {
@@ -69,7 +70,7 @@ module.exports = {
             success: colors.green,
             danger: colors.red,
             warning: colors.yellow,
-            dafault: colors.gray,
+            default: colors.gray,
             lightgray: '#fdfdfd'
           }),
           boxShadow: {

@@ -1,12 +1,12 @@
 import React, {
     FC,
-  forwardRef,
-  ButtonHTMLAttributes,
-  JSXElementConstructor,
-  useRef,
-  useState,
-  useEffect,
-  CSSProperties
+    forwardRef,
+    ButtonHTMLAttributes,
+    JSXElementConstructor,
+    useRef,
+    useState,
+    useEffect,
+    CSSProperties
 } from 'react'
 import { Transition } from '@headlessui/react'
 import cn, { clsx } from 'clsx'
@@ -17,13 +17,13 @@ import {
 } from '@heroicons/react/24/outline'
 
 interface TagProps {
-    /** Number to show in badge */
     prefixCls?: string;
     className?: string;
-    variant?: 'contained' | 'outlined' | 'text'
-    size?: '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | 'fill'
-    rounded?: boolean | 'sm' | 'md' | 'lg' | 'xl' | 'full'
-    color?: 'primary' | 'secondary' | 'tertiary' | 'light' | 'dark' | 'light-accent' | 'dark-accent' | 'white' | 'info' | 'success' | 'danger' | 'warning'
+    unstyled?: boolean;
+    variant?: 'contained' | 'outlined'
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fill'
+    rounded?: boolean | 'default' | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+    color?: 'primary' | 'secondary' | 'tertiary' | 'tot' | 'tot-s1' | 'tot-s2' | 'tot-s3' | 'info' | 'success' | 'danger' | 'warning' | 'default'
     closable?: boolean;
     closeIcon?: React.ReactNode;
     iconOnly?: boolean;
@@ -37,31 +37,35 @@ interface TagProps {
 const Tag: FC<TagProps> = ({ 
     className,
     children,
+    unstyled = false,
     variant = 'contained', 
-    color,
-    closable = false, 
+    color = 'default',
+    closable = true, 
     rounded = true, 
-    size = 'sm',
+    size = 'md',
     iconOnly = false
 }) => {
 
-    const [visible, setIsVisible] = React.useState(true);
+    const [visible, setIsVisible] = useState(true);
 
     const test = 'test tested testing'
 
     const root = clsx(
-        'inline-flex items-center h-min', 
-        [1 && 'bar', 
-            { 'baz re':true, testx:true }, 
-            ['hello', ['world']]
-        ], 
-        'cya'
+        className,
+        'tag',
+        {
+            [`closable`] : closable,
+            [`${color}`]: !unstyled && color,
+            [variant]: !unstyled && variant,
+            [`rounded${typeof rounded == "boolean" || rounded === 'default' ? '' : !rounded ? '' : `-${rounded}` }`]: !unstyled && rounded,
+            [`size-${size}`]: size,
+        },
     );
 
     console.log('CLSX',  root)
 
     const rootClassName = cn(
-        'inline-flex items-center h-min',
+        'tag',
     { ['bg-primary-500 border border-primary-500 text-white ring-primary-400/30 outline-primary-400/30']: color === 'primary' && variant === 'contained' },
     { ['bg-secondary-500 border border-secondary-500 text-white ring-secondary-400/30 outline-secondary-400/30']: color === 'secondary' && variant === 'contained' },
     { ['bg-tertiary-500 border border-tertiary-500 text-white ring-tertiary-400/30 outline-tertiary-400/30']: color === 'tertiary' && variant === 'contained' },
@@ -74,7 +78,7 @@ const Tag: FC<TagProps> = ({
     { ['bg-warning-100 border border-warning-100 text-warning-500 ring-warning-400/30 outline-warning-400/30']: color === 'warning' && variant === 'contained' },
 
     { ['rounded-sm']: rounded === 'sm' },
-    { ['rounded-full']: rounded === true },
+    { ['rounded']: rounded === true },
     { ['rounded-md']: rounded === 'md' },
     { ['rounded-lg']: rounded === 'lg' },
     { ['rounded-xl']: rounded === 'xl' },
@@ -90,7 +94,7 @@ const Tag: FC<TagProps> = ({
     )
 
     const buttonClassName = cn(
-        'disabled:!bg-primary-500 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full text-indigo-400 hover:bg-indigo-200 hover:text-indigo-500 focus:bg-indigo-500 focus:text-white focus:outline-none',
+        'disabled:!bg-primary-500 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full hover:bg-white/40 hover:bg-current/50 focus:text-white focus:outline-none',
         { ['ml-0.5']: !iconOnly && size === 'xs' },
         { ['ml-0.5']: !iconOnly && size === 'sm' },
         { ['ml-0.5']: !iconOnly && size === 'md' },
@@ -108,7 +112,7 @@ const Tag: FC<TagProps> = ({
             leave="transition-opacity duration-600"
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
-            className={rootClassName}
+            className={root}
             as='span'
         >
             
@@ -123,9 +127,7 @@ const Tag: FC<TagProps> = ({
                 onClick={() => setIsVisible(false)}
             >
                 <span className="sr-only">Remove small option</span>
-                <svg className="h-2 w-2" stroke="white" fill="white" viewBox="0 0 8 8">
-                <path strokeLinecap="round" fill="fill-current" strokeWidth="1.5" d="M1 1l6 6m0-6L1 7" />
-                </svg>
+                <XMarkIcon className='h-3 w-3 text-current' />
             </button>}
            
         </Transition>
