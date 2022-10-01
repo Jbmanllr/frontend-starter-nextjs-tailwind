@@ -456,18 +456,68 @@
     .default {
         @apply bg-default border-default text-default;
     }
+
+
+    .primary-light {
+        @apply bg-primary-200 border-primary-200 text-primary-500;
+    }
+    .secondary-light {
+        @apply bg-secondary-200 border-secondary-200 text-secondary-500;
+    }
+    .tertiary-light {
+        @apply bg-tertiary-200 border-tertiary-200 text-white;
+    }
+    .info-light {
+        @apply bg-info-200 border-info-200 text-info-500;
+    }
+    .success-light {
+        @apply bg-success-200 border-success-200 text-success-500;
+    }
+    .warning-light {
+        @apply bg-warning-200 border-warning-200 text-warning-500;
+    }
+    .danger-light {
+        @apply bg-danger-200 border-danger-200 text-danger-500;
+    }
+    .default-light {
+        @apply bg-default-200 border-default-200 text-default-500;
+    }
+
+    
     .tot {
-        @apply bg-white dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/70 text-light-palette-500 dark:text-dark-palette-300
+        @apply bg-white dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
     }
     .tot-s1 {
-        @apply bg-light-palette-100 border-light-palette-100 text-light-palette-600 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
+        @apply bg-light-palette-50 border-light-palette-50 text-light-palette-700 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
     }
     .tot-s2 {
-        @apply bg-light-palette-300 border-light-palette-300 text-light-palette-700 dark:bg-dark-palette-500 dark:text-dark-palette-300 dark:border-dark-palette-500
+        @apply bg-light-palette-100 border-light-palette-100 text-light-palette-600 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
     }
     .tot-s3 {
-        @apply bg-light-palette-400 border-light-palette-400 text-light-palette-100 dark:bg-dark-palette-300 dark:text-dark-palette-500 dark:border-dark-palette-500
+        @apply bg-light-palette-200 border-light-palette-200 text-light-palette-600 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
     }
+    .tot-s4 {
+        @apply bg-light-palette-300 border-light-palette-300 text-light-palette-600 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
+    }
+    .tot-s5 {
+        @apply bg-light-palette-400 border-light-palette-400 text-light-palette-50 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
+    }
+    .tot-s6 {
+        @apply bg-light-palette-500 border-light-palette-500 text-light-palette-100 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
+    }
+    .tot-s7 {
+        @apply bg-light-palette-600 border-light-palette-600 text-light-palette-100 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
+    }
+    .tot-s8 {
+        @apply bg-light-palette-700 border-light-palette-700 text-light-palette-100 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
+    }
+    .tot-s9 {
+        @apply bg-light-palette-800 border-light-palette-800 text-light-palette-100 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
+    }
+    .tot-s10 {
+        @apply bg-light-palette-900 border-light-palette-900 text-light-palette-100 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
+    }
+    
 
 
 }

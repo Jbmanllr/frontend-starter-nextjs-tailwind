@@ -1068,7 +1068,8 @@ const HomeView: FC = ( { data, isMounted } ) => {
           <Gridlist variant='cards' layout='horizontal' data={data} />
         </div>
 
-        <div className="flex mt-20 gap-4 py-8">
+        <div className="mt-20">
+            <div className="flex gap-4 py-4 mt-8">
             <Tag color='primary' size={'xs'} rounded closable>
                 XS
             </Tag>
@@ -1078,18 +1079,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
             <Tag color='tertiary' size={'md'} rounded closable className="border-green-500">
                 MD
             </Tag>
-            <Tag color='tot' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s1' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s2' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s3' size={'md'} rounded closable>
-                MD
-            </Tag>
+           
             <Tag color='success' closable>
                 MD
             </Tag>
@@ -1102,6 +1092,70 @@ const HomeView: FC = ( { data, isMounted } ) => {
             <Tag color='info' closable>
                 MD
             </Tag>
+            </div>
+
+            <div className="flex gap-4 py-4">
+            <Tag color='primary-light' size={'xs'} rounded closable>
+                XS
+            </Tag>
+            <Tag color='secondary-light' size={'sm'} rounded closable>
+                SM
+            </Tag>
+            <Tag color='tertiary-light' size={'md'} rounded closable className="border-green-500">
+                MD
+            </Tag>
+           
+            <Tag color='success-light' closable>
+                MD
+            </Tag>
+            <Tag color='danger-light' closable>
+                MD
+            </Tag>
+            <Tag color='warning-light' closable>
+            MD
+            </Tag>
+            <Tag color='info-light' closable>
+                MD
+            </Tag>
+            </div>
+
+            <div className="flex gap-4 py-4">
+
+            <Tag color='tot' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s1' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s2' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s3' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s4' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s5' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s6' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s7' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s8' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s9' size={'md'} rounded closable>
+                MD
+            </Tag>
+            <Tag color='tot-s10' size={'md'} rounded closable>
+                MD
+            </Tag>
+
+            </div>
 
         </div>
         <div className="flex mt-20 gap-4 py-8">
