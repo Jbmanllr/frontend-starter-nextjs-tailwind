@@ -985,20 +985,20 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
-                <form className="dark:highlight-white/10 dark:border-dark-palette-700 hidden lg:block mr-6 md:mr-10 rounded-md shadow p-4 bg-white dark:bg-dark-palette-700">
+                <form className="bg-white border-light-palette-100 dark:bg-dark-palette-700 dark:border-dark-palette-700 dark:highlight-white/10 hidden lg:block mr-6 md:mr-10 rounded-md shadow p-4">
                   <h3 className="sr-only">Categories</h3>
                   <ul role="list" className="transition-all space-y-2 border-b pb-6 text-sm font-medium text-gray-900">
                     {subCategories.map((category) => (
                       <li key={category.name}>
                         <a href={category.href}  className={cn(
-              category.current ? 'site-foreground-accent-1 text-color' : 'text-color-accent-1 hover:site-foreground-accent-1',
+              category.current ? 'bg-light-palette-100 dark:bg-dark-palette-800 text-light-palette-500 dark:text-dark-palette-300' : 'dark:text-dark-palette-400 text-light-palette-500 hover:bg-light-palette-100 hover:dark:bg-dark-palette-800',
               'group flex items-center px-3 py-2 text-sm font-medium rounded-md transition-colors motion-reduce:transition-none duration-200'
             )}>
                         <span className="truncate">{category.name}</span>
                           {category.count ? (
                             <span
                               className={cn(
-                                category.current ? 'site-background text-color' : 'group-hover:text-color site-foreground-accent-1 text-gray-600 group-hover:site-background dark:text-slate-300',
+                                category.current ? 'bg-white dark:bg-dark-palette-700 text-light-palette-500 border border-light-palette-100 dark:text-dark-palette-300 dark:border-dark-palette-800/30' : 'text-gray-500 group-hover:text-color site-foreground-accent-1 group-hover:bg-white dark:text-dark-palette-400',
                                 'ml-auto inline-block py-0.5 px-3 text-xxs rounded-full'
                               )}
                             >
@@ -1069,91 +1069,198 @@ const HomeView: FC = ( { data, isMounted } ) => {
         </div>
 
         <div className="mt-20">
+
             <div className="flex gap-4 py-4 mt-8">
-            <Tag color='primary' size={'xs'} rounded closable>
-                XS
-            </Tag>
-            <Tag color='secondary' size={'sm'} rounded closable>
-                SM
-            </Tag>
-            <Tag color='tertiary' size={'md'} rounded closable className="border-green-500">
+
+                <Tag className='primary rounded' size={'xs'} closable>
+                    XS
+                </Tag>
+                <Tag className='secondary rounded' size={'sm'} closable>
+                    SM
+                </Tag>
+                <Tag className='tertiary rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='default rounded' closable>
+                    MD
+                </Tag>
+            
+                <Tag className='success rounded' closable>
+                    MD
+                </Tag>
+                <Tag className='danger rounded' closable>
+                    MD
+                </Tag>
+                <Tag className='warning rounded' closable>
                 MD
-            </Tag>
-           
-            <Tag color='success' closable>
-                MD
-            </Tag>
-            <Tag color='danger' closable>
-                MD
-            </Tag>
-            <Tag color='warning' closable>
-            MD
-            </Tag>
-            <Tag color='info' closable>
-                MD
-            </Tag>
+                </Tag>
+                <Tag className='info rounded' closable>
+                    MD
+                </Tag>
+                
             </div>
 
-            <div className="flex gap-4 py-4">
-            <Tag color='primary-light' size={'xs'} rounded closable>
-                XS
-            </Tag>
-            <Tag color='secondary-light' size={'sm'} rounded closable>
-                SM
-            </Tag>
-            <Tag color='tertiary-light' size={'md'} rounded closable className="border-green-500">
-                MD
-            </Tag>
-           
-            <Tag color='success-light' closable>
-                MD
-            </Tag>
-            <Tag color='danger-light' closable>
-                MD
-            </Tag>
-            <Tag color='warning-light' closable>
-            MD
-            </Tag>
-            <Tag color='info-light' closable>
-                MD
-            </Tag>
-            </div>
 
             <div className="flex gap-4 py-4">
 
-            <Tag color='tot' size={'md'} rounded closable>
+                <Tag className='primary rounded' variant='outlined' size={'xs'} closable>
+                    XS
+                </Tag>
+                <Tag className='secondary rounded' variant='outlined' size={'sm'} closable>
+                    SM
+                </Tag>
+                <Tag className='tertiary rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='default rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='success rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='danger rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='warning rounded' variant='outlined' closable>
                 MD
-            </Tag>
-            <Tag color='tot-s1' size={'md'} rounded closable>
+                </Tag>
+                <Tag className='info rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+
+            </div>
+
+            <div className="flex gap-4 py-4">
+
+                <Tag className='primary-light rounded' size={'xs'} closable>
+                    XS
+                </Tag>
+                <Tag className='secondary-light rounded' size={'sm'} closable>
+                    SM
+                </Tag>
+                <Tag className='tertiary-light rounded' closable>
+                    MD
+                </Tag>
+                <Tag className='default-light rounded'closable>
+                    MD
+                </Tag>
+            
+                <Tag className='success-light rounded' closable>
+                    MD
+                </Tag>
+                <Tag className='danger-light rounded' closable>
+                    MD
+                </Tag>
+                <Tag className='warning-light rounded' closable>
                 MD
-            </Tag>
-            <Tag color='tot-s2' size={'md'} rounded closable>
+                </Tag>
+                <Tag className='info-light rounded' closable>
+                    MD
+                </Tag>
+            </div>
+
+            <div className="flex gap-4 py-4">
+
+                <Tag className='primary-light rounded' variant='outlined' size={'xs'} closable>
+                    XS
+                </Tag>
+                <Tag className='secondary-light rounded' variant='outlined' size={'sm'} closable>
+                    SM
+                </Tag>
+                <Tag className='tertiary-light rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='default-light rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='success-light rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='danger-light rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+                <Tag className='warning-light rounded' variant='outlined' closable>
                 MD
-            </Tag>
-            <Tag color='tot-s3' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s4' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s5' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s6' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s7' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s8' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s9' size={'md'} rounded closable>
-                MD
-            </Tag>
-            <Tag color='tot-s10' size={'md'} rounded closable>
-                MD
-            </Tag>
+                </Tag>
+                <Tag className='info-light rounded' variant='outlined' closable>
+                    MD
+                </Tag>
+
+                </div>
+
+            <div className="flex gap-4 py-4">
+
+                <Tag className='tot rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s1 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s2 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s3 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s4 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s5 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s6 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s7 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s8 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s9 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s10 rounded' size={'md'} closable>
+                    MD
+                </Tag>
+
+            </div>
+
+            <div className="flex gap-4 py-4">
+
+                <Tag className='tot rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s1 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s2 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s3 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s4 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s5 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s6 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s7 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s8 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s9 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
+                <Tag className='tot-s10 rounded' variant='outlined' size={'md'} closable>
+                    MD
+                </Tag>
 
             </div>
 

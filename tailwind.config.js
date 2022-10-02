@@ -48,6 +48,10 @@ module.exports = {
             'screen-xl': '1380px',
             '8xl': '1920px',
           },
+          borderWidth: {
+            '0.5' : '0.5px',
+            '1.5' : '1.5px'
+          },
           spacing: {
             '13': '3.25rem',
             '15': '3.75rem',

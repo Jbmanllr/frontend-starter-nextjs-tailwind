@@ -97,7 +97,7 @@
     }*/
 
     .site-background {
-        @apply bg-light-palette-50/50 dark:bg-dark-palette-900;
+        @apply bg-light-palette-50/40 dark:bg-dark-palette-900;
     }
 
     /* BG ACCENTS */
@@ -323,22 +323,137 @@
     }
 
     .tag {
-        @apply inline-flex items-center h-min border;
+        @apply inline-flex items-center h-min border cursor-default select-none transition;
     }
+
+    .tag.size-xs {
+        @apply text-xs font-normal;
+    }
+    .tag.size-sm {
+        @apply text-xs font-normal;
+    }
+    .tag.size-md {
+        @apply text-xs font-medium;
+    }
+    .tag.size-lg {
+        @apply text-sm font-medium;
+    }
+    .tag.size-xl {
+        @apply text-sm font-normal;
+    }
+
+    .tag.size-xs:not(.closable) {
+        @apply py-0.5 px-2;
+    }
+    .tag.size-sm:not(.closable) {
+        @apply py-1 px-2;
+    }
+    .tag.size-md:not(.closable) {
+        @apply py-1.5 px-2.5;
+    }
+    .tag.size-lg:not(.closable) {
+        @apply py-1.5 px-2.5;
+    }
+    .tag.size-xl:not(.closable) {
+        @apply py-2 px-3;
+    }
+
+    .tag.closable > button {
+        @apply rounded flex-shrink-0 items-center justify-center inline-flex h-4 w-4;
+    }
+
+    .tag.closable.primary.contained > button {
+        @apply hover:bg-primary-600/80;
+    }
+    .tag.closable.secondary.contained > button {
+        @apply hover:bg-secondary-600/80;
+    }
+    .tag.closable.tertiary.contained > button {
+        @apply hover:bg-tertiary-600/80;
+    }
+    .tag.closable.default.contained > button {
+        @apply hover:bg-default-300/80;
+    }
+    .tag.closable.info.contained > button {
+        @apply hover:bg-info-600/80;
+    }
+    .tag.closable.success.contained > button {
+        @apply hover:bg-success-600/80;
+    }
+    .tag.closable.warning.contained > button {
+        @apply hover:bg-warning-600/80;
+    }
+    .tag.closable.danger.contained > button {
+        @apply hover:bg-danger-600/80;
+    }
+
+
+    .tag.closable.primary.outlined > button {
+        @apply hover:bg-primary-200;
+    }
+    .tag.closable.secondary.outlined > button {
+        @apply hover:bg-secondary-200/80;
+    }
+    .tag.closable.tertiary.outlined > button {
+        @apply hover:bg-tertiary-200/80;
+    }
+    .tag.closable.default.outlined > button {
+        @apply hover:bg-default-200/80;
+    }
+    .tag.closable.info.outlined > button {
+        @apply hover:bg-info-200/80;
+    }
+    .tag.closable.success.outlined > button {
+        @apply hover:bg-success-200/80;
+    }
+    .tag.closable.warning.outlined > button {
+        @apply hover:bg-warning-200/80;
+    }
+    .tag.closable.danger.outlined > button {
+        @apply hover:bg-danger-200/80;
+    }
+
+
+    .tag.closable.primary-light > button {
+        @apply hover:bg-primary-100;
+    }
+    .tag.closable.secondary-light > button {
+        @apply hover:bg-secondary-100;
+    }
+    .tag.closable.tertiary-light > button {
+        @apply hover:bg-tertiary-100;
+    }
+    .tag.closable.default-light > button {
+        @apply hover:bg-default-100;
+    }
+    .tag.closable.info-light > button {
+        @apply hover:bg-info-100;
+    }
+    .tag.closable.success-light > button {
+        @apply hover:bg-success-100;
+    }
+    .tag.closable.warning-light > button {
+        @apply hover:bg-warning-100;
+    }
+    .tag.closable.danger-light > button {
+        @apply hover:bg-danger-100;
+    }
+
+
     .tag.closable.size-xs {
-        @apply py-0.5 pl-2 pr-0.5 text-xs font-normal;
+        @apply py-0.5 pl-2 pr-0.5;
     }
     .tag.closable.size-sm {
-        @apply py-1 pl-2 pr-1 text-xs font-normal;
+        @apply py-1 pl-2 pr-1;
     }
     .tag.closable.size-md {
-        @apply py-1.5 pl-2.5 pr-1.5 text-xs font-medium;
+        @apply py-1.5 pl-2.5 pr-1.5;
     }
     .tag.closable.size-lg {
-        @apply py-1.5 pl-3 pr-2 text-sm font-medium;
+        @apply py-1.5 pl-3 pr-2;
     }
     .tag.closable.size-xl {
-        @apply py-2 pl-3.5 pr-2.5 text-sm font-normal;
+        @apply py-2 pl-3.5 pr-2.5;
     }
 
 
@@ -420,7 +535,7 @@
         border-color: theme('colors.warning.400');
     }
     .border-default {
-        border-color: theme('colors.default.500');
+        border-color: theme('colors.default.300');
     }
 
 
@@ -432,29 +547,81 @@
     }
 
 
-    .primary {
+    .primary.contained {
         @apply bg-primary border-primary text-white;
     }
-    .secondary {
+    .secondary.contained {
         @apply bg-secondary border-secondary text-white;
     }
-    .tertiary {
+    .tertiary.contained {
         @apply bg-tertiary border-tertiary text-white;
     }
-    .info {
-        @apply bg-info border-info text-info;
+    .info.contained {
+        @apply bg-info border-info text-info-50;
     }
-    .success {
-        @apply bg-success border-success text-success;
+    .success.contained {
+        @apply bg-success border-success text-success-50;
     }
-    .warning {
-        @apply bg-warning border-warning text-warning;
+    .warning.contained {
+        @apply bg-warning border-warning text-warning-50;
     }
-    .danger {
-        @apply bg-danger border-danger text-danger;
+    .danger.contained {
+        @apply bg-danger border-danger text-danger-50;
     }
-    .default {
-        @apply bg-default border-default text-default;
+    .default.contained {
+        @apply bg-default border-default text-default-400;
+    }
+
+
+    .primary.outlined {
+        @apply bg-primary-50/50 border-1.5 dark:bg-transparent hover:bg-primary-500/10 border-primary-500 dark:border-primary-300 text-primary-500 dark:text-primary-300;
+    }
+    .secondary.outlined {
+        @apply bg-secondary-50/50 border-1.5 dark:bg-transparent hover:bg-secondary-500/10 border-secondary-500 dark:border-secondary-300 text-secondary-500 dark:text-secondary-300;
+    }
+    .tertiary.outlined {
+        @apply bg-tertiary-50/50 border-1.5 dark:bg-transparent hover:bg-tertiary-500/10 border-tertiary-500 dark:border-tertiary-300 text-tertiary-500 dark:text-tertiary-300;
+    }
+    .info.outlined {
+        @apply bg-info-50/50 border-1.5 dark:bg-transparent hover:bg-info-500/10 border-info-500 dark:border-info-300 text-info-500 dark:text-info-300;
+    }
+    .success.outlined {
+        @apply bg-success-50/50 border-1.5 dark:bg-transparent hover:bg-success-500/10 dark:border-success-300 border-success-500 text-success-500 dark:text-success-300;
+    }
+    .warning.outlined {
+        @apply bg-warning-50/50 border-1.5 dark:bg-transparent hover:bg-warning-500/10 border-warning-500 dark:border-warning-300 text-warning-500 dark:text-warning-300;
+    }
+    .danger.outlined {
+        @apply bg-danger-50/50 border-1.5 dark:bg-transparent hover:bg-danger-500/10 border-danger-500 dark:border-danger-300 text-danger-500 dark:text-danger-300;
+    }
+    .default.outlined {
+        @apply bg-default-50/50 border-1.5 dark:bg-transparent hover:bg-default-500/10 border-default-300 text-default-400;
+    }
+
+
+    .primary-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-primary-300/10 border-primary-200 dark:border-primary-300 text-primary-400 dark:text-primary-300;
+    }
+    .secondary-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-secondary-300/10 border-secondary-200 dark:border-secondary-300 text-secondary-400 dark:text-secondary-300;
+    }
+    .tertiary-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-tertiary-300/10 border-tertiary-200 dark:border-tertiary-300 text-tertiary-400 dark:text-tertiary-300;
+    }
+    .info-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-info-300/10 border-info-200 dark:border-info-300 text-info-400 dark:text-info-300;
+    }
+    .success-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-success-300/10 dark:border-success-200 border-success-300 text-success-400 dark:text-success-300;
+    }
+    .warning-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-warning-300/10 border-warning-200 dark:border-warning-300 text-warning-400 dark:text-warning-300;
+    }
+    .danger-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-danger-300/10 border-danger-200 dark:border-danger-300 text-danger-400 dark:text-danger-300;
+    }
+    .default-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-default-300/10 border-default-200 text-default-400;
     }
 
 
@@ -462,62 +629,96 @@
         @apply bg-primary-200 border-primary-200 text-primary-500;
     }
     .secondary-light {
-        @apply bg-secondary-200 border-secondary-200 text-secondary-500;
+        @apply bg-secondary-100 border-secondary-100 text-secondary-500;
     }
     .tertiary-light {
-        @apply bg-tertiary-200 border-tertiary-200 text-white;
+        @apply bg-tertiary-100 border-tertiary-100 text-tertiary-500;
     }
     .info-light {
         @apply bg-info-200 border-info-200 text-info-500;
     }
     .success-light {
-        @apply bg-success-200 border-success-200 text-success-500;
+        @apply bg-success-200 border-success-200 text-success-600;
     }
     .warning-light {
-        @apply bg-warning-200 border-warning-200 text-warning-500;
+        @apply bg-warning-200 border-warning-200 text-warning-600;
     }
     .danger-light {
         @apply bg-danger-200 border-danger-200 text-danger-500;
     }
     .default-light {
-        @apply bg-default-200 border-default-200 text-default-500;
+        @apply bg-default-200 border-default-200 text-default-400;
     }
 
     
-    .tot {
+    .tot.contained {
         @apply bg-white dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
     }
-    .tot-s1 {
+    .tot-s1.contained {
         @apply bg-light-palette-50 border-light-palette-50 text-light-palette-700 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
     }
-    .tot-s2 {
+    .tot-s2.contained {
         @apply bg-light-palette-100 border-light-palette-100 text-light-palette-600 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
     }
-    .tot-s3 {
+    .tot-s3.contained {
         @apply bg-light-palette-200 border-light-palette-200 text-light-palette-600 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
     }
-    .tot-s4 {
+    .tot-s4.contained {
         @apply bg-light-palette-300 border-light-palette-300 text-light-palette-600 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
     }
-    .tot-s5 {
+    .tot-s5.contained {
         @apply bg-light-palette-400 border-light-palette-400 text-light-palette-50 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
     }
-    .tot-s6 {
+    .tot-s6.contained {
         @apply bg-light-palette-500 border-light-palette-500 text-light-palette-100 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
     }
-    .tot-s7 {
+    .tot-s7.contained {
         @apply bg-light-palette-600 border-light-palette-600 text-light-palette-100 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
     }
-    .tot-s8 {
+    .tot-s8.contained {
         @apply bg-light-palette-700 border-light-palette-700 text-light-palette-100 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
     }
-    .tot-s9 {
+    .tot-s9.contained {
         @apply bg-light-palette-800 border-light-palette-800 text-light-palette-100 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
     }
-    .tot-s10 {
+    .tot-s10.contained {
         @apply bg-light-palette-900 border-light-palette-900 text-light-palette-100 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
     }
     
+
+    .tot.outlined {
+        @apply bg-transparent border-1.5 dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
+    }
+    .tot-s1.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
+    }
+    .tot-s2.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
+    }
+    .tot-s3.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
+    }
+    .tot-s4.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-300 text-light-palette-300 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
+    }
+    .tot-s5.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-400 text-light-palette-400 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
+    }
+    .tot-s6.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-500 text-light-palette-500 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
+    }
+    .tot-s7.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-600 text-light-palette-600 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
+    }
+    .tot-s8.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-700 text-light-palette-700 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
+    }
+    .tot-s9.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-800 text-light-palette-800 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
+    }
+    .tot-s10.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-900 text-light-palette-900 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
+    }
 
 
 }
