@@ -2,7 +2,12 @@ import { Fragment, useState, FC } from "react";
 import cn from 'clsx'
 import { useQuery } from '@tanstack/react-query'
 import { Menu, Transition, Dialog, Disclosure, Popover } from '@headlessui/react'
-import { 
+import {
+    AdjustmentsHorizontalIcon,
+    AdjustmentsVerticalIcon,
+    BarsArrowDownIcon,
+    BarsArrowUpIcon,
+    ChevronUpDownIcon,
     AtSymbolIcon, 
     AcademicCapIcon, 
     ChevronDownIcon, 
@@ -1070,24 +1075,24 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
         <div className="mt-20">
 
-            <div className="flex items-center gap-4 py-4 mt-8">
+            <div className="flex flex-wrap items-center gap-4 py-4 mt-8">
 
                 <Tag className='primary rounded' size={'xs'} closable icon={<FunnelIcon className={'icon'} />} />
                    
-                <Tag className='secondary rounded' size={'sm'} closable icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='secondary rounded' size={'sm'} closable icon={<AdjustmentsHorizontalIcon className={'icon'} />}>
                   
                 </Tag>
-                <Tag className='tertiary rounded' size={'md'} closable icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='tertiary rounded' size={'md'} closable icon={<AdjustmentsVerticalIcon className={'icon'} />}>
                   
                 </Tag>
-                <Tag className='default rounded' size={'lg'} closable icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='default rounded' size={'lg'} closable icon={<ChevronUpDownIcon className={'icon'} />}>
                    
                 </Tag>
             
-                <Tag className='success rounded' size={'xl'} closable icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='success rounded' size={'xl'} closable icon={<BarsArrowDownIcon className={'icon'} />}>
                   
                 </Tag>
-                <Tag className='danger rounded' icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='danger rounded' icon={<BarsArrowUpIcon className={'icon'} />}>
                     MD
                 </Tag>
                 <Tag className='warning rounded' icon={<FunnelIcon className={'icon'} />}>
@@ -1098,7 +1103,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
             </div>
 
 
-            <div className="flex items-center gap-4 py-4">
+            <div className="flex flex-wrap items-center gap-4 py-4">
 
                 <Tag className='primary rounded' variant='outlined' size={'xs'} closable>
                     XS
@@ -1127,7 +1132,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
             </div>
 
-            <div className="flex items-center gap-4 py-4">
+            <div className="flex flex-wrap items-center gap-4 py-4">
 
                 <Tag className='primary-light rounded' size={'xs'} closable>
                     XS
@@ -1156,7 +1161,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
                 </Tag>
             </div>
 
-            <div className="flex items-center gap-4 py-4">
+            <div className="flex flex-wrap items-center gap-4 py-4">
 
                 <Tag className='primary-light rounded' variant='outlined' size={'xs'} closable  icon={<FunnelIcon className={'icon'} />}>
                     XS
@@ -1185,7 +1190,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
                 </div>
 
-            <div className="flex items-center gap-4 py-4">
+            <div className="flex flex-wrap items-center gap-4 py-4">
 
                 <Tag className='tot rounded' size={'md'} closable>
                     MD
@@ -1223,7 +1228,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
             </div>
 
-            <div className="flex items-center gap-4 py-4">
+            <div className="flex flex-wrap items-center gap-4 py-4">
 
                 <Tag className='tot rounded' variant='outlined' size={'md'} closable>
                     MD

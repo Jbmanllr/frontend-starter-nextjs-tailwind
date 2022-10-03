@@ -351,7 +351,7 @@ $bg: red;
         @apply text-sm font-normal h-10;
     }
     .tag.fill {
-        @apply text-sm font-normal w-full px-[8%] flex grow;
+        @apply text-sm font-normal w-full px-[8%] flex justify-between;
     }
 
     .tag.size-xs:not(.closable):not(.have-icon):not(.fill) {
