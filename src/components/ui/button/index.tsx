@@ -79,7 +79,7 @@ const Button: React.FC<ButtonProps> = forwardRef((props, buttonRef) => {
     active,
     type='button',
     width,
-    loading = true,
+    loading = false,
     disabled = false,
     style = {},
     Component = 'button',

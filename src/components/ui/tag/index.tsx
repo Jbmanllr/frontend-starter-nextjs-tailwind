@@ -1,78 +1,50 @@
-import React, {
-    FC,
-    forwardRef,
-    ButtonHTMLAttributes,
-    JSXElementConstructor,
-    useRef,
-    useState,
-    useEffect,
-    CSSProperties
-} from 'react'
+import React, { FC, useState } from 'react'
 import { Transition } from '@headlessui/react'
-import cn, { clsx } from 'clsx'
-import { makeData } from 'src/mock-api/fake-posts';
-import { 
-    XMarkIcon,
-    CheckCircleIcon
-} from '@heroicons/react/24/outline'
+import cn from 'clsx'
+import {  XMarkIcon } from '@heroicons/react/24/outline'
 
 interface TagProps {
-    prefixCls?: string;
+    //prefixCls?: string;
     className?: string;
     unstyled?: boolean;
     variant?: 'contained' | 'outlined'
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'fill'
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+    fill?: boolean
     closable?: boolean;
     closeIcon?: React.ReactNode;
-    iconOnly?: boolean;
     onClose?: (e: React.MouseEvent<HTMLElement>) => void;
     icon?: React.ReactNode;
-    children?: any
+    children?: React.ReactNode;
 }
-
-//{ ['bg-tertiary-100 text-tertiary-700 ring-tertiary-400/30 outline-tertiary-400/30']: color === 'tertiary' && variant === 'contained' },
 
 const Tag: FC<TagProps> = ({ 
     className,
     children,
+    fill = false,
     unstyled = false,
     variant = 'contained', 
     closable = false,
+    closeIcon = <XMarkIcon className='close-icon' />,
     size = 'md',
-    iconOnly = false
+    icon = false
 }) => {
 
     const [visible, setIsVisible] = useState(true);
-
-    const root = clsx(
-        'tag',
-        className,
+    const iconOnly = icon && !children
+    
+    const root = cn('tag', className,
         {
-            [`closable`] : closable,
             [variant]: !unstyled && variant,
+            [`closable`] : closable,
+            [`have-icon`] : !iconOnly ? icon : '',
+            [`icon-only`] : iconOnly,
             [`size-${size}`]: size,
+            [`fill`]: fill,
         },
     );
-
-    const closeIconClassName = clsx(
-        'close h-3 w-3',
-        {
-        },
-    );
-
-    console.log('CLSX',  root)
-
-    const buttonClassName = cn(
-        'disabled:!bg-primary-500 inline-flex h-4 w-4 flex-shrink-0 items-center justify-center rounded-full hover:bg-white/40 hover:bg-current/50 focus:text-white focus:outline-none',
-        { ['ml-0.5']: !iconOnly && size === 'xs' },
-        { ['ml-0.5']: !iconOnly && size === 'sm' },
-        { ['ml-0.5']: !iconOnly && size === 'md' },
-        { ['ml-1']: !iconOnly && size === 'lg' },
-        { ['ml-1.5']: !iconOnly && size === 'xl' },
-        )
 
     return (
-        <>
+
         <Transition
             show={visible}
             enter="transition-opacity duration-75"
@@ -84,23 +56,20 @@ const Tag: FC<TagProps> = ({
             className={root}
             as='span'
         >
-            
-                {/*<svg className="-ml-0.5 mr-1.5 h-2 w-2 text-indigo-400" fill="currentColor" viewBox="0 0 8 8">
-                <circle cx={4} cy={4} r={3} />
-                </svg>*/}
-            {children}
-            {closable && <button
-                type="button"
-                aria-label="Remove"
-                className={buttonClassName}
-                onClick={() => setIsVisible(false)}
-            >
-                <span className="sr-only">Remove</span>
-                <XMarkIcon className={closeIconClassName} />
-            </button>}
-           
+            {icon && <>{icon}</>}
+            {!iconOnly && <span>{children}</span>}
+            {closable && 
+                <button
+                    type="button"
+                    aria-label="Remove"
+                    className='close-button'
+                    onClick={() => setIsVisible(false)}
+                >
+                    <span className="sr-only">Remove</span>
+                    {closeIcon}
+                </button>
+            }
         </Transition>
-        </>
     )
 }
 

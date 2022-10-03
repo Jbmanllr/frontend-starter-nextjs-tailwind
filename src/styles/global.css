@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+$color: blue;
+$bg: red;
+
 .dark-background-color {
   @apply bg-slate-900;
 }
@@ -322,40 +325,140 @@
         background-color: red;
     }
 
+
+    /* TAG */
+
     .tag {
-        @apply inline-flex items-center h-min border cursor-default select-none transition;
+        @apply inline-flex items-center h-min border-1.5 cursor-default select-none transition;
     }
+
+
+    /* TAG SIZE */
 
     .tag.size-xs {
-        @apply text-xs font-normal;
+        @apply text-xs font-normal h-6;
     }
     .tag.size-sm {
-        @apply text-xs font-normal;
+        @apply text-xs font-normal h-7;
     }
     .tag.size-md {
-        @apply text-xs font-medium;
+        @apply text-xs font-medium h-8;
     }
     .tag.size-lg {
-        @apply text-sm font-medium;
+        @apply text-sm font-medium h-9;
     }
     .tag.size-xl {
-        @apply text-sm font-normal;
+        @apply text-sm font-normal h-10;
+    }
+    .tag.fill {
+        @apply text-sm font-normal w-full px-[8%] flex grow;
     }
 
-    .tag.size-xs:not(.closable) {
-        @apply py-0.5 px-2;
+    .tag.size-xs:not(.closable):not(.have-icon):not(.fill) {
+        @apply px-2;
     }
-    .tag.size-sm:not(.closable) {
-        @apply py-1 px-2;
+    .tag.size-sm:not(.closable):not(.have-icon):not(.fill) {
+        @apply px-2;
     }
-    .tag.size-md:not(.closable) {
-        @apply py-1.5 px-2.5;
+    .tag.size-md:not(.closable):not(.have-icon):not(.fill) {
+        @apply px-2.5;
     }
-    .tag.size-lg:not(.closable) {
-        @apply py-1.5 px-2.5;
+    .tag.size-lg:not(.closable):not(.have-icon):not(.fill) {
+        @apply px-2.5;
     }
-    .tag.size-xl:not(.closable) {
-        @apply py-2 px-3;
+    .tag.size-xl:not(.closable):not(.have-icon):not(.fill) {
+        @apply px-3;
+    }
+    
+
+    .tag.size-xs.have-icon {
+        @apply pl-10 pr-2;
+    }
+    .tag.size-sm.have-icon {
+        @apply px-2;
+    }
+    .tag.size-md.have-icon {
+        @apply px-2.5;
+    }
+    .tag.size-lg.have-icon {
+        @apply px-2.5;
+    }
+    .tag.size-xl.have-icon {
+        @apply px-3;
+    }
+
+    .tag.closable.size-xs:not(.icon-only):not(.fill) {
+        @apply pl-2 pr-1;
+    }
+    .tag.closable.size-sm:not(.icon-only):not(.fill) {
+        @apply pl-2 pr-1;
+    }
+    .tag.closable.size-md:not(.icon-only):not(.fill) {
+        @apply pl-2.5 pr-1.5;
+    }
+    .tag.closable.size-lg:not(.icon-only):not(.fill) {
+        @apply pl-3 pr-2;
+    }
+    .tag.closable.size-xl:not(.icon-only):not(.fill) {
+        @apply pl-3.5 pr-2.5;
+    }
+
+    .tag.closable.size-xs.icon-only.closable {
+        @apply pl-1.5 pr-1;
+    }
+    .tag.closable.size-sm.icon-only.closable {
+        @apply pl-1.5 pr-1;
+    }
+    .tag.closable.size-md.icon-only.closable {
+        @apply pl-2 pr-1.5;
+    }
+    .tag.closable.size-lg.icon-only.closable {
+        @apply pl-2.5 pr-2;
+    }
+    .tag.closable.size-xl.icon-only.closable {
+        @apply pl-2.5 pr-2.5;
+    }
+
+
+
+    /* TAG > Close Icon */
+
+    .tag.size-xs .close-icon {
+        @apply h-2.5 w-2.5;
+    }
+    .tag.size-sm .close-icon {
+        @apply h-3 w-3;
+    }
+    .tag.size-md .close-icon {
+        @apply h-3.5 w-3.5;
+    }
+    .tag.size-lg .close-icon {
+        @apply h-3.5 w-3.5;
+    }
+    .tag.size-xl .close-icon {
+        @apply h-4 w-4;
+    }
+
+
+    /* TAG > Close Button */
+
+    .tag.close-button {
+        @apply disabled:!bg-primary-500 inline-flex flex-shrink-0 items-center justify-center focus:text-white focus:outline-none;
+    }
+    .tag.size-xs .close-button {
+        @apply h-3 w-3 ml-0.5;
+    }
+    .tag.size-sm .close-button {
+        @apply h-3.5 w-3.5 ml-0.5;
+    }
+    .tag.size-md .close-button {
+        @apply h-4 w-4 ml-0.5;
+    }
+    .tag.size-lg .close-button {
+        @apply h-4 w-4 ml-1;
+    }
+    .tag.size-xl .close-button {
+        @apply h-4 w-4 ml-1.5;
     }
 
     .tag.closable > button {
@@ -440,22 +543,39 @@
     }
 
 
-    .tag.closable.size-xs {
-        @apply py-0.5 pl-2 pr-0.5;
+    /* TAG > Close Icon */
+
+    .tag.size-xs:not(.icon-only) > .icon {
+        @apply h-3 w-3 mr-1;
     }
-    .tag.closable.size-sm {
-        @apply py-1 pl-2 pr-1;
+    .tag.size-sm:not(.icon-only) > .icon {
+        @apply h-3 w-3 mr-1;
     }
-    .tag.closable.size-md {
-        @apply py-1.5 pl-2.5 pr-1.5;
+    .tag.size-md:not(.icon-only) > .icon {
+        @apply h-3.5 w-3.5 mr-1.5;
     }
-    .tag.closable.size-lg {
-        @apply py-1.5 pl-3 pr-2;
+    .tag.size-lg:not(.icon-only) > .icon {
+        @apply h-3.5 w-3.5 mr-1.5;
     }
-    .tag.closable.size-xl {
-        @apply py-2 pl-3.5 pr-2.5;
+    .tag.size-xl:not(.icon-only) > .icon {
+        @apply h-4 w-4 mr-2;
     }
 
+    .tag.size-xs > .icon {
+        @apply h-3 w-3;
+    }
+    .tag.size-sm > .icon {
+        @apply h-3 w-3;
+    }
+    .tag.size-md > .icon {
+        @apply h-3.5 w-3.5;
+    }
+    .tag.size-lg > .icon {
+        @apply h-3.5 w-3.5;
+    }
+    .tag.size-xl > .icon {
+        @apply h-4 w-4;
+    }
 
 }
 
@@ -595,7 +715,7 @@
         @apply bg-danger-50/50 border-1.5 dark:bg-transparent hover:bg-danger-500/10 border-danger-500 dark:border-danger-300 text-danger-500 dark:text-danger-300;
     }
     .default.outlined {
-        @apply bg-default-50/50 border-1.5 dark:bg-transparent hover:bg-default-500/10 border-default-300 text-default-400;
+        @apply bg-default-50/50 border-1.5 dark:bg-transparent hover:bg-default-500/10 border-default-300 text-default-500;
     }
 
 
@@ -625,29 +745,29 @@
     }
 
 
-    .primary-light {
+    .primary-light.contained {
         @apply bg-primary-200 border-primary-200 text-primary-500;
     }
-    .secondary-light {
+    .secondary-light.contained {
         @apply bg-secondary-100 border-secondary-100 text-secondary-500;
     }
-    .tertiary-light {
+    .tertiary-light.contained {
         @apply bg-tertiary-100 border-tertiary-100 text-tertiary-500;
     }
-    .info-light {
+    .info-light.contained {
         @apply bg-info-200 border-info-200 text-info-500;
     }
-    .success-light {
+    .success-light.contained {
         @apply bg-success-200 border-success-200 text-success-600;
     }
-    .warning-light {
+    .warning-light.contained {
         @apply bg-warning-200 border-warning-200 text-warning-600;
     }
-    .danger-light {
+    .danger-light.contained {
         @apply bg-danger-200 border-danger-200 text-danger-500;
     }
-    .default-light {
-        @apply bg-default-200 border-default-200 text-default-400;
+    .default-light.contained {
+        @apply bg-default-200 border-default-200 text-default-500;
     }
 
     
