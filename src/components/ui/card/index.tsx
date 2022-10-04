@@ -7,7 +7,6 @@ import { ImageProps } from 'next/image'
 //import WishlistButton from '@components/wishlist/WishlistButton'
 //import usePrice from '@framework/product/use-price'
 //import ProductTag from '../ProductTag'
-import { DotLoader, SyncLoader, BeatLoader, ClipLoader, PulseLoader, BarLoader, PropagateLoader } from "react-spinners";
 import { useToBase64 } from '@utils'
 import { ImageComponent } from '@components'
 
@@ -30,9 +29,13 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
     className
   )
 
+  const imgWrapperClassName = cn(
+    'object-cover flex-shrink-0 relative',
+    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full']: layout === 'vertical' }
+  )
+
   const imgClassName = cn(
-    'ob+ject-cover relative',
-    { ['w-40 h-40 p-4 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full h-48']: layout === 'vertical' }
+    { ['rounded-md']: layout === 'horizontal', ['rounded-t-md']: layout === 'vertical' }
   )
 
   const contentClassName = cn(
@@ -56,26 +59,15 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
     <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
   </svg>`
 
-    const override: CSSProperties = {
-        display: "block",
-        margin: "0 auto",
-        borderColor: "transparent rgba(255, 255, 255, 0.03) rgba(255, 255, 255, 0.14) rgba(255, 255, 255, 0.75)",
-        borderWidth: "2px 2px 2px 3px"
-      };
+
       //{item.picture}
   return (
     
         <div className={rootClassName}>
-            <div className="flex-shrink-0 relative">
-              <ClipLoader
-                className='absolute z-50 top-[45%] right-[45%]'
-                speedMultiplier={0.7} 
-                color={''}
-                loading={true} 
-                cssOverride={override} 
-                size={ 25 } 
-              />
+            <div className={imgWrapperClassName}>
+           
               <ImageComponent
+                loader={true}
                 isNext={true}
                 loading={'lazy'}
                 className={imgClassName}
