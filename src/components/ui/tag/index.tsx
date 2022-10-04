@@ -54,7 +54,6 @@ const Tag: FC<TagProps> = ({
         }
     )
 
-    console.log('TYPE OF ROUNDED', typeof rounded === "boolean")
     return (
 
         <Transition

@@ -11,7 +11,7 @@ module.exports = withPlugins([
     [withPWA({})]
 ], {
     i18n: {
-        locales: ['en-US', 'fr-FR', 'nl-NL'],
+        locales: ['en-US', 'fr-FR'],
         defaultLocale: 'en-US',
     },
     images: {

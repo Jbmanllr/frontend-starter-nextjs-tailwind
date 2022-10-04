@@ -31,6 +31,12 @@
       "@views": [
         "src/views"
       ],
+      "@utils/*": [
+        "src/utils/*"
+      ],
+      "@utils": [
+        "src/utils"
+      ],
       "@public/*": [
         "public/*"
       ],

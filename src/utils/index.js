@@ -1,0 +1,1 @@
+export { default as useToBase64 } from "./useToBase64";
