@@ -55,14 +55,14 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
             
            
               <ImageComponent
-                loader={true}
+                loadingSpinner={true}
                 isNext={true}
                 loading={'lazy'}
                 imgWrapperClassName={imgWrapperClassName}
                 className={imgClassName}
                 src={item.picture}
                 width={250}
-                height={240}
+                height={250}
                 quality={100}
                 blurDataURL={item.pictureBlur}
                 placeholder="blur"
