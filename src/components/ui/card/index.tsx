@@ -40,31 +40,21 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
     { ['p-3']: layout === 'horizontal', ['p-5']: layout === 'vertical' }
   )
 
-{/*  <Image
-    alt={product.name || 'Product Image'}
-    className={s.productImage}
-    src={product.images[0]?.url || placeholderImg}
-    height={540}
-    width={540}
-    quality="85"
-    layout="responsive"
-    {...imgProps}
-    />
-  */}
+  //#adadad4a
 
   const shimmer = (w: number, h: number) => `
-<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <defs>
-    <linearGradient id="g">
-      <stop stop-color="#333" offset="20%" />
-      <stop stop-color="#222" offset="50%" />
-      <stop stop-color="#333" offset="70%" />
-    </linearGradient>
-  </defs>
-  <rect width="${w}" height="${h}" fill="#333" />
-  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-</svg>`
+  <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+      <linearGradient id="g">
+        <stop stop-color="#333" offset="20%" />
+        <stop stop-color="#222" offset="50%" />
+        <stop stop-color="#333" offset="70%" />
+      </linearGradient>
+    </defs>
+    <rect width="${w}" height="${h}" fill="#333" />
+    <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+    <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+  </svg>`
 
     const override: CSSProperties = {
         display: "block",
@@ -86,15 +76,17 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
                 size={ 25 } 
               />
               <ImageComponent
+                isNext={true}
                 loading={'lazy'}
                 className={imgClassName}
-                src={`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
+                src={item.picture}
                 width={250}
                 height={240}
                 quality={100}
                 blurDataURL={`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
                 placeholder="blur"
                 layout="responsive"
+                {...imgProps}
               />
             </div>
             <div className={contentClassName}>

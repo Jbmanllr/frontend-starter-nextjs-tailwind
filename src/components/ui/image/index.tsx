@@ -25,16 +25,16 @@ const ImageComponent: FC<ImageComponentProps> = ({
     console.log('IMG PROPS', ImageProps, props, className)
     return (
         <Image
-        loading={'lazy'}
-        className={imgClassName}
-        src={`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
-        width={250}
-        height={240}
-        quality={100}
-        blurDataURL={`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
-        placeholder="blur"
-        layout="responsive"
-            {...props}
+        loading={loading}
+        className={className}
+        src={src}
+        width={width}
+        height={height}
+        quality={quality}
+        blurDataURL={blurDataURL}
+        placeholder={placeholder}
+        layout={layout}
+        {...ImageProps}
         />
     )
 }
