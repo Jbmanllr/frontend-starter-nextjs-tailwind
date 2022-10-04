@@ -6,10 +6,12 @@ import {  XMarkIcon } from '@heroicons/react/24/outline'
 interface TagProps {
     //prefixCls?: string;
     className?: string;
+    buttonClassName?: string;
     unstyled?: boolean;
-    variant?: 'contained' | 'outlined'
-    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-    fill?: boolean
+    variant?: 'contained' | 'outlined';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    rounded?: boolean | 'rounded-sm' | 'rounded-md' | 'rounded-lg' | 'rounded-xl' | 'rounded-2xl' | 'rounded-3xl' | 'rounded-full';
+    fill?: boolean;
     closable?: boolean;
     closeIcon?: React.ReactNode;
     onClose?: (e: React.MouseEvent<HTMLElement>) => void;
@@ -19,9 +21,11 @@ interface TagProps {
 
 const Tag: FC<TagProps> = ({ 
     className,
+    buttonClassName,
     children,
     fill = false,
     unstyled = false,
+    rounded,
     variant = 'contained', 
     closable = false,
     closeIcon = <XMarkIcon className='close-icon' />,
@@ -35,6 +39,7 @@ const Tag: FC<TagProps> = ({
     const root = cn('tag', className,
         {
             [variant]: !unstyled && variant,
+            [`${typeof rounded == "string" ? rounded : 'rounded'}`]: !unstyled && rounded,
             [`closable`] : closable,
             [`have-icon`] : !iconOnly ? icon : '',
             [`icon-only`] : iconOnly,
@@ -43,6 +48,13 @@ const Tag: FC<TagProps> = ({
         },
     );
 
+    const buttonClasses = cn('close-button', buttonClassName,
+        {
+            [`${typeof rounded == "string" ? rounded : 'rounded'}`]: !unstyled && rounded
+        }
+    )
+
+    console.log('TYPE OF ROUNDED', typeof rounded === "boolean")
     return (
 
         <Transition
@@ -55,19 +67,20 @@ const Tag: FC<TagProps> = ({
             leaveTo="opacity-0"
             className={root}
             as='span'
-        >
+        ><span className='inline-flex items-center h-full'>
             {icon && <>{icon}</>}
             {!iconOnly && <span>{children}</span>}
+            </span>
             {closable && 
                 <button
                     type="button"
                     aria-label="Remove"
-                    className='close-button'
+                    className={buttonClasses}
                     onClick={() => setIsVisible(false)}
                 >
                     <span className="sr-only">Remove</span>
                     {closeIcon}
-                </button>
+                </button> 
             }
         </Transition>
     )

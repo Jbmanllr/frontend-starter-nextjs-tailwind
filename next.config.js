@@ -14,6 +14,9 @@ module.exports = withPlugins([
         locales: ['en-US', 'fr-FR', 'nl-NL'],
         defaultLocale: 'en-US',
     },
+    images: {
+        domains: ['loremflickr.com'],
+    }
 });
 
 // Don't delete this console log, useful to see the commerce config in Vercel deployments

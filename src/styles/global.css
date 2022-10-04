@@ -345,13 +345,13 @@ $bg: red;
         @apply text-xs font-medium h-8;
     }
     .tag.size-lg {
-        @apply text-sm font-medium h-9;
+        @apply text-xs font-medium h-9;
     }
     .tag.size-xl {
-        @apply text-sm font-normal h-10;
+        @apply text-sm font-medium h-10;
     }
     .tag.fill {
-        @apply text-sm font-normal w-full px-[8%] flex justify-between;
+        @apply text-sm font-medium w-full px-[8%] flex justify-between;
     }
 
     .tag.size-xs:not(.closable):not(.have-icon):not(.fill) {
@@ -372,35 +372,68 @@ $bg: red;
     
 
     .tag.size-xs.have-icon {
-        @apply pl-10 pr-2;
+        @apply pl-1.5 pr-2;
     }
     .tag.size-sm.have-icon {
-        @apply px-2;
+        @apply pl-1.5 pr-2;
     }
     .tag.size-md.have-icon {
-        @apply px-2.5;
+        @apply pl-2 pr-2.5;
     }
     .tag.size-lg.have-icon {
-        @apply px-2.5;
+        @apply pl-2 pr-2.5;
     }
     .tag.size-xl.have-icon {
         @apply px-3;
     }
 
-    .tag.closable.size-xs:not(.icon-only):not(.fill) {
+    .tag.size-xs.have-icon.rounded-full {
+        @apply pl-2 pr-2.5;
+    }
+    .tag.size-sm.have-icon.rounded-full {
+        @apply pl-2.5 pr-3.5;
+    }
+    .tag.size-md.have-icon.rounded-full {
+        @apply pl-2.5 pr-3.5;
+    }
+    .tag.size-lg.have-icon.rounded-full {
+        @apply pl-2 pr-3.5;
+    }
+    .tag.size-xl.have-icon.rounded-full {
+        @apply pl-3 pr-4;
+    }
+
+
+    .tag.closable.size-xs:not(.rounded-full):not(.icon-only):not(.fill) {
+        @apply pl-1.5 pr-1;
+    }
+    .tag.closable.size-sm:not(.rounded-full):not(.icon-only):not(.fill) {
+        @apply pl-1.5 pr-1;
+    }
+    .tag.closable.size-md:not(.rounded-full):not(.icon-only):not(.fill) {
+        @apply pl-2 pr-1.5;
+    }
+    .tag.closable.size-lg:not(.rounded-full):not(.icon-only):not(.fill) {
+        @apply pl-2 pr-2;
+    }
+    .tag.closable.size-xl:not(.rounded-full):not(.icon-only):not(.fill) {
+        @apply pl-2.5 pr-2.5;
+    }
+
+    .tag.closable.size-xs.rounded-full:not(.icon-only):not(.fill) {
         @apply pl-2 pr-1;
     }
-    .tag.closable.size-sm:not(.icon-only):not(.fill) {
-        @apply pl-2 pr-1;
-    }
-    .tag.closable.size-md:not(.icon-only):not(.fill) {
+    .tag.closable.size-sm.rounded-full:not(.icon-only):not(.fill) {
         @apply pl-2.5 pr-1.5;
     }
-    .tag.closable.size-lg:not(.icon-only):not(.fill) {
+    .tag.closable.size-md.rounded-full:not(.icon-only):not(.fill) {
+        @apply pl-3 pr-1.5;
+    }
+    .tag.closable.size-lg.rounded-full:not(.icon-only):not(.fill) {
         @apply pl-3 pr-2;
     }
-    .tag.closable.size-xl:not(.icon-only):not(.fill) {
-        @apply pl-3.5 pr-2.5;
+    .tag.closable.size-xl.rounded-full:not(.icon-only):not(.fill) {
+        @apply pl-3 pr-2;
     }
 
     .tag.closable.size-xs.icon-only.closable {
@@ -445,135 +478,152 @@ $bg: red;
     .tag.close-button {
         @apply disabled:!bg-primary-500 inline-flex flex-shrink-0 items-center justify-center focus:text-white focus:outline-none;
     }
-    .tag.size-xs .close-button {
-        @apply h-3 w-3 ml-0.5;
+    .tag.size-xs:not(.rounded-full) .close-button {
+        @apply h-3 w-3 ml-1;
     }
-    .tag.size-sm .close-button {
-        @apply h-3.5 w-3.5 ml-0.5;
+    .tag.size-sm:not(.rounded-full) .close-button {
+        @apply h-3.5 w-3.5 ml-1;
     }
-    .tag.size-md .close-button {
-        @apply h-4 w-4 ml-0.5;
-    }
-    .tag.size-lg .close-button {
+    .tag.size-md:not(.rounded-full) .close-button {
         @apply h-4 w-4 ml-1;
     }
-    .tag.size-xl .close-button {
-        @apply h-4 w-4 ml-1.5;
+    .tag.size-lg:not(.rounded-full) .close-button {
+        @apply h-4 w-4 ml-1;
+    }
+    .tag.size-xl:not(.rounded-full) .close-button {
+        @apply h-4 w-4 ml-1;
+    }
+
+
+    .tag.size-xs.rounded-full .close-button {
+        @apply h-3.5 w-3.5 ml-1;
+    }
+    .tag.size-sm.rounded-full .close-button {
+        @apply h-4 w-4 ml-1;
+    }
+    .tag.size-md.rounded-full .close-button {
+        @apply h-4.5 w-4.5 ml-1;
+    }
+    .tag.size-lg.rounded-full .close-button {
+        @apply h-4.5 w-4.5 ml-1;
+    }
+    .tag.size-xl.rounded-full .close-button {
+        @apply h-5 w-5 ml-1;
     }
 
     .tag.closable > button {
-        @apply rounded flex-shrink-0 items-center justify-center inline-flex h-4 w-4;
+        @apply focus:outline border border-dashed flex-shrink-0 items-center justify-center inline-flex h-4 w-4;
     }
 
     .tag.closable.primary.contained > button {
-        @apply hover:bg-primary-600/80;
+        @apply hover:bg-primary-600/80 outline-primary-200;
     }
     .tag.closable.secondary.contained > button {
-        @apply hover:bg-secondary-600/80;
+        @apply hover:bg-secondary-600/80 outline-secondary-200;
     }
     .tag.closable.tertiary.contained > button {
-        @apply hover:bg-tertiary-600/80;
+        @apply hover:bg-tertiary-600/80 outline-tertiary-200;
     }
     .tag.closable.default.contained > button {
-        @apply hover:bg-default-300/80;
+        @apply hover:bg-default-300/80 outline-default-300;
     }
     .tag.closable.info.contained > button {
-        @apply hover:bg-info-600/80;
+        @apply hover:bg-info-500/80 outline-info-200;
     }
     .tag.closable.success.contained > button {
-        @apply hover:bg-success-600/80;
+        @apply hover:bg-success-500/80 outline-success-200;
     }
     .tag.closable.warning.contained > button {
-        @apply hover:bg-warning-600/80;
+        @apply hover:bg-warning-500/80 outline-warning-200;
     }
     .tag.closable.danger.contained > button {
-        @apply hover:bg-danger-600/80;
+        @apply hover:bg-danger-500/80 outline-danger-200;
     }
 
 
     .tag.closable.primary.outlined > button {
-        @apply hover:bg-primary-200;
+        @apply hover:bg-primary-200 outline-primary-300;
     }
     .tag.closable.secondary.outlined > button {
-        @apply hover:bg-secondary-200/80;
+        @apply hover:bg-secondary-200/80 outline-secondary-300;
     }
     .tag.closable.tertiary.outlined > button {
-        @apply hover:bg-tertiary-200/80;
+        @apply hover:bg-tertiary-200/80 outline-tertiary-300;
     }
     .tag.closable.default.outlined > button {
-        @apply hover:bg-default-200/80;
+        @apply hover:bg-default-200/80 outline-default-300;
     }
     .tag.closable.info.outlined > button {
-        @apply hover:bg-info-200/80;
+        @apply hover:bg-info-200/80 outline-info-300;
     }
     .tag.closable.success.outlined > button {
-        @apply hover:bg-success-200/80;
+        @apply hover:bg-success-200/80 outline-success-300;
     }
     .tag.closable.warning.outlined > button {
-        @apply hover:bg-warning-200/80;
+        @apply hover:bg-warning-200/80 outline-warning-300;
     }
     .tag.closable.danger.outlined > button {
-        @apply hover:bg-danger-200/80;
+        @apply hover:bg-danger-200/80 outline-danger-300;
     }
 
 
     .tag.closable.primary-light > button {
-        @apply hover:bg-primary-100;
+        @apply hover:bg-primary-100 outline-primary-400;
     }
     .tag.closable.secondary-light > button {
-        @apply hover:bg-secondary-100;
+        @apply hover:bg-secondary-100 outline-secondary-400;
     }
     .tag.closable.tertiary-light > button {
-        @apply hover:bg-tertiary-100;
+        @apply hover:bg-tertiary-100 outline-tertiary-400;
     }
     .tag.closable.default-light > button {
-        @apply hover:bg-default-100;
+        @apply hover:bg-default-100 outline-default-400;
     }
     .tag.closable.info-light > button {
-        @apply hover:bg-info-100;
+        @apply hover:bg-info-100 outline-info-400;
     }
     .tag.closable.success-light > button {
-        @apply hover:bg-success-100;
+        @apply hover:bg-success-100 outline-success-400;
     }
     .tag.closable.warning-light > button {
-        @apply hover:bg-warning-100;
+        @apply hover:bg-warning-100 outline-warning-400;
     }
     .tag.closable.danger-light > button {
-        @apply hover:bg-danger-100;
+        @apply hover:bg-danger-100 outline-danger-400;
     }
 
 
     /* TAG > Close Icon */
 
-    .tag.size-xs:not(.icon-only) > .icon {
-        @apply h-3 w-3 mr-1;
+    .tag.size-xs:not(.icon-only) .icon {
+        @apply h-3 w-3 mr-1.5;
     }
-    .tag.size-sm:not(.icon-only) > .icon {
-        @apply h-3 w-3 mr-1;
+    .tag.size-sm:not(.icon-only) .icon {
+        @apply h-3 w-3 mr-1.5;
     }
-    .tag.size-md:not(.icon-only) > .icon {
-        @apply h-3.5 w-3.5 mr-1.5;
+    .tag.size-md:not(.icon-only) .icon {
+        @apply h-3.5 w-3.5 mr-2;
     }
-    .tag.size-lg:not(.icon-only) > .icon {
-        @apply h-3.5 w-3.5 mr-1.5;
+    .tag.size-lg:not(.icon-only) .icon {
+        @apply h-3.5 w-3.5 mr-2;
     }
-    .tag.size-xl:not(.icon-only) > .icon {
+    .tag.size-xl:not(.icon-only) .icon {
         @apply h-4 w-4 mr-2;
     }
 
-    .tag.size-xs > .icon {
+    .tag.size-xs .icon {
         @apply h-3 w-3;
     }
-    .tag.size-sm > .icon {
+    .tag.size-sm .icon {
         @apply h-3 w-3;
     }
-    .tag.size-md > .icon {
+    .tag.size-md .icon {
         @apply h-3.5 w-3.5;
     }
-    .tag.size-lg > .icon {
+    .tag.size-lg .icon {
         @apply h-3.5 w-3.5;
     }
-    .tag.size-xl > .icon {
+    .tag.size-xl .icon {
         @apply h-4 w-4;
     }
 
@@ -655,7 +705,7 @@ $bg: red;
         border-color: theme('colors.warning.400');
     }
     .border-default {
-        border-color: theme('colors.default.300');
+        border-color: theme('colors.default.200');
     }
 
 

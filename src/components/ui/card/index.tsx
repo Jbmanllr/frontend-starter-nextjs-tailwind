@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, CSSProperties } from 'react'
 import cn from 'clsx'
 import Link from 'next/link'
 //import type { Product } from '@commerce/types/product'
@@ -7,6 +7,7 @@ import Image, { ImageProps } from 'next/image'
 //import WishlistButton from '@components/wishlist/WishlistButton'
 //import usePrice from '@framework/product/use-price'
 //import ProductTag from '../ProductTag'
+import { DotLoader, SyncLoader, BeatLoader, ClipLoader, PulseLoader, BarLoader, PropagateLoader } from "react-spinners";
 
 interface CardProps {
   className?: string
@@ -49,11 +50,55 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
     />
   */}
 
+  const shimmer = (w: number, h: number) => `
+<svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="g">
+      <stop stop-color="#333" offset="20%" />
+      <stop stop-color="#222" offset="50%" />
+      <stop stop-color="#333" offset="70%" />
+    </linearGradient>
+  </defs>
+  <rect width="${w}" height="${h}" fill="#333" />
+  <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
+  <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
+</svg>`
+
+const toBase64 = (str: string) =>
+  typeof window === 'undefined'
+    ? Buffer.from(str).toString('base64')
+    : window.btoa(str)
+
+    const override: CSSProperties = {
+        display: "block",
+        margin: "0 auto",
+        borderColor: "transparent rgba(255, 255, 255, 0.03) rgba(255, 255, 255, 0.14) rgba(255, 255, 255, 0.75)",
+        borderWidth: "2px 2px 2px 3px"
+      };
+
   return (
     
         <div className={rootClassName}>
             <div className="flex-shrink-0">
-                <img className={imgClassName} src={item.picture} alt="" />
+            <ClipLoader 
+                className='absolute z-50'
+                speedMultiplier={0.9} 
+                color={''}
+                loading={true} 
+                cssOverride={override} 
+                size={ 25 } 
+           />
+            <Image
+                loading={'lazy'}
+                className={imgClassName}
+                src={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                width={250}
+                height={240}
+                quality={75}
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+                placeholder="blur"
+                />
+              
             </div>
             <div className={contentClassName}>
                 <div className="flex-1">

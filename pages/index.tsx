@@ -13,8 +13,8 @@ function useMounted() {
 }
 
 const fetchDataOptions = {
-  pageIndex: 2,
-  pageSize: 4,
+  pageIndex: 1,
+  pageSize: 50,
 }
 
 const Home: FC = ( data ) => {

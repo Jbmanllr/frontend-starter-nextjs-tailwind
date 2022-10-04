@@ -1075,58 +1075,119 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
         <div className="mt-20">
 
-            <div className="flex flex-wrap items-center gap-4 py-4 mt-8">
+            <div className="flex flex-wrap items-center gap-4 py-4">
 
-                <Tag className='primary rounded' size={'xs'} closable icon={<FunnelIcon className={'icon'} />} />
-                   
-                <Tag className='secondary rounded' size={'sm'} closable icon={<AdjustmentsHorizontalIcon className={'icon'} />}>
-                  
+                <Tag className='primary' rounded={'rounded-full'} size={'xs'} icon={<FunnelIcon className={'icon'} />}>
+                XS Primary
                 </Tag>
-                <Tag className='tertiary rounded' size={'md'} closable icon={<AdjustmentsVerticalIcon className={'icon'} />}>
-                  
+                <Tag className='secondary' rounded={'rounded-full'} size={'sm'} icon={<AdjustmentsHorizontalIcon className={'icon'} />}>
+                SM Secondary
                 </Tag>
-                <Tag className='default rounded' size={'lg'} closable icon={<ChevronUpDownIcon className={'icon'} />}>
+                <Tag className='tertiary' rounded={'rounded-full'} size={'md'} icon={<AdjustmentsVerticalIcon className={'icon'} />}>
+                MD Tertiary
+                </Tag>
+                <Tag className='default' rounded={'rounded-full'} size={'lg'} icon={<ChevronUpDownIcon className={'icon'} />}>
+                LG
+                </Tag>
+
+                <Tag className='success' rounded={'rounded-full'} size={'xl'} icon={<FunnelIcon className={'icon h-5 w-5'} />}>
+                XL
+                </Tag>
+                <Tag className='danger' rounded={'rounded-full'} icon={<BarsArrowUpIcon className={'icon h-5 w-5'} />}>
+                    MD
+                </Tag>
+                <Tag className='warning' rounded={'rounded-full'} icon={<FunnelIcon className={'icon'} />}>
+                    MD
+                </Tag>
+                <Tag className='info' rounded={'rounded-full'} icon={<FunnelIcon className={'icon'} />}>
+                    MD
+                </Tag>
+
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 py-4">
+
+                <Tag className='primary' rounded={'rounded-full'} size={'xs'} closable icon={<FunnelIcon className={'icon'} />}>
+                    XS Primary
+                </Tag>
                    
+                <Tag className='secondary' rounded={'rounded-full'} size={'sm'} closable icon={<AdjustmentsHorizontalIcon className={'icon'} />}>
+                  SM Secondary
+                </Tag>
+                <Tag className='tertiary' rounded={'rounded-full'} size={'md'} closable icon={<AdjustmentsVerticalIcon className={'icon'} />}>
+                  MD Tertiary
+                </Tag>
+                <Tag className='default' rounded={'rounded-full'} size={'lg'} closable icon={<ChevronUpDownIcon className={'icon'} />}>
+                   LG
                 </Tag>
             
-                <Tag className='success rounded' size={'xl'} closable icon={<BarsArrowDownIcon className={'icon'} />}>
+                <Tag className='success' rounded={'rounded-full'} size={'xl'} closable icon={<BarsArrowDownIcon className={'icon'} />}>
+                  XL
+                </Tag>
+                <Tag className='danger' rounded={'rounded-full'} closable icon={<BarsArrowUpIcon className={'icon'} />}>
+                    MD
+                </Tag>
+                <Tag className='warning' rounded={'rounded-full'} closable icon={<FunnelIcon className={'icon'} />}>
+                    MD
+                </Tag>
+                <Tag className='info' rounded={'rounded-full'} closable icon={<FunnelIcon className={'icon'} />}>
+                    MD
+                </Tag>
+
+            </div>
+
+            <div className="flex flex-wrap items-center gap-4 py-4">
+
+                <Tag className='primary' rounded={true} size={'xs'} closable icon={<FunnelIcon className={'icon'} />} />
+                   
+                <Tag className='secondary' rounded size={'sm'} closable icon={<AdjustmentsHorizontalIcon className={'icon'} />}>
+                  Sort by: Date (High to Low)
+                </Tag>
+                <Tag className='tertiary' rounded size={'md'} closable icon={<AdjustmentsVerticalIcon className={'icon'} />}>
                   
                 </Tag>
-                <Tag className='danger rounded' icon={<BarsArrowUpIcon className={'icon'} />}>
+                <Tag className='default' rounded size={'lg'} closable icon={<ChevronUpDownIcon className={'icon'} />}>
+                Sort by: Date (High to Low)
+                </Tag>
+            
+                <Tag className='success' rounded size={'xl'} closable icon={<BarsArrowDownIcon className={'icon'} />}>
+                  
+                </Tag>
+                <Tag className='danger' rounded icon={<BarsArrowUpIcon className={'icon'} />}>
                     MD
                 </Tag>
-                <Tag className='warning rounded' icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='warning' rounded icon={<FunnelIcon className={'icon'} />}>
                     MD
                 </Tag>
-                <Tag className='info rounded' icon={<FunnelIcon className={'icon'} />} />
+                <Tag className='info' rounded icon={<FunnelIcon className={'icon'} />} />
 
             </div>
 
 
             <div className="flex flex-wrap items-center gap-4 py-4">
 
-                <Tag className='primary rounded' variant='outlined' size={'xs'} closable>
+                <Tag className='primary' rounded={'rounded-full'} variant='outlined' size={'xs'} closable>
                     XS
                 </Tag>
-                <Tag className='secondary rounded' variant='outlined' size={'sm'} closable>
+                <Tag className='secondary' rounded={'rounded-full'} variant='outlined' size={'sm'} closable>
                     SM
                 </Tag>
-                <Tag className='tertiary rounded' variant='outlined' closable>
+                <Tag className='tertiary' rounded={'rounded-full'} variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='default rounded' variant='outlined' closable>
+                <Tag className='default' rounded={'rounded-full'} variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='success rounded' variant='outlined' closable>
+                <Tag className='success' rounded={'rounded-full'} variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='danger rounded' variant='outlined'  icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='danger' rounded={'rounded-full'} variant='outlined'  icon={<FunnelIcon className={'icon'} />}>
                     MD
                 </Tag>
-                <Tag className='warning rounded' variant='outlined'  icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='warning' rounded={'rounded-full'} variant='outlined'  icon={<FunnelIcon className={'icon'} />}>
                 MD
                 </Tag>
-                <Tag className='info rounded' variant='outlined'>
+                <Tag className='info' rounded={'rounded-full'} variant='outlined'>
                     MD
                 </Tag>
 
@@ -1134,57 +1195,57 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
             <div className="flex flex-wrap items-center gap-4 py-4">
 
-                <Tag className='primary-light rounded' size={'xs'} closable>
+                <Tag className='primary-light' size={'xs'} rounded closable>
                     XS
                 </Tag>
-                <Tag className='secondary-light rounded' size={'sm'} closable>
+                <Tag className='secondary-light' size={'sm'} rounded closable>
                     SM
                 </Tag>
-                <Tag className='tertiary-light rounded' closable>
+                <Tag className='tertiary-light' rounded closable>
                     MD
                 </Tag>
-                <Tag className='default-light rounded'closable>
+                <Tag className='default-light' rounded closable>
                     MD
                 </Tag>
             
-                <Tag className='success-light rounded' closable>
+                <Tag className='success-light' rounded closable>
                     MD
                 </Tag>
-                <Tag className='danger-light rounded'>
+                <Tag className='danger-light' rounded>
                     MD
                 </Tag>
-                <Tag className='warning-light rounded'>
+                <Tag className='warning-light' rounded>
                 MD
                 </Tag>
-                <Tag className='info-light rounded'>
+                <Tag className='info-light' rounded>
                     MD
                 </Tag>
             </div>
 
             <div className="flex flex-wrap items-center gap-4 py-4">
 
-                <Tag className='primary-light rounded' variant='outlined' size={'xs'} closable  icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='primary-light' rounded variant='outlined' size={'xs'} closable icon={<FunnelIcon className={'icon'} />}>
                     XS
                 </Tag>
-                <Tag className='secondary-light rounded' variant='outlined' size={'sm'} closable  icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='secondary-light' rounded variant='outlined' size={'sm'} closable icon={<FunnelIcon className={'icon'} />}>
                     SM
                 </Tag>
-                <Tag className='tertiary-light rounded' variant='outlined' closable>
+                <Tag className='tertiary-light' rounded variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='default-light rounded' variant='outlined' closable>
+                <Tag className='default-light' rounded variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='success-light rounded' variant='outlined' closable>
+                <Tag className='success-light' rounded variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='danger-light rounded' variant='outlined' closable>
+                <Tag className='danger-light' rounded variant='outlined' closable>
                     MD
                 </Tag>
-                <Tag className='warning-light rounded' variant='outlined' closable>
+                <Tag className='warning-light' rounded variant='outlined' closable>
                 MD
                 </Tag>
-                <Tag className='info-light rounded' variant='outlined' closable>
+                <Tag className='info-light' rounded variant='outlined' closable>
                     MD
                 </Tag>
 
@@ -1192,37 +1253,37 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
             <div className="flex flex-wrap items-center gap-4 py-4">
 
-                <Tag className='tot rounded' size={'md'} closable>
+                <Tag className='tot' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s1 rounded' size={'md'} closable>
+                <Tag className='tot-s1' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s2 rounded' size={'md'} closable>
+                <Tag className='tot-s2' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s3 rounded' size={'md'} closable>
+                <Tag className='tot-s3' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s4 rounded' size={'md'} closable>
+                <Tag className='tot-s4' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s5 rounded' size={'md'} closable>
+                <Tag className='tot-s5' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s6 rounded' size={'md'} closable>
+                <Tag className='tot-s6' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s7 rounded' size={'md'} closable>
+                <Tag className='tot-s7' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s8 rounded' size={'md'} closable>
+                <Tag className='tot-s8' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s9 rounded' size={'md'} closable>
+                <Tag className='tot-s9' rounded size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s10 rounded' size={'md'} closable>
+                <Tag className='tot-s10' rounded size={'md'} closable>
                     MD
                 </Tag>
 
@@ -1230,37 +1291,37 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
             <div className="flex flex-wrap items-center gap-4 py-4">
 
-                <Tag className='tot rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s1 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s1' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s2 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s2' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s3 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s3' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s4 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s4' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s5 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s5' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s6 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s6' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s7 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s7' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s8 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s8' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s9 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s9' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
-                <Tag className='tot-s10 rounded' variant='outlined' size={'md'} closable>
+                <Tag className='tot-s10' rounded variant='outlined' size={'md'} closable>
                     MD
                 </Tag>
 
@@ -1268,7 +1329,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
 
         </div>
         <div className="flex mt-20 gap-4 py-8 w-96">
-            <Tag className='primary rounded' size={'md'} fill closable>
+            <Tag className='primary' rounded size={'md'} fill closable icon={<FunnelIcon className={'icon'} />}>
                 FILL PARENT
             </Tag>
         </div>
