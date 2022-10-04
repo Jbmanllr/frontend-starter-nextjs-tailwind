@@ -45,42 +45,31 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 
   //#adadad4a
 
-  const shimmer = (w: number, h: number) => `
-  <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <linearGradient id="g">
-        <stop stop-color="#333" offset="20%" />
-        <stop stop-color="#222" offset="50%" />
-        <stop stop-color="#333" offset="70%" />
-      </linearGradient>
-    </defs>
-    <rect width="${w}" height="${h}" fill="#333" />
-    <rect id="r" width="${w}" height="${h}" fill="url(#g)" />
-    <animate xlink:href="#r" attributeName="x" from="-${w}" to="${w}" dur="1s" repeatCount="indefinite"  />
-  </svg>`
+
 
 
       //{item.picture}
   return (
     
         <div className={rootClassName}>
-            <div className={imgWrapperClassName}>
+            
            
               <ImageComponent
                 loader={true}
                 isNext={true}
                 loading={'lazy'}
+                imgWrapperClassName={imgWrapperClassName}
                 className={imgClassName}
                 src={item.picture}
                 width={250}
                 height={240}
                 quality={100}
-                blurDataURL={`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
+                blurDataURL={item.pictureBlur}
                 placeholder="blur"
                 layout="responsive"
                 {...imgProps}
               />
-            </div>
+           
             <div className={contentClassName}>
                 <div className="flex-1">
                     <p className="text-xs font-medium">

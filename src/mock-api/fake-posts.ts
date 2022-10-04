@@ -8,6 +8,9 @@ export type Post = {
   text: string
   author: string
   picture: string
+  pictureBlur: string
+  pictureMainColor: number[]
+  dataUri: string
 }
 
 const range = (len: number) => {
@@ -25,7 +28,10 @@ const newPost = (): Post => {
     subtitle: faker.commerce.department(),
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris',
     author: 'Author',
-    picture: faker.image.abstract(),
+    picture: faker.image.abstract(300, 300, true),
+    pictureBlur: faker.image.abstract(1, 1, true),
+    pictureMainColor: faker.color.hsl({ format: 'decimal' }),
+    dataUri: faker.image.dataUri()
   }
 }
 

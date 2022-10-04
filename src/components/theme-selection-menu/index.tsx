@@ -3,6 +3,7 @@ import { Transition, Listbox } from '@headlessui/react'
 import {useTheme} from 'next-themes'
 import cn from 'clsx'
 import { SunIcon, MoonIcon, ComputerDesktopIcon } from '@heroicons/react/20/solid'
+import nookies from 'nookies'
 
     const themes = [
       { id: 1, name: 'Light', slug: 'light', icon: <SunIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
@@ -10,21 +11,9 @@ import { SunIcon, MoonIcon, ComputerDesktopIcon } from '@heroicons/react/20/soli
       { id: 3, name: 'System', slug: 'system', icon: <ComputerDesktopIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/>}
     ]
  
-export const ThemeSelectionMenu: React.FC = () => {
+export const ThemeSelectionMenu: React.FC = ({ ctx }) => {
 
     const { theme, setTheme } = useTheme()
-
-    {/*
-        const [mounted, setMounted] = useState(false)
-
-        useEffect(() => {
-          setMounted(true)
-        }, [])
-
-        if (!mounted) {
-          return null
-        }
-    */}
 
     console.log('CURRENT THEME', theme)
 
@@ -32,7 +21,13 @@ export const ThemeSelectionMenu: React.FC = () => {
 
     useEffect(() => {
         setTheme(selected.slug);
-      }, [selected]); // <- add the count variable her
+
+        // Setting Theme Preference Cookie
+        nookies.set(ctx, 'theme', selected.slug, {
+          maxAge: 30 * 24 * 60 * 60,
+          path: '/',
+        })
+      }, [selected]);
 
     return (
       <>
