@@ -329,7 +329,7 @@ $bg: red;
     /* TAG */
 
     .tag {
-        @apply inline-flex items-center h-min border-1.5 cursor-default select-none transition;
+        @apply box-border inline-flex items-center h-min cursor-default select-none transition;
     }
 
 

@@ -29,7 +29,7 @@ const newPost = (): Post => {
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris',
     author: 'Author',
     picture: faker.image.abstract(300, 300, true),
-    pictureBlur: faker.image.abstract(2, 2, true),
+    pictureBlur: faker.image.abstract(3, 3, true),
     pictureMainColor: faker.color.hsl({ format: 'decimal' }),
     dataUri: faker.image.dataUri()
   }

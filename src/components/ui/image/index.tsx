@@ -8,7 +8,15 @@ export interface ImageComponentProps {
     isNext : boolean;
     className : string;
     loadingSpinner : boolean;
-    ImageProps : Omit<ImageProps, 'src' | 'layout' | 'placeholder' | 'blurDataURL'>
+    loading : string,
+    src : string,
+    quality : string,
+    blurDataURL : string,
+    placeholder : string,
+    layout : string,
+    ImageProps : ImageProps;
+    width : number;
+    height : number;
     //props : any
   }
   const override: CSSProperties = {
@@ -17,6 +25,7 @@ export interface ImageComponentProps {
     borderColor: "transparent rgba(255, 255, 255, 0.03) rgba(255, 255, 255, 0.14) rgba(255, 255, 255, 0.75)",
     borderWidth: "2px 2px 2px 3px"
   };
+
 
   const shimmer = (w: number, h: number) => `
   <svg width="${w}" height="${h}" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -44,27 +53,29 @@ const ImageComponent: FC<ImageComponentProps> = ({
     imgWrapperClassName,
     loadingSpinner,
     isNext = true,
-    props,
     ImageProps, 
     loading,
     src,
-    width,
-    height,
     quality,
     blurDataURL,
     placeholder,
-    layout
+    layout,
+    props
 }) => {
 
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState(src ? false : true);
 
-    console.log('IMG PROPS', ImageProps, props, className, loaded)
+    const timeStamp = new Date().getTime()
 
-    return (
-   
+    console.log('IMG PROPS', src, blurDataURL, ImageProps, props, className, loaded)
+
+    //src={`${src}?${timeStamp}`}
+
+    return (<>
+      <img src={blurDataURL} alt="Red dot" className='h-8 w-full' />
         <div className={imgWrapperClassName}>
-
+        
             {
                 loadingSpinner &&
                 <ClipLoader
@@ -76,17 +87,17 @@ const ImageComponent: FC<ImageComponentProps> = ({
                     size={ 25 } 
                 />
             }
-        <figure className=''>
+       
            {
            
                 isNext &&
                 <Image
                     alt={'alt'}
                     src={src}
+                    placeholder={'blur'}
+                    blurDataURL={blurDataURL}
                     fill
                     quality={quality}
-                    placeholder={placeholder}
-                    blurDataURL={blurDataURL}
                     onLoadingComplete={() => setLoaded(true)}
                     onError={() => error ? '' : setError(true)}
                     className={className}
@@ -99,10 +110,10 @@ const ImageComponent: FC<ImageComponentProps> = ({
                 />
             }
             <figcaption className='sr-only'>Figure Caption</figcaption>
-        </figure>
+      
 
         </div>
-    )
+        </>)
 }
 
 export default ImageComponent

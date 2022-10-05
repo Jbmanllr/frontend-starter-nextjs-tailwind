@@ -1,9 +1,10 @@
 import { FC, CSSProperties } from 'react'
 import cn from 'clsx'
 import Link from 'next/link'
+import Image from 'next/image'
 //import type { Product } from '@commerce/types/product'
 //import s from './ProductCard.module.css'
-import { ImageProps } from 'next/image'
+import { ImageProps } from 'next/future/image'
 //import WishlistButton from '@components/wishlist/WishlistButton'
 //import usePrice from '@framework/product/use-price'
 //import ProductTag from '../ProductTag'
@@ -31,18 +32,22 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 
   const imgWrapperClassName = cn(
     'flex-shrink-0 relative',
-    { ['w-40 h-40 p-3 overflow-hidden rounded-md p-3']: layout === 'horizontal', ['w-full h-44 rounded-md']: layout === 'vertical' }
+    { ['w-40 h-40 overflow-hidden rounded-md p-3']: layout === 'horizontal', ['w-full h-44 rounded-md']: layout === 'vertical' }
   )
 
   const imgClassName = cn(
-    { ['']: layout === 'horizontal', ['object-cover']: layout === 'vertical' }
+    'transition-all duration-1000',
+    { ['p-3']: layout === 'horizontal', ['object-cover']: layout === 'vertical' }
   )
 
   const contentClassName = cn(
     'flex flex-1 flex-col justify-between',
     { ['p-3']: layout === 'horizontal', ['p-5']: layout === 'vertical' }
   )
-
+  const toBase64 = (str: string) =>
+  typeof window === 'undefined'
+    ? Buffer.from(str).toString('base64')
+    : window.btoa(str)
   //#adadad4a
 
   const shimmer = (w: number, h: number) => `
@@ -62,14 +67,42 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 
 
       //{item.picture}
+
+      //{`data:image/svg+xml;base64,${toBase64(shimmer(700, 475))}`}
+      const keyStr =
+      'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
+    
+    const triplet = (e1: number, e2: number, e3: number) =>
+      keyStr.charAt(e1 >> 2) +
+      keyStr.charAt(((e1 & 3) << 4) | (e2 >> 4)) +
+      keyStr.charAt(((e2 & 15) << 2) | (e3 >> 6)) +
+      keyStr.charAt(e3 & 63)
+
+      const rgbDataURL = (r: number, g: number, b: number) =>
+  `data:image/gif;base64,R0lGODlhAQABAPAA${
+    triplet(0, r, g) + triplet(b, 255, 255)
+  }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`
+
   return (
     
         <div className={rootClassName}>
+            {/*<img src={`${item.pictureBlur}`}/>*/}
+
+            {/*<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4
+                    8w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==" alt="Red dot" />*/}
+            {/*<Image
+                  alt="Mountains"
+                  src={item.picture}
+                  placeholder="blur"
+                  blurDataURL={item.pictureBlur}
+                  width={700}
+                  height={475}
+              />*/}
 
               <ImageComponent
                 loadingSpinner={true}
                 isNext={true}
-                loading={'lazy'}
+                //loading={'lazy'}
                 imgWrapperClassName={imgWrapperClassName}
                 className={imgClassName}
                 src={item.picture}
@@ -78,11 +111,11 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
                 width={300}
                 height={200}
                 quality={100}
-                blurDataURL={`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
+                blurDataURL={rgbDataURL(item.pictureMainColor[0], item.pictureMainColor[1], item.pictureMainColor[2])}
                 placeholder="blur"
+                //{`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`}
                 //{item.pictureBlur}
                 //layout="responsive"
-                {...imgProps}
               />
            
             <div className={contentClassName}>

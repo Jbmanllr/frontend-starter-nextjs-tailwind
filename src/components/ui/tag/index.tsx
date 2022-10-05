@@ -66,10 +66,12 @@ const Tag: FC<TagProps> = ({
             leaveTo="opacity-0"
             className={root}
             as='span'
-        ><span className='inline-flex items-center h-full'>
-            {icon && <>{icon}</>}
-            {!iconOnly && <span>{children}</span>}
+        >
+            <span className='inline-flex items-center h-full'>
+                {icon && <>{icon}</>}
+                {!iconOnly && <span>{children}</span>}
             </span>
+
             {closable && 
                 <button
                     type="button"
@@ -81,6 +83,7 @@ const Tag: FC<TagProps> = ({
                     {closeIcon}
                 </button> 
             }
+            
         </Transition>
     )
 }
