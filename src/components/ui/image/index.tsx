@@ -68,7 +68,7 @@ const ImageComponent: FC<ImageComponentProps> = ({
             {
                 loadingSpinner &&
                 <ClipLoader
-                    className='absolute z-50 h-full top-[45%] right-[45%]'
+                    className='absolute z-50 h-full m-auto top-[45%] right-[45%]'
                     speedMultiplier={0.7} 
                     color={''}
                     loading={loaded} 
@@ -76,7 +76,7 @@ const ImageComponent: FC<ImageComponentProps> = ({
                     size={ 25 } 
                 />
             }
-        <figure>
+        <figure className=''>
            {
            
                 isNext &&

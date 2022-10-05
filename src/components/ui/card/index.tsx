@@ -30,12 +30,12 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
   )
 
   const imgWrapperClassName = cn(
-    'object-cover flex-shrink-0 relative',
-    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full h-44']: layout === 'vertical' }
+    'flex-shrink-0 relative',
+    { ['w-40 h-40 p-3 overflow-hidden rounded-md p-3']: layout === 'horizontal', ['w-full h-44 rounded-md']: layout === 'vertical' }
   )
 
   const imgClassName = cn(
-    { ['rounded-md p-3']: layout === 'horizontal', ['object-cover rounded-t-md']: layout === 'vertical' }
+    { ['']: layout === 'horizontal', ['object-cover']: layout === 'vertical' }
   )
 
   const contentClassName = cn(
