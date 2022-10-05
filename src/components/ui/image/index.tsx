@@ -59,7 +59,6 @@ const ImageComponent: FC<ImageComponentProps> = ({
     const [loaded, setLoaded] = useState(false);
     const [error, setError] = useState(src ? false : true);
 
-    const css = { width: '100%', height: 'auto' }
     console.log('IMG PROPS', ImageProps, props, className, loaded)
 
     return (
@@ -77,28 +76,31 @@ const ImageComponent: FC<ImageComponentProps> = ({
                     size={ 25 } 
                 />
             }
-
+        <figure>
            {
            
                 isNext &&
                 <Image
                     alt={'alt'}
+                    src={src}
                     fill
-                    //loader={myLoader}
-                    //loading={loading}
-                    className={className}
-                    src={src} 
-                    width={''}
-                    height={''}
-                    //sizes="100vw"
                     quality={quality}
                     placeholder={placeholder}
                     blurDataURL={blurDataURL}
                     onLoadingComplete={() => setLoaded(true)}
                     onError={() => error ? '' : setError(true)}
+                    className={className}
+                    //loader={myLoader}
+                    //loading={loading}
+                    //width={''}
+                    //height={''}
+                    //sizes="100vw"
                     //{...ImageProps}
                 />
             }
+            <figcaption className='sr-only'>Figure Caption</figcaption>
+        </figure>
+
         </div>
     )
 }

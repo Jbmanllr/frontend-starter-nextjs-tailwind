@@ -16,7 +16,14 @@ module.exports = withPlugins([
         localeDetection: false,
     },
     images: {
-        domains: ['loremflickr.com'],
+        remotePatterns: [
+            {
+              protocol: 'https',
+              hostname: 'loremflickr.com',
+              port: '',
+              pathname: '/**',
+            },
+        ]
     }
 });
 

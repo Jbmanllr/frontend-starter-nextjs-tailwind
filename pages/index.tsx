@@ -14,7 +14,7 @@ function useMounted() {
 
 const fetchDataOptions = {
   pageIndex: 1,
-  pageSize: 50,
+  pageSize: 100,
 }
 
 const Home: FC = ( data ) => {
