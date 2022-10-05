@@ -31,11 +31,11 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
 
   const imgWrapperClassName = cn(
     'object-cover flex-shrink-0 relative',
-    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full']: layout === 'vertical' }
+    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: layout === 'horizontal', ['w-full h-44']: layout === 'vertical' }
   )
 
   const imgClassName = cn(
-    { ['rounded-md']: layout === 'horizontal', ['rounded-t-md']: layout === 'vertical' }
+    { ['rounded-md p-3']: layout === 'horizontal', ['object-cover rounded-t-md']: layout === 'vertical' }
   )
 
   const contentClassName = cn(
@@ -61,12 +61,14 @@ const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'd
                 imgWrapperClassName={imgWrapperClassName}
                 className={imgClassName}
                 src={item.picture}
-                width={250}
-                height={250}
+                sizes="100vw" 
+                fill
+                width={300}
+                height={200}
                 quality={100}
                 blurDataURL={item.pictureBlur}
                 placeholder="blur"
-                layout="responsive"
+                //layout="responsive"
                 {...imgProps}
               />
            

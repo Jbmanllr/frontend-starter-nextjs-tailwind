@@ -13,6 +13,7 @@ module.exports = withPlugins([
     i18n: {
         locales: ['en-US', 'fr-FR'],
         defaultLocale: 'en-US',
+        localeDetection: false,
     },
     images: {
         domains: ['loremflickr.com'],

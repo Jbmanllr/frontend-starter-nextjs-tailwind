@@ -2,7 +2,6 @@ import React, { FC, CSSProperties, useState } from 'react'
 import Image, { ImageProps } from 'next/future/image'
 import { ClipLoader } from "react-spinners";
 import { useToBase64 } from '@utils'
-import { Suspense } from "react";
 
 export interface ImageComponentProps {
     imgWrapperClassName : string;
@@ -36,7 +35,7 @@ export interface ImageComponentProps {
   //`data:image/svg+xml;base64,${useToBase64(shimmer(700, 475))}`
 
   const myLoader = ({ src, width, quality }) => {
-    console.log('LOADER PROPS', src, width, quality, Suspense)
+    console.log('LOADER PROPS', src, width, quality)
     return `${src}?w=${width}&q=${quality || 75}`
   }
 
@@ -58,17 +57,19 @@ const ImageComponent: FC<ImageComponentProps> = ({
 }) => {
 
     const [loaded, setLoaded] = useState(false);
+    const [error, setError] = useState(src ? false : true);
 
+    const css = { width: '100%', height: 'auto' }
     console.log('IMG PROPS', ImageProps, props, className, loaded)
 
     return (
-        <Suspense fallback={<div>Loading...</div>}>
+   
         <div className={imgWrapperClassName}>
 
             {
                 loadingSpinner &&
                 <ClipLoader
-                    className='absolute z-50 top-[45%] right-[45%]'
+                    className='absolute z-50 h-full top-[45%] right-[45%]'
                     speedMultiplier={0.7} 
                     color={''}
                     loading={loaded} 
@@ -81,22 +82,24 @@ const ImageComponent: FC<ImageComponentProps> = ({
            
                 isNext &&
                 <Image
-                    loader={myLoader}
-                    loading={loading}
+                    alt={'alt'}
+                    fill
+                    //loader={myLoader}
+                    //loading={loading}
                     className={className}
-                    src={src}
-                    width={width}
-                    height={height}
+                    src={src} 
+                    width={''}
+                    height={''}
+                    //sizes="100vw"
                     quality={quality}
-                    blurDataURL={blurDataURL}
                     placeholder={placeholder}
-                    layout={layout}
+                    blurDataURL={blurDataURL}
                     onLoadingComplete={() => setLoaded(true)}
-                    {...ImageProps}
+                    onError={() => error ? '' : setError(true)}
+                    //{...ImageProps}
                 />
             }
         </div>
-        </Suspense>
     )
 }
 
