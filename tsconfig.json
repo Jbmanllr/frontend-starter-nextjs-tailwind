@@ -37,6 +37,12 @@
       "@utils": [
         "src/utils"
       ],
+      "@context/*": [
+        "src/context/*"
+      ],
+      "@context": [
+        "src/context"
+      ],
       "@public/*": [
         "public/*"
       ],

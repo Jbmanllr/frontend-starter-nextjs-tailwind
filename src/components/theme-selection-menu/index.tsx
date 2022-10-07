@@ -2,41 +2,43 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Transition, Listbox } from '@headlessui/react'
 import {useTheme} from 'next-themes'
 import cn from 'clsx'
-import { SunIcon, MoonIcon, ComputerDesktopIcon } from '@heroicons/react/20/solid'
 import nookies from 'nookies'
+import { useAppContext } from '@context';
 
-    const themes = [
-      { id: 1, name: 'Light', slug: 'light', icon: <SunIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
-      { id: 2, name: 'Dark', slug: 'dark', icon: <MoonIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
-      { id: 3, name: 'System', slug: 'system', icon: <ComputerDesktopIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/>}
-    ]
- 
+
 export const ThemeSelectionMenu: React.FC = ({ ctx }) => {
 
-    const { theme, setTheme } = useTheme()
+    //const { theme, setTheme } = useTheme()
 
-    console.log('CURRENT THEME', theme)
+    //let [selected, setSelected] = useState(themes[0])
 
-    let [selected, setSelected] = useState(themes[0])
+    const handleClick = (item) => {
+      console.log('CHANGE THEME MODE', item);
+      setThemeMode(item);
+  }
+
+    const {themeMode, setThemeMode, themeModes, isLoggedIn} = useAppContext()
+
+    console.log('CURRENT THEME', themeMode, setThemeMode, isLoggedIn)
 
     useEffect(() => {
-        setTheme(selected.slug);
+        //setTheme(selected.slug);
 
         // Setting Theme Preference Cookie
-        nookies.set(ctx, 'theme', selected.slug, {
+        nookies.set(ctx, 'theme', themeMode.slug, {
           maxAge: 30 * 24 * 60 * 60,
           path: '/',
         })
-      }, [selected]);
+      }, [themeMode]);
 
     return (
       <>
-        <Listbox value={selected} onChange={setSelected}>
+        <Listbox value={themeMode} onChange={handleClick}>
         {({ open }) => (
           <>
             <div className="relative ml-5">
               <Listbox.Button className="inline-flex justify-center rounded-md border border-gray-300 bg-white dark:bg-slate-800 dark:border-slate-600 p-1 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-                <span className="block truncate">{selected.icon}</span>
+                <span className="block truncate">{themeMode.icon}</span>
               </Listbox.Button>
   
               <Transition
@@ -50,7 +52,7 @@ export const ThemeSelectionMenu: React.FC = ({ ctx }) => {
                 leaveTo="transform opacity-0 scale-95"
               >
                 <Listbox.Options className="border border-white border-opacity-10 dark:bg-slate-800/90 backdrop-blur backdrop-filter p-2 absolute right-0 z-10 w-40 origin-top-right rounded-md bg-white/90 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                  {themes.map((theme) => (
+                  {themeModes.map((theme) => (
                     <Listbox.Option
                       key={theme.id}
                       className={({ active }) =>
