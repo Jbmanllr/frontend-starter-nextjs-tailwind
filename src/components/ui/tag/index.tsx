@@ -36,7 +36,7 @@ const Tag: FC<TagProps> = ({
     const [visible, setIsVisible] = useState(true);
     const iconOnly = icon && !children
     
-    const root = cn('tag', className,
+    const root = cn('tag',
         {
             [variant]: !unstyled && variant,
             [`${typeof rounded == "string" ? rounded : 'rounded'}`]: !unstyled && rounded,
@@ -46,6 +46,7 @@ const Tag: FC<TagProps> = ({
             [`size-${size}`]: size,
             [`fill`]: fill,
         },
+        className,
     );
 
     const buttonClasses = cn('close-button', buttonClassName,
@@ -83,7 +84,7 @@ const Tag: FC<TagProps> = ({
                     {closeIcon}
                 </button> 
             }
-            
+
         </Transition>
     )
 }

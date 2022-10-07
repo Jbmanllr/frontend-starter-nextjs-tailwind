@@ -3,11 +3,14 @@ const svgToDataUri = require('mini-svg-data-uri')
 const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+//theme('colors.pink[600]')
+//
+
 module.exports = {
-    purge: {
+    content: {
         enabled: process.env.NODE_ENV === 'production',
         content: [
-            "./pages/**/*.tsx", "./src/**/*.tsx"
+            "./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"
         ],
         options: {
             safelist: ['dark', 'system', 'light'],
@@ -100,6 +103,48 @@ module.exports = {
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),
+        require('tailwindcss-scrims')({
+          directions: {
+            't': 'to bottom',
+            'b': 'to top',
+            'r': 'to left',
+            'l': 'to right',
+          },
+          distances: {
+            '1/4': '25%',
+            '1/3': '33.33333%',
+            '1/2': '50%',
+            '2/3': '66.66666%',
+            '3/4': '75%',
+          },
+          variants: ['responsive', 'hover'],
+        }),
+        require('tailwindcss-themer')({
+          defaultTheme: {
+            // put the default values of any config you want themed
+            // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
+            extend: {
+              // colors is used here for demonstration purposes
+              colors: {
+                rete: 'red'
+              }
+            }
+          },
+          themes: [
+            {
+              // name your theme anything that could be a valid css selector
+              // remember what you named your theme because you will use it as a class to enable the theme
+              name: 'theme-2',
+              // put any overrides your theme has here
+              // just as if you were to extend tailwind's theme like normal https://tailwindcss.com/docs/theme#extending-the-default-theme
+              extend: {
+                colors: {
+                 rete: 'blue'
+                }
+              }
+            }
+          ]
+        }),
         function ({ matchUtilities, theme }) {
           matchUtilities(
             {

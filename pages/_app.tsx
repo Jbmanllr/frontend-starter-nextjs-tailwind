@@ -40,7 +40,7 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
                     </Provider>
                 </Hydrate>
             </QueryClientProvider>
-            <ToastPrimitive.Viewport className="fixed top-5 right-5 z-[100] "/>
+            <ToastPrimitive.Viewport className="fixed top-5 right-5 z-[100]"/>
         </ToastPrimitive.Provider>
         
     );

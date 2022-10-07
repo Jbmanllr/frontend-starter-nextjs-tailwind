@@ -31,7 +31,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
-import { Container, Button, Gridlist, Table, Calendar, Tag } from "@components";
+import { Container, Button, Gridlist, Table, Calendar, Tag, Label } from "@components";
 import { Profile, LogIn, SignIn } from "@views";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
@@ -1093,10 +1093,12 @@ const HomeView: FC = ( { data, isMounted } ) => {
                 <Tag className='success' rounded={'rounded-full'} size={'xl'} icon={<FunnelIcon className={'icon h-5 w-5'} />}>
                 XL
                 </Tag>
+                <Label className="border-1.5 border-primary bg-primary my-theme:font-bold" />
+                <div className="card rounded-none bg-rete my-theme:font-bold"></div>
                 <Tag className='danger' rounded={'rounded-full'} icon={<BarsArrowUpIcon className={'icon h-5 w-5'} />}>
                     MD
                 </Tag>
-                <Tag className='warning' rounded={'rounded-full'} icon={<FunnelIcon className={'icon'} />}>
+                <Tag className='warning border-1.5 border-green-500' rounded={'rounded-full'} icon={<FunnelIcon className={'icon'} />}>
                     MD
                 </Tag>
                 <Tag className='info' rounded={'rounded-full'} icon={<FunnelIcon className={'icon'} />}>

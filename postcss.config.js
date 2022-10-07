@@ -4,6 +4,7 @@ module.exports = {
       'tailwindcss/nesting',
       'tailwindcss',
       'autoprefixer',
+      //...(process.env.NODE_ENV === 'production' ? { cssnano: {} } : {}),
       'postcss-flexbugs-fixes',
       [
         'postcss-preset-env',
@@ -11,7 +12,7 @@ module.exports = {
           autoprefixer: {
             flexbox: 'no-2009',
           },
-          stage: 3,
+          stage: 2,
           features: {
             'custom-properties': false,
           },

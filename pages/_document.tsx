@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
   return (
-    <Html>
+    <Html className={`theme-2`}>
       <Head>
         <meta name="application-name" content="PWA App" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -15,7 +15,7 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#2B5797" />
         <meta name="msapplication-tap-highlight" content="no" />
       </Head>
-      <body className={`site-background overflow-x-hidden`}> 
+      <body className={`site-background overflow-x-hidden transition-colors duration-200`}> 
         <Main />
         <NextScript />
       </body>

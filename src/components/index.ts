@@ -17,6 +17,7 @@ export { ThemeSelectionMenu } from "./theme-selection-menu";
 
 export { default as Button } from "./ui/button";
 export { default as Tag } from "./ui/tag";
+export { default as Label } from "./ui/label";
 //export { default as ButtonGroup } from "./ui/button-group";
 export { default as Ripple } from "./ui/ripple";
 export { default as Loading } from "./ui/loading";

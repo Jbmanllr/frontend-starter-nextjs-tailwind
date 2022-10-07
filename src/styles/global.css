@@ -313,26 +313,319 @@ $bg: red;
     .text-light {
         @apply dark:text-white/90;
     }
+
+
+    .bg-primary {
+        background-color: theme('colors.primary.500');
+    }
+    .bg-secondary {
+        background-color: theme('colors.secondary.500');
+    }
+    .bg-tertiary {
+        background-color: theme('colors.tertiary.500');
+    }
+    .bg-info {
+        background-color: theme('colors.info.400');
+    }
+    .bg-success {
+        background-color: theme('colors.success.400');
+    }
+    .bg-danger {
+        background-color: theme('colors.danger.400');
+    }
+    .bg-warning {
+        background-color: theme('colors.warning.400');
+    }
+    .bg-default {
+        background-color: theme('colors.gray.200');
+    }
+
+
+    .text-primary {
+        color: theme('colors.primary.100');
+    }
+    .text-secondary {
+        color: theme('colors.secondary.100');
+    }
+    .text-tertiary {
+        color: theme('colors.tertiary.100');
+    }
+    .text-info {
+        color: theme('colors.info.900');
+    }
+    .text-success {
+        color: theme('colors.success.900');
+    }
+    .text-danger {
+        color: theme('colors.danger.900');
+    }
+    .text-warning {
+        color: theme('colors.warning.100');
+    }
+    .text-default {
+        color: theme('colors.black');
+    }
+
+
+    .border-primary {
+        border-color: theme('colors.primary.500');
+    }
+    .border-secondary {
+        border-color: theme('colors.secondary.500');
+    }
+    .border-tertiary {
+        border-color: theme('colors.tertiary.500');
+    }
+    .border-info {
+        border-color: theme('colors.info.400');
+    }
+    .border-success {
+        border-color: theme('colors.success.400');
+    }
+    .border-danger {
+        border-color: theme('colors.danger.400');
+    }
+    .border-warning {
+        border-color: theme('colors.warning.400');
+    }
+    .border-default {
+        border-color: theme('colors.default.200');
+    }
+
+
+    .fill-primary {
+        fill: theme('colors.primary.500');
+    }
+    .shadow-primary {
+        color: theme('colors.primary.500');
+    }
+
+
+
+
+
+
+
+    .primary.contained {
+        @apply bg-primary border-primary text-white;
+    }
+    .secondary.contained {
+        @apply bg-secondary border-secondary text-white;
+    }
+    .tertiary.contained {
+        @apply bg-tertiary border-tertiary text-white;
+    }
+    .info.contained {
+        @apply bg-info border-info text-info-50;
+    }
+    .success.contained {
+        @apply bg-success border-success text-success-50;
+    }
+    .warning.contained {
+        @apply bg-warning border-warning text-warning-50;
+    }
+    .danger.contained {
+        @apply bg-danger border-danger text-danger-50;
+    }
+    .default.contained {
+        @apply bg-default border-default text-default-400;
+    }
+
+
+    .primary.outlined {
+        @apply bg-primary-50/50 border-1.5 dark:bg-transparent hover:bg-primary-500/10 border-primary-500 dark:border-primary-300 text-primary-500 dark:text-primary-300;
+    }
+    .secondary.outlined {
+        @apply bg-secondary-50/50 border-1.5 dark:bg-transparent hover:bg-secondary-500/10 border-secondary-500 dark:border-secondary-300 text-secondary-500 dark:text-secondary-300;
+    }
+    .tertiary.outlined {
+        @apply bg-tertiary-50/50 border-1.5 dark:bg-transparent hover:bg-tertiary-500/10 border-tertiary-500 dark:border-tertiary-300 text-tertiary-500 dark:text-tertiary-300;
+    }
+    .info.outlined {
+        @apply bg-info-50/50 border-1.5 dark:bg-transparent hover:bg-info-500/10 border-info-500 dark:border-info-300 text-info-500 dark:text-info-300;
+    }
+    .success.outlined {
+        @apply bg-success-50/50 border-1.5 dark:bg-transparent hover:bg-success-500/10 dark:border-success-300 border-success-500 text-success-500 dark:text-success-300;
+    }
+    .warning.outlined {
+        @apply bg-warning-50/50 border-1.5 dark:bg-transparent hover:bg-warning-500/10 border-warning-500 dark:border-warning-300 text-warning-500 dark:text-warning-300;
+    }
+    .danger.outlined {
+        @apply bg-danger-50/50 border-1.5 dark:bg-transparent hover:bg-danger-500/10 border-danger-500 dark:border-danger-300 text-danger-500 dark:text-danger-300;
+    }
+    .default.outlined {
+        @apply bg-default-50/50 border-1.5 dark:bg-transparent hover:bg-default-500/10 border-default-300 text-default-500;
+    }
+
+
+    .primary-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-primary-300/10 border-primary-200 dark:border-primary-300 text-primary-400 dark:text-primary-300;
+    }
+    .secondary-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-secondary-300/10 border-secondary-200 dark:border-secondary-300 text-secondary-400 dark:text-secondary-300;
+    }
+    .tertiary-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-tertiary-300/10 border-tertiary-200 dark:border-tertiary-300 text-tertiary-400 dark:text-tertiary-300;
+    }
+    .info-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-info-300/10 border-info-200 dark:border-info-300 text-info-400 dark:text-info-300;
+    }
+    .success-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-success-300/10 dark:border-success-200 border-success-300 text-success-400 dark:text-success-300;
+    }
+    .warning-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-warning-300/10 border-warning-200 dark:border-warning-300 text-warning-400 dark:text-warning-300;
+    }
+    .danger-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-danger-300/10 border-danger-200 dark:border-danger-300 text-danger-400 dark:text-danger-300;
+    }
+    .default-light.outlined {
+        @apply bg-transparent border-1.5 hover:bg-default-300/10 border-default-200 text-default-400;
+    }
+
+
+    .primary-light.contained {
+        @apply bg-primary-200 border-primary-200 text-primary-500;
+    }
+    .secondary-light.contained {
+        @apply bg-secondary-100 border-secondary-100 text-secondary-500;
+    }
+    .tertiary-light.contained {
+        @apply bg-tertiary-100 border-tertiary-100 text-tertiary-500;
+    }
+    .info-light.contained {
+        @apply bg-info-200 border-info-200 text-info-500;
+    }
+    .success-light.contained {
+        @apply bg-success-200 border-success-200 text-success-600;
+    }
+    .warning-light.contained {
+        @apply bg-warning-200 border-warning-200 text-warning-600;
+    }
+    .danger-light.contained {
+        @apply bg-danger-200 border-danger-200 text-danger-500;
+    }
+    .default-light.contained {
+        @apply bg-default-200 border-default-200 text-default-500;
+    }
+
+    
+    .tot.contained {
+        @apply bg-white dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
+    }
+    .tot-s1.contained {
+        @apply bg-light-palette-50 border-light-palette-50 text-light-palette-700 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
+    }
+    .tot-s2.contained {
+        @apply bg-light-palette-100 border-light-palette-100 text-light-palette-600 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
+    }
+    .tot-s3.contained {
+        @apply bg-light-palette-200 border-light-palette-200 text-light-palette-600 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
+    }
+    .tot-s4.contained {
+        @apply bg-light-palette-300 border-light-palette-300 text-light-palette-600 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
+    }
+    .tot-s5.contained {
+        @apply bg-light-palette-400 border-light-palette-400 text-light-palette-50 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
+    }
+    .tot-s6.contained {
+        @apply bg-light-palette-500 border-light-palette-500 text-light-palette-100 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
+    }
+    .tot-s7.contained {
+        @apply bg-light-palette-600 border-light-palette-600 text-light-palette-100 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
+    }
+    .tot-s8.contained {
+        @apply bg-light-palette-700 border-light-palette-700 text-light-palette-100 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
+    }
+    .tot-s9.contained {
+        @apply bg-light-palette-800 border-light-palette-800 text-light-palette-100 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
+    }
+    .tot-s10.contained {
+        @apply bg-light-palette-900 border-light-palette-900 text-light-palette-100 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
+    }
+    
+
+    .tot.outlined {
+        @apply bg-transparent border-1.5 dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
+    }
+    .tot-s1.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
+    }
+    .tot-s2.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
+    }
+    .tot-s3.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
+    }
+    .tot-s4.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-300 text-light-palette-300 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
+    }
+    .tot-s5.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-400 text-light-palette-400 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
+    }
+    .tot-s6.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-500 text-light-palette-500 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
+    }
+    .tot-s7.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-600 text-light-palette-600 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
+    }
+    .tot-s8.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-700 text-light-palette-700 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
+    }
+    .tot-s9.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-800 text-light-palette-800 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
+    }
+    .tot-s10.outlined {
+        @apply bg-transparent border-1.5 border-light-palette-900 text-light-palette-900 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
+    }
+
+
 }
 
 @layer components {
 
     .card {
-        background-color: theme('colors.white');
-        border-radius: theme('borderRadius.lg');
+        @apply rounded-md bg-primary;
+        //border-radius: theme('borderRadius.lg');
+        //background-color: theme('colors.white');
         padding: theme('spacing.6');
         box-shadow: theme('boxShadow.xl');
-        background-color: red;
     }
+
+    .label {
+        @apply inline-flex items-center box-border cursor-default select-none;
+    }
+
+
+    .label.xs {
+        @apply text-xs font-normal h-6;
+    }
+    .label.sm {
+        @apply text-xs font-normal h-7;
+    }
+    .label.md {
+        @apply text-xs font-medium h-8;
+    }
+    .label.lg {
+        @apply text-xs font-medium h-9;
+    }
+    .label.xl {
+        @apply text-sm font-medium h-10;
+    }
+    .label.fill {
+        @apply text-sm font-medium w-full px-[8%] flex justify-between;
+    }
+
 
 
     /* TAG */
 
     .tag {
-        @apply box-border inline-flex items-center h-min cursor-default select-none transition;
+        @apply box-border inline-flex items-center cursor-default select-none transition;
     }
 
 
+    
     /* TAG SIZE */
 
     .tag.size-xs {
@@ -631,264 +924,9 @@ $bg: red;
 
 @layer utilities {
 
-    .bg-primary {
-        background-color: theme('colors.primary.500');
-    }
-    .bg-secondary {
-        background-color: theme('colors.secondary.500');
-    }
-    .bg-tertiary {
-        background-color: theme('colors.tertiary.500');
-    }
-    .bg-info {
-        background-color: theme('colors.info.400');
-    }
-    .bg-success {
-        background-color: theme('colors.success.400');
-    }
-    .bg-danger {
-        background-color: theme('colors.danger.400');
-    }
-    .bg-warning {
-        background-color: theme('colors.warning.400');
-    }
-    .bg-default {
-        background-color: theme('colors.gray.200');
-    }
 
 
-    .text-primary {
-        color: theme('colors.primary.100');
-    }
-    .text-secondary {
-        color: theme('colors.secondary.100');
-    }
-    .text-tertiary {
-        color: theme('colors.tertiary.100');
-    }
-    .text-info {
-        color: theme('colors.info.900');
-    }
-    .text-success {
-        color: theme('colors.success.900');
-    }
-    .text-danger {
-        color: theme('colors.danger.900');
-    }
-    .text-warning {
-        color: theme('colors.warning.100');
-    }
-    .text-default {
-        color: theme('colors.black');
-    }
 
-
-    .border-primary {
-        border-color: theme('colors.primary.500');
-    }
-    .border-secondary {
-        border-color: theme('colors.secondary.500');
-    }
-    .border-tertiary {
-        border-color: theme('colors.tertiary.500');
-    }
-    .border-info {
-        border-color: theme('colors.info.400');
-    }
-    .border-success {
-        border-color: theme('colors.success.400');
-    }
-    .border-danger {
-        border-color: theme('colors.danger.400');
-    }
-    .border-warning {
-        border-color: theme('colors.warning.400');
-    }
-    .border-default {
-        border-color: theme('colors.default.200');
-    }
-
-
-    .fill-primary {
-        fill: theme('colors.primary.500');
-    }
-    .shadow-primary {
-        color: theme('colors.primary.500');
-    }
-
-
-    .primary.contained {
-        @apply bg-primary border-primary text-white;
-    }
-    .secondary.contained {
-        @apply bg-secondary border-secondary text-white;
-    }
-    .tertiary.contained {
-        @apply bg-tertiary border-tertiary text-white;
-    }
-    .info.contained {
-        @apply bg-info border-info text-info-50;
-    }
-    .success.contained {
-        @apply bg-success border-success text-success-50;
-    }
-    .warning.contained {
-        @apply bg-warning border-warning text-warning-50;
-    }
-    .danger.contained {
-        @apply bg-danger border-danger text-danger-50;
-    }
-    .default.contained {
-        @apply bg-default border-default text-default-400;
-    }
-
-
-    .primary.outlined {
-        @apply bg-primary-50/50 border-1.5 dark:bg-transparent hover:bg-primary-500/10 border-primary-500 dark:border-primary-300 text-primary-500 dark:text-primary-300;
-    }
-    .secondary.outlined {
-        @apply bg-secondary-50/50 border-1.5 dark:bg-transparent hover:bg-secondary-500/10 border-secondary-500 dark:border-secondary-300 text-secondary-500 dark:text-secondary-300;
-    }
-    .tertiary.outlined {
-        @apply bg-tertiary-50/50 border-1.5 dark:bg-transparent hover:bg-tertiary-500/10 border-tertiary-500 dark:border-tertiary-300 text-tertiary-500 dark:text-tertiary-300;
-    }
-    .info.outlined {
-        @apply bg-info-50/50 border-1.5 dark:bg-transparent hover:bg-info-500/10 border-info-500 dark:border-info-300 text-info-500 dark:text-info-300;
-    }
-    .success.outlined {
-        @apply bg-success-50/50 border-1.5 dark:bg-transparent hover:bg-success-500/10 dark:border-success-300 border-success-500 text-success-500 dark:text-success-300;
-    }
-    .warning.outlined {
-        @apply bg-warning-50/50 border-1.5 dark:bg-transparent hover:bg-warning-500/10 border-warning-500 dark:border-warning-300 text-warning-500 dark:text-warning-300;
-    }
-    .danger.outlined {
-        @apply bg-danger-50/50 border-1.5 dark:bg-transparent hover:bg-danger-500/10 border-danger-500 dark:border-danger-300 text-danger-500 dark:text-danger-300;
-    }
-    .default.outlined {
-        @apply bg-default-50/50 border-1.5 dark:bg-transparent hover:bg-default-500/10 border-default-300 text-default-500;
-    }
-
-
-    .primary-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-primary-300/10 border-primary-200 dark:border-primary-300 text-primary-400 dark:text-primary-300;
-    }
-    .secondary-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-secondary-300/10 border-secondary-200 dark:border-secondary-300 text-secondary-400 dark:text-secondary-300;
-    }
-    .tertiary-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-tertiary-300/10 border-tertiary-200 dark:border-tertiary-300 text-tertiary-400 dark:text-tertiary-300;
-    }
-    .info-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-info-300/10 border-info-200 dark:border-info-300 text-info-400 dark:text-info-300;
-    }
-    .success-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-success-300/10 dark:border-success-200 border-success-300 text-success-400 dark:text-success-300;
-    }
-    .warning-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-warning-300/10 border-warning-200 dark:border-warning-300 text-warning-400 dark:text-warning-300;
-    }
-    .danger-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-danger-300/10 border-danger-200 dark:border-danger-300 text-danger-400 dark:text-danger-300;
-    }
-    .default-light.outlined {
-        @apply bg-transparent border-1.5 hover:bg-default-300/10 border-default-200 text-default-400;
-    }
-
-
-    .primary-light.contained {
-        @apply bg-primary-200 border-primary-200 text-primary-500;
-    }
-    .secondary-light.contained {
-        @apply bg-secondary-100 border-secondary-100 text-secondary-500;
-    }
-    .tertiary-light.contained {
-        @apply bg-tertiary-100 border-tertiary-100 text-tertiary-500;
-    }
-    .info-light.contained {
-        @apply bg-info-200 border-info-200 text-info-500;
-    }
-    .success-light.contained {
-        @apply bg-success-200 border-success-200 text-success-600;
-    }
-    .warning-light.contained {
-        @apply bg-warning-200 border-warning-200 text-warning-600;
-    }
-    .danger-light.contained {
-        @apply bg-danger-200 border-danger-200 text-danger-500;
-    }
-    .default-light.contained {
-        @apply bg-default-200 border-default-200 text-default-500;
-    }
-
-    
-    .tot.contained {
-        @apply bg-white dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
-    }
-    .tot-s1.contained {
-        @apply bg-light-palette-50 border-light-palette-50 text-light-palette-700 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
-    }
-    .tot-s2.contained {
-        @apply bg-light-palette-100 border-light-palette-100 text-light-palette-600 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
-    }
-    .tot-s3.contained {
-        @apply bg-light-palette-200 border-light-palette-200 text-light-palette-600 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
-    }
-    .tot-s4.contained {
-        @apply bg-light-palette-300 border-light-palette-300 text-light-palette-600 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
-    }
-    .tot-s5.contained {
-        @apply bg-light-palette-400 border-light-palette-400 text-light-palette-50 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
-    }
-    .tot-s6.contained {
-        @apply bg-light-palette-500 border-light-palette-500 text-light-palette-100 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
-    }
-    .tot-s7.contained {
-        @apply bg-light-palette-600 border-light-palette-600 text-light-palette-100 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
-    }
-    .tot-s8.contained {
-        @apply bg-light-palette-700 border-light-palette-700 text-light-palette-100 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
-    }
-    .tot-s9.contained {
-        @apply bg-light-palette-800 border-light-palette-800 text-light-palette-100 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
-    }
-    .tot-s10.contained {
-        @apply bg-light-palette-900 border-light-palette-900 text-light-palette-100 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
-    }
-    
-
-    .tot.outlined {
-        @apply bg-transparent border-1.5 dark:bg-dark-color-accent-9 border-light-palette-200 dark:border-dark-palette-700/60 text-light-palette-500 dark:text-dark-palette-200
-    }
-    .tot-s1.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-900 dark:text-dark-palette-100 dark:border-dark-palette-900
-    }
-    .tot-s2.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-800 dark:text-dark-palette-100 dark:border-dark-palette-800
-    }
-    .tot-s3.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-200 text-light-palette-200 dark:bg-dark-palette-700 dark:text-dark-palette-200 dark:border-dark-palette-700
-    }
-    .tot-s4.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-300 text-light-palette-300 dark:bg-dark-palette-600 dark:text-dark-palette-200 dark:border-dark-palette-600
-    }
-    .tot-s5.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-400 text-light-palette-400 dark:bg-dark-palette-500 dark:text-dark-palette-200 dark:border-dark-palette-500
-    }
-    .tot-s6.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-500 text-light-palette-500 dark:bg-dark-palette-400 dark:text-dark-palette-200 dark:border-dark-palette-400
-    }
-    .tot-s7.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-600 text-light-palette-600 dark:bg-dark-palette-300 dark:text-dark-palette-600 dark:border-dark-palette-300
-    }
-    .tot-s8.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-700 text-light-palette-700 dark:bg-dark-palette-200 dark:text-dark-palette-600 dark:border-dark-palette-200
-    }
-    .tot-s9.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-800 text-light-palette-800 dark:bg-dark-palette-100 dark:text-dark-palette-600 dark:border-dark-palette-100
-    }
-    .tot-s10.outlined {
-        @apply bg-transparent border-1.5 border-light-palette-900 text-light-palette-900 dark:bg-dark-palette-50 dark:text-dark-palette-600 dark:border-dark-palette-50
-    }
 
 
 }
