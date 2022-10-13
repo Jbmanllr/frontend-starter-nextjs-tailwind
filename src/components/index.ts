@@ -13,7 +13,12 @@ export { default as Footer } from "./footer";
 
 export { GlobalSearch } from "./global-search";
 export { default as Calendar } from "./calendar";
-export { ThemeSelectionMenu } from "./theme-selection-menu";
+
+export { default as UiPreferencesMenu } from "./ui-preferences-menu";
+export { default as ColorBlindSchemeMenu } from "./theme-cb-scheme-menu";
+export { default as ThemeMenu } from "./theme-menu";
+export { default as ThemeSchemeMenu } from "./theme-scheme-menu";
+export { default as ListingLayoutMenu } from "./theme-listing-layout-menu";
 
 export { default as Button } from "./ui/button";
 export { default as Tag } from "./ui/tag";

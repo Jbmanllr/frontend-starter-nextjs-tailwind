@@ -4,15 +4,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Hydrate } from "@tanstack/react-query";
 import { Provider } from "react-redux";
 import store from "@redux/store";
-import { ThemeProvider } from 'next-themes'
 import { Layouts } from '../src/components'
-import NextCookies from 'next-cookies';
-import { get } from 'lodash';
 import { DefaultSeo } from 'next-seo'
 import SEO from '../next-seo.config'
 import * as ToastPrimitive from '@radix-ui/react-toast';
 import {Toast} from '@components';
-import { AppWrapper } from '@context';
+import { AppWrapper, UIProvider } from '@context';
 
 //Style Imports
 import "tailwindcss/tailwind.css";
@@ -27,25 +24,27 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
     const queryClient = new QueryClient();
 
     return (
-        <AppWrapper>
-            <ToastPrimitive.Provider label='Notifications' swipeDirection="right">
-                <Toast />
-                <QueryClientProvider client={queryClient}>
-                    <Hydrate state={pageProps.dehydratedState}>
-                        <Provider store={store}>
-                            <ThemeProvider attribute="class">
-                                <Layouts>
-                                    <DefaultSeo {...SEO} />
-                                    <Component {...pageProps} />
-                                </Layouts>
-                            </ThemeProvider>
-                        </Provider>
-                    </Hydrate>
-                </QueryClientProvider>
-                <ToastPrimitive.Viewport className="fixed top-5 right-5 z-[100]"/>
-            </ToastPrimitive.Provider>
-        </AppWrapper>
-        
+
+            <UIProvider attribute='class' defaultThemeScheme='light' enableSystem={true} disableTransitionOnChange={true}>
+                <AppWrapper>
+                    <ToastPrimitive.Provider label='Notifications' swipeDirection="right">
+                        <Toast />
+                        <QueryClientProvider client={queryClient}>
+                            <Hydrate state={pageProps.dehydratedState}>
+                                <Provider store={store}>
+                                    
+                                        <Layouts>
+                                            <DefaultSeo {...SEO} />
+                                            <Component {...pageProps} />
+                                        </Layouts>
+                                    
+                                </Provider>
+                            </Hydrate>
+                        </QueryClientProvider>
+                        <ToastPrimitive.Viewport className="fixed top-5 right-5 z-[100]"/>
+                    </ToastPrimitive.Provider>
+                </AppWrapper>
+            </UIProvider> 
     );
 }
 

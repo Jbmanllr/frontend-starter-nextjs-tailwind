@@ -1,50 +1,42 @@
-import { createContext, useContext, useState } from 'react';
-import { SunIcon, MoonIcon, ComputerDesktopIcon } from '@heroicons/react/20/solid'
-import {useTheme} from 'next-themes'
-
+import { createContext, useContext, useState, useEffect } from 'react';
+import nookies from 'nookies'
 
 interface AppContextProps {
-    htmlClassName?: string;
-    bodyClassName?: string;
     isLoggedIn?: boolean;
-    userRole?: string;
-    theme?:  'default' | 'theme-1' | 'theme-2';
-    themeMode?: any;
+    setIsLoggedIn?: React.SetStateAction<boolean>
+    userRole?: 'guest' | 'user' | 'editor' | 'moderator' | 'admin';
+    UI?: AppContextUIProps;
     children?: React.ReactNode;
 }
 
-const themeModes = [
-    { id: 1, name: 'Light', slug: 'light', icon: <SunIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
-    { id: 2, name: 'Dark', slug: 'dark', icon: <MoonIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
-    { id: 3, name: 'System', slug: 'system', icon: <ComputerDesktopIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/>}
-  ]
-
+interface AppContextUIProps {
+  theme?: 'default' | 'theme-2' | 'theme-3';
+  setTheme?: React.SetStateAction<'default' | 'theme-2' | 'theme-3'>
+  themeMode?:  'light' | 'dark' | 'system';
+  setThemeMode?: React.SetStateAction<'light' | 'dark' | 'system'>
+  colorBlindUI?: null | boolean | 'deuteranomalia' | 'protanopia' | 'tritanopia';
+  setColorBlindUI?: React.SetStateAction<null | boolean | 'deuteranomalia' | 'protanopia' | 'tritanopia'>
+}
 
 const AppContext = createContext<AppContextProps | null>(null);
 
 export default function AppWrapper({ children }) {
-    const { theme, setTheme } = useTheme()
     
-    //const [theme, setTheme] = useState<AppContextProps['theme']>('default')
-    const [themeMode, setThemeMode] = useState<AppContextProps['themeMode']>(themeModes[0])
     const [isLoggedIn, setIsLoggedIn] = useState<AppContextProps['isLoggedIn']>(false)
+    const [userRole, setUserRole] = useState<AppContextProps['userRole']>('guest')
 
   console.log(`
-        Theme: ${theme},
-        Theme Mode: ${themeMode},
-        Is Logged In: ${isLoggedIn}
-   `)
+        APP CONTEXT:
+        Is Logged In: ${isLoggedIn},
+        ${ isLoggedIn ? `Logged in as: ${userRole}` : '' }
+  `)
 
   return (
     <AppContext.Provider 
         value={{ 
             isLoggedIn,
-            setIsLoggedIn, 
-            theme, 
-            setTheme,
-            themeModes,
-            themeMode,
-            setThemeMode 
+            setIsLoggedIn,
+            userRole
         }}
     >
       {children}

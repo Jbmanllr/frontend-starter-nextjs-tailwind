@@ -1,6 +1,5 @@
 import { FC, CSSProperties } from 'react'
 import cn from 'clsx'
-import Link from 'next/link'
 import Image from 'next/image'
 //import type { Product } from '@commerce/types/product'
 //import s from './ProductCard.module.css'
@@ -25,7 +24,7 @@ const placeholderImg = '/product-img-placeholder.svg'
 const Card: FC<CardProps> = ({ children, item, imgProps, className, variant = 'default', layout = 'horizontal' }) => {
 
   const rootClassName = cn(
-    'border border-light-palette-100 dark:border-dark-palette-700/80 h-full flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground dark:highlight-white/5 shadow-md shadow-gray-200/60',
+    'border border-light-palette-100/70 dark:border-dark-palette-800/50 h-full flex overflow-hidden rounded-lg col-span-1 rounded-lg site-foreground dark:highlight-white/5 shadow-md shadow-gray-200/60',
     { ['horizontal flex-row h-40']: layout === 'horizontal', ['vertical flex-col divide-y divide-gray-200 dark:divide-dark-palette-700']: layout === 'vertical' },
     className
   )

@@ -1,7 +1,7 @@
-const colors = require('tailwindcss/colors')
-const svgToDataUri = require('mini-svg-data-uri')
-const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette')
-const defaultTheme = require('tailwindcss/defaultTheme')
+const colors = require('tailwindcss/colors');
+const svgToDataUri = require('mini-svg-data-uri');
+const { default: flattenColorPalette } = require('tailwindcss/lib/util/flattenColorPalette');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 //theme('colors.pink[600]')
 //
@@ -100,6 +100,7 @@ module.exports = {
         extend: {},
     },
     plugins: [
+        require('@headlessui/tailwindcss')({ prefix: 'ui' }),
         require('@tailwindcss/forms'),
         require('@tailwindcss/typography'),
         require('@tailwindcss/line-clamp'),

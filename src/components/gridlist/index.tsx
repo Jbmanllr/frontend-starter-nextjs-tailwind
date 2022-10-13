@@ -5,18 +5,16 @@ import Image, { ImageProps } from 'next/image'
 import { Card, Button, Pagination } from "@components";
 import { RadioGroup } from '@headlessui/react'
 import { AtSymbolIcon, Bars3Icon ,ChevronRightIcon, ChevronLeftIcon, AcademicCapIcon, ChevronDownIcon, PhoneIcon, EnvelopeIcon, CheckIcon, ChevronUpDownIcon, MagnifyingGlassIcon, FunnelIcon, MinusIcon, PlusIcon, Squares2X2Icon } from '@heroicons/react/20/solid'
-
-
-
+import { useUIContext } from '@context';
 
 const layouts = [
   {
     name: 'Vertical',
-    id: 'vertical'
+    slug: 'vertical'
   },
   {
     name: 'Horizontal',
-    id: 'horizontal'
+    slug: 'horizontal'
   }
 ]
 
@@ -33,22 +31,25 @@ const placeholderImg = '/product-img-placeholder.svg'
 
 const GridList: FC<GridListProps> = ({ data, children, item, className, variant = 'default', defaultLayout = 'vertical' }) => {
 
-const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
+const {globalListingLayout, setGlobalListingLayout} = useUIContext()
+const [selectedLayout, setSelectedLayout] = useState(globalListingLayout)
+
+console.log('LYOUT LISTING HOME', globalListingLayout)
 
   const rootClassName = cn(
     'mx-auto grid gap-5 lg:max-w-none',
-    { ['horizontal lg:grid-cols-2']: selectedLayout === 'horizontal', ['vertical xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4']: selectedLayout === 'vertical' },
+    { ['horizontal lg:grid-cols-2']: globalListingLayout === 'horizontal', ['vertical xs:grid-cols-2 md:grid-cols-3 xl:grid-cols-4']: globalListingLayout === 'vertical' },
     className
   )
 
   const imgClassName = cn(
     'ob+ject-cover',
-    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: selectedLayout === 'horizontal', ['w-full h-48']: selectedLayout === 'vertical' }
+    { ['w-40 h-40 p-3 overflow-hidden rounded-md']: globalListingLayout === 'horizontal', ['w-full h-48']: globalListingLayout === 'vertical' }
   )
 
   const contentClassName = cn(
     'flex flex-1 flex-col justify-between',
-    { ['p-3']: selectedLayout === 'horizontal', ['p-5']: selectedLayout === 'vertical' }
+    { ['p-3']: globalListingLayout === 'horizontal', ['p-5']: globalListingLayout === 'vertical' }
   )
 
 
@@ -56,13 +57,13 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
   <>
     <div className="flex pb-5">
       <div className="ml-auto">
-        <RadioGroup value={selectedLayout} onChange={setSelectedLayout}>
+        <RadioGroup value={globalListingLayout} onChange={setSelectedLayout}>
           <RadioGroup.Label className="sr-only">Select List Layout</RadioGroup.Label>
           <div className="flex">
             {layouts.map((layout) => (
               <RadioGroup.Option
-                key={layout.id}
-                value={layout.id}
+                key={layout.slug}
+                value={layout.slug}
                 className=''>
                 {({ active, checked }) => (
                   <>
@@ -100,7 +101,7 @@ const [selectedLayout, setSelectedLayout] = useState(defaultLayout)
 
             <li key={i}>
                 <Link href={`/product`}>
-                  <Card item={item} layout={selectedLayout}/>
+                  <Card item={item} layout={globalListingLayout}/>
                 </Link>
             </li>
   

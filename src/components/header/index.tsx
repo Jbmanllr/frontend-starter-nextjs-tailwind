@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
 import cn from 'clsx'
 import { Menu, Popover, Transition, Dialog } from '@headlessui/react'
-import { ThemeSelectionMenu, GlobalSearch } from "@components";
+import { UiPreferencesMenu, ThemeSchemeMenu, GlobalSearch } from "@components";
 import { 
     ChevronDownIcon,
     PencilSquareIcon,
@@ -83,7 +83,7 @@ const user = {
 
 export const Header: React.FC = () => {
 
-  let [isOpen, setIsOpen] = useState(true)
+  let [isOpen, setIsOpen] = useState(false)
 
   function closeModal() {
     setIsOpen(false)
@@ -96,10 +96,10 @@ export const Header: React.FC = () => {
     return (
 
     
-<header className="fixed dark:bg-slate-600 shadow bg-white/70 backdrop-blur-sm z-50 w-full">
+<header className="fixed dark:bg-slate-800/80 shadow bg-white/70 backdrop-blur z-50 w-full">
 
-    <Popover className="relative max-w-screen-2xl mx-auto">
-      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3.5 md:justify-start md:space-x-10">
+    <Popover className="relative max-w-screen-xl mx-auto">
+      <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-4 md:justify-start md:space-x-10">
         <div>
           <a href="#" className="flex">
             <span className="sr-only">Your Company</span>
@@ -110,12 +110,20 @@ export const Header: React.FC = () => {
             />
           </a>
         </div>
+        <button
+          type="button"
+          onClick={openModal}
+          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+        >
+          O
+        </button>
         <div className="-my-2 -mr-2 md:hidden">
           <Popover.Button className="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
             <span className="sr-only">Open menu</span>
             <Bars3Icon className="h-6 w-6" aria-hidden="true" />
           </Popover.Button>
         </div>
+        
         <div className="hidden md:flex md:flex-1 md:items-center md:justify-between">
           <Popover.Group as="nav" className="flex space-x-10">
             <Popover className="relative">
@@ -250,7 +258,7 @@ export const Header: React.FC = () => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-black bg-opacity-25" />
+            <div className="fixed inset-0 bg-black bg-opacity-30 backdrop-blur-sm" />
           </Transition.Child>
 
           <div className="fixed inset-0 overflow-y-auto">
@@ -307,18 +315,12 @@ export const Header: React.FC = () => {
       >
         Toast
       </Button>
-<button
-  type="button"
-  onClick={openModal}
-  className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
->
-  O
-</button>
+
 </div>
 
           <GlobalSearch />
-
-<ThemeSelectionMenu />
+<UiPreferencesMenu />
+<ThemeSchemeMenu />
 
 <a
 href="#"
@@ -411,6 +413,7 @@ className="ml-5 flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text
               </div>
               <div className="mt-6">
                 <nav className="grid gap-6">
+                  <UiPreferencesMenu />
                   {solutions.map((item) => (
                     <a
                       key={item.name}

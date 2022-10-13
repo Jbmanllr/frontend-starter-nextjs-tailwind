@@ -134,7 +134,7 @@ class Options extends React.Component {
      */}
         const options = pageSizeOptions.map((size, i) => (
             <>
-            {console.log('options page size', size)}
+    
             <Listbox.Option
                 key={i}
                 className={({ active }) =>

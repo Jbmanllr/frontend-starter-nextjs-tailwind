@@ -49,10 +49,6 @@ const Toast = React.forwardRef((props, forwardedRef) => {
     <>
         {toasties.map((toast, index) => (
             
-            <>
-
-            {console.log('Toastz', toast, index)}
-
             <ToastPrimitive.Root
                 key={index}
                 open={open}
@@ -91,7 +87,7 @@ const Toast = React.forwardRef((props, forwardedRef) => {
                     </div>
                 </div>
             </ToastPrimitive.Root>
-            </>
+    
         ))}
     </>
   );

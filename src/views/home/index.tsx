@@ -268,7 +268,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
              {/*<img src="https://tailwindui.com/img/beams-basic.png" alt="" class="absolute top-0 left-1/2 -ml-[39rem] w-[113.125rem] max-w-none"></img>*/}
   
       {/*<div className="flex flex-col justify-center relative overflow-hidden sm:py-12">
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-xl mx-auto">
       <div className="relative group">
         <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg blur opacity-10 group-hover:opacity-25 transition duration-1000 group-hover:duration-1000"></div>
         <div className="relative px-7 py-6 bg-white ring-1 ring-gray-900/5 rounded-lg leading-none flex items-top justify-start space-x-6">
@@ -475,7 +475,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
           </Dialog>
         </Transition.Root>
   
-        <div className="mx-auto max-w-screen-2xl py-16 px-4 sm:px-6 lg:px-8 rounded-lg mb-4">
+        <div className="mx-auto max-w-screen-xl py-16 px-4 sm:px-6 lg:px-8 rounded-lg mb-4">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-100">Workspace sale</h1>
           <p className="mt-4 max-w-2xl text-xl font-bold text-gray-700 dark:text-slate-300">
             Our thoughtfully designed workspace objects are crafted in limited runs.
@@ -773,7 +773,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
           </h2>
   
           <div className="border-b border-gray-200 dark:border-slate-500 bg-white py-4 dark:bg-slate-600">
-            <div className="mx-auto flex max-w-screen-2xl items-center justify-between px-4 sm:px-6 lg:px-8">
+            <div className="mx-auto flex max-w-screen-xl items-center justify-between px-4 sm:px-6 lg:px-8">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900 dark:text-slate-400">
@@ -885,7 +885,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
           {/* Active filters */}
           <div className="site-foreground-accent-1 shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
-            <div className="mx-auto max-w-screen-2xl p-4 sm:flex sm:items-center sm:px-6 lg:px-8">
+            <div className="mx-auto max-w-screen-xl p-4 sm:flex sm:items-center sm:px-6 lg:px-8">
               <div className="text-sm font-medium text-gray-500 dark:text-slate-400">
                 Filters
                 <span className="sr-only">, active</span>
@@ -990,7 +990,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
                 {/* Filters */}
-                <form className="bg-white border-light-palette-100 dark:bg-dark-palette-700 dark:border-dark-palette-700 dark:highlight-white/10 hidden lg:block mr-6 md:mr-10 rounded-md shadow p-4">
+                <form className="bg-white border-light-palette-100 dark:bg-dark-palette-700 dark:border-dark-palette-700 dark:highlight-white/10 hidden lg:block mr-5 md:mr-7 rounded-md shadow p-4">
                   <h3 className="sr-only">Categories</h3>
                   <ul role="list" className="transition-all space-y-2 border-b pb-6 text-sm font-medium text-gray-900">
                     {subCategories.map((category) => (
@@ -1680,8 +1680,8 @@ const HomeView: FC = ( { data, isMounted } ) => {
             <Calendar />
         </div>
 
-        {false && isMounted ?
-            <div className="w-full max-w-screen-2xl mx-auto mt-20">
+        {true && isMounted ?
+            <div className="w-full max-w-screen-xl mx-auto mt-20">
                 <Table />
             </div> : 'LOADING TABLE'
         }
@@ -1822,7 +1822,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
               </div>
             </section>
           </main>
-  <div className="max-w-screen-2xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-12 lg:px-28 mb-12">
+  <div className="max-w-screen-xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-12 lg:px-28 mb-12">
     <div className="">
       <div className="p-6">
       <h1 className="text-3xl font-bold mb-3 text-color">Lorem ipsum.</h1>
@@ -1887,7 +1887,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
   
   
-  <div className="max-w-screen-2xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-12 lg:px-28 mb-12">
+  <div className="max-w-screen-xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-12 lg:px-28 mb-12">
     <div className="bg-primary-500">
       <div className="p-6">
       <h1 className="text-3xl font-bold mb-3 text-white">Lorem ipsum.</h1>
@@ -1990,7 +1990,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
   </div>
   
-  <div className="max-w-screen-2xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-12 lg:px-28 mb-12">
+  <div className="max-w-screen-xl mx-auto grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 px-12 lg:px-28 mb-12">
     <div className="bg-secondary-500">
       <div className="p-6">
       <h1 className="text-3xl font-bold mb-3 text-white">Lorem ipsum.</h1>
@@ -2093,7 +2093,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
   
   </div>
   
-    <div className="max-w-screen-2xl mx-auto grid grid-cols-1 gap-3 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-12 lg:px-28 mb-12">
+    <div className="max-w-screen-xl mx-auto grid grid-cols-1 gap-3 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 px-12 lg:px-28 mb-12">
   
     <div className="flex">
       <div className="bg-info-600">

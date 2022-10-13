@@ -68,12 +68,12 @@ const ImageComponent: FC<ImageComponentProps> = ({
 
     const timeStamp = new Date().getTime()
 
-    console.log('IMG PROPS', src, blurDataURL, ImageProps, props, className, loaded)
+   //console.log('IMG PROPS', src, blurDataURL, ImageProps, props, className, loaded)
 
     //src={`${src}?${timeStamp}`}
 
     return (<>
-      <img src={blurDataURL} alt="Red dot" className='h-8 w-full' />
+      {/*<img src={blurDataURL} alt="Red dot" className='h-8 w-full' />*/}
         <div className={imgWrapperClassName}>
         
             {

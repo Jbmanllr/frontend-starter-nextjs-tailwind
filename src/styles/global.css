@@ -100,7 +100,7 @@ $bg: red;
     }*/
 
     .site-background {
-        @apply bg-light-palette-50/40 dark:bg-dark-palette-900;
+        @apply bg-light-palette-50/60 dark:bg-dark-palette-900;
     }
 
     /* BG ACCENTS */

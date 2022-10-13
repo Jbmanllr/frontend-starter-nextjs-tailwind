@@ -22,7 +22,7 @@ interface NavbarProps {
 
 const Breadcrumb: FC<NavbarProps> = ({ links }) => (
   <>
-  <div className="max-w-screen-2xl py-3 px-4 sm:px-6 lg:px-8 mx-auto w-full">
+  <div className="max-w-screen-xl py-3 px-4 sm:px-6 lg:px-8 mx-auto w-full">
 <nav className="flex" aria-label="Breadcrumb">
       <ol role="list" className="flex items-center space-x-4">
         <li>

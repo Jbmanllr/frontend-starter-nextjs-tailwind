@@ -1,44 +1,40 @@
-import React, { Fragment, useState, useEffect } from "react";
-import { Transition, Listbox } from '@headlessui/react'
-import {useTheme} from 'next-themes'
+import React, { Fragment, useState } from "react";
+import { Transition, Listbox, RadioGroup } from '@headlessui/react'
 import cn from 'clsx'
-import nookies from 'nookies'
-import { useAppContext } from '@context';
+import { ColorBlindSchemeMenu, ThemeMenu } from '@components';
+import { useAppContext, useUIContext } from '@context';
+import { SunIcon, MoonIcon, ComputerDesktopIcon } from '@heroicons/react/20/solid'
 
+const themeModes = [
+  { id: 1, name: 'Light', slug: 'light', icon: <SunIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
+  { id: 2, name: 'Dark', slug: 'dark', icon: <MoonIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/> },
+  { id: 3, name: 'System', slug: 'system', icon: <ComputerDesktopIcon className="h-4 text-gray-400 dark:text-slate-400 group-hover:text-gray-600" aria-hidden="true"/>}
+]
 
-export const ThemeSelectionMenu: React.FC = ({ ctx }) => {
+const ThemeSchemeMenu: React.FC = () => {
 
-    //const { theme, setTheme } = useTheme()
+    //const { isLoggedIn } = useAppContext()
 
-    //let [selected, setSelected] = useState(themes[0])
+    const { themeScheme, setThemeScheme } = useUIContext()
 
-    const handleClick = (item) => {
-      console.log('CHANGE THEME MODE', item);
-      setThemeMode(item);
-  }
+    console.log('THEME SCHEME', themeScheme)
 
-    const {themeMode, setThemeMode, themeModes, isLoggedIn} = useAppContext()
+    let [selected, setSelected] = useState(themeModes[0])
 
-    console.log('CURRENT THEME', themeMode, setThemeMode, isLoggedIn)
-
-    useEffect(() => {
-        //setTheme(selected.slug);
-
-        // Setting Theme Preference Cookie
-        nookies.set(ctx, 'theme', themeMode.slug, {
-          maxAge: 30 * 24 * 60 * 60,
-          path: '/',
-        })
-      }, [themeMode]);
+    const handleClick = (item : any) => {
+      console.log('CHANGE THEME SCHEME', themeScheme+' > '+item.slug);
+      setSelected(item);
+      setThemeScheme(item.slug);
+    }
 
     return (
       <>
-        <Listbox value={themeMode} onChange={handleClick}>
+        <Listbox value={selected} onChange={handleClick}>
         {({ open }) => (
           <>
             <div className="relative ml-5">
               <Listbox.Button className="inline-flex justify-center rounded-md border border-gray-300 bg-white dark:bg-slate-800 dark:border-slate-600 p-1 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
-                <span className="block truncate">{themeMode.icon}</span>
+                <span className="block truncate">{selected.icon}</span>
               </Listbox.Button>
   
               <Transition
@@ -92,14 +88,18 @@ export const ThemeSelectionMenu: React.FC = ({ ctx }) => {
                       )}
                     </Listbox.Option>
                   ))}
+                
+                  
+  
                 </Listbox.Options>
               </Transition>
             </div>
           </>
         )}
       </Listbox>
+
     </>
   );
 };
 
-
+export default ThemeSchemeMenu
