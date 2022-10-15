@@ -31,7 +31,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
-import { Container, Button, Gridlist, Table, Calendar, Tag, Label } from "@components";
+import { Container, Button, Listing, Table, Calendar, Tag, Label } from "@components";
 import { Profile, LogIn, SignIn } from "@views";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
@@ -1066,14 +1066,58 @@ const HomeView: FC = ( { data, isMounted } ) => {
       <div className="relative pb-20 lg:pb-28 divide-y">
   
         {/*<div className="relative mx-auto">
-          <Gridlist variant='cards' layout='horizontal' data={dataQuery} />
+          <Listing variant='cards' layout='horizontal' data={dataQuery} />
         </div>*/}
         
         <div className="relative mx-auto">
-          <Gridlist variant='cards' layout='horizontal' data={data} />
+          <Listing variant='cards' layout='horizontal' data={data} />
+        </div>
+
+        <div className="mt-4 bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+          <div>
+            <span className="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
+            
+            </span>
+          </div>
+          <h3 className="text-slate-900 dark:text-white mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
+          <p className="text-slate-500 dark:text-slate-400 mt-2 text-sm">
+            The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+          </p>
         </div>
 
         <div className="mt-20">
+          <div className="flex flex-wrap items-center gap-4 py-4">
+
+            <Label className="border-1.5 border-primary bg-primary my-theme:font-bold">
+              <Label.Prefix>
+                <FunnelIcon className={'icon h-5 w-5'} />
+              </Label.Prefix>
+              
+              <Label.Content>
+                LabelLabelLabelLabelLabel
+              </Label.Content>
+
+              <Label.Suffix>
+                <FunnelIcon className={'icon h-5 w-5'} />
+              </Label.Suffix>
+
+              <Label.Close>
+                <XMarkIcon className={'icon h-5 w-5'} />
+              </Label.Close>
+
+              <Label.Item>
+                Item 1
+              </Label.Item>
+
+              <Label.Item>
+              Item 2
+              </Label.Item>
+              
+            </Label>
+
+            <div className="card rounded-none bg-rete my-theme:font-bold"></div>
+            
+          </div>
 
             <div className="flex flex-wrap items-center gap-4 py-4">
 
@@ -1089,12 +1133,9 @@ const HomeView: FC = ( { data, isMounted } ) => {
                 <Tag className='default' rounded={'rounded-full'} size={'lg'} icon={<ChevronUpDownIcon className={'icon'} />}>
                 LG
                 </Tag>
-
                 <Tag className='success' rounded={'rounded-full'} size={'xl'} icon={<FunnelIcon className={'icon h-5 w-5'} />}>
                 XL
                 </Tag>
-                <Label className="border-1.5 border-primary bg-primary my-theme:font-bold" />
-                <div className="card rounded-none bg-rete my-theme:font-bold"></div>
                 <Tag className='danger' rounded={'rounded-full'} icon={<BarsArrowUpIcon className={'icon h-5 w-5'} />}>
                     MD
                 </Tag>

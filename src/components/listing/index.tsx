@@ -18,7 +18,7 @@ const layouts = [
   }
 ]
 
-interface GridListProps {
+interface ListingProps {
   className?: string
   item? : any
   children? : any
@@ -29,7 +29,7 @@ interface GridListProps {
 
 const placeholderImg = '/product-img-placeholder.svg'
 
-const GridList: FC<GridListProps> = ({ data, children, item, className, variant = 'default', defaultLayout = 'vertical' }) => {
+const Listing: FC<ListingProps> = ({ data, children, item, className, variant = 'default', defaultLayout = 'vertical' }) => {
 
 const {globalListingLayout, setGlobalListingLayout} = useUIContext()
 const [selectedLayout, setSelectedLayout] = useState(globalListingLayout)
@@ -116,4 +116,4 @@ console.log('LYOUT LISTING HOME', globalListingLayout)
   )
 }
 
-export default GridList
+export default Listing

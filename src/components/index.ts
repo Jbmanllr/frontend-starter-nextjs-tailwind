@@ -7,7 +7,7 @@ export { default as Breadcrumb } from "./breadcrumb";
 export { default as Pagination } from "./pagination";
 export { default as Paginate } from "./pagination/pagination";
 
-export { default as Gridlist } from "./gridlist";
+export { default as Listing } from "./listing";
 export { default as Table } from "./table";
 export { default as Footer } from "./footer";
 

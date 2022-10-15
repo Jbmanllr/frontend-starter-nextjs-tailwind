@@ -618,6 +618,17 @@ $bg: red;
 
 
 
+
+
+    /* LABEL */
+
+    .label {
+        @apply box-border inline-flex items-center cursor-default select-none transition;
+    }
+
+
+
+
     /* TAG */
 
     .tag {
