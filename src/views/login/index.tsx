@@ -29,12 +29,12 @@ export default function LogIn() {
             <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
               <form className="space-y-6" action="#" method="POST">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="login-email" className="block text-sm font-medium text-gray-700">
                     Email address
                   </label>
                   <div className="mt-1">
                     <input
-                      id="email"
+                      id="login-email"
                       name="email"
                       type="email"
                       autoComplete="email"
@@ -45,12 +45,12 @@ export default function LogIn() {
                 </div>
   
                 <div>
-                  <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  <label htmlFor="login-password" className="block text-sm font-medium text-gray-700">
                     Password
                   </label>
                   <div className="mt-1">
                     <input
-                      id="password"
+                      id="login-password"
                       name="password"
                       type="password"
                       autoComplete="current-password"
@@ -63,12 +63,12 @@ export default function LogIn() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
                     <input
-                      id="remember-me"
+                      id="login-remember-me"
                       name="remember-me"
                       type="checkbox"
                       className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     />
-                    <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
+                    <label htmlFor="login-remember-me" className="ml-2 block text-sm text-gray-900">
                       Remember me
                     </label>
                   </div>

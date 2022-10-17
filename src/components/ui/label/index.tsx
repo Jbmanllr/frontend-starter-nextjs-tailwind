@@ -55,28 +55,16 @@ const Label : FC<LabelProps> = ({
         );
     });
 
-    console.log('SUB COMPONENTS LIST:', subComponentList)
-
-    console.log('SUB COMPONENTS:', subComponents)
 
 
     let childrens = [];
-    React.Children.forEach(children, (child) => {
-        
-        console.log('CHIDLRENz', children, child.type)
-        //console.log('CHIDLRENz', findByType(children, child.type))
-
-      });
+    React.Children.forEach(children, (child) => {});
 
       const prefix = findByType(children, Prefix);
       const content = findByType(children, Content);
       const suffix = findByType(children, Suffix);
       const close = findByType(children, Close);
       const item = findByType(children, Item);
-
-    console.log('CHIDLREN MAPPING', React.Children, React.Children.count.length, content )
-
-    console.log('ITEMMM', item)
 
     return (
       <div className="h-10 inline-flex gap-2 box-border items-center cursor-default select-none transition bg-primary rounded-md">

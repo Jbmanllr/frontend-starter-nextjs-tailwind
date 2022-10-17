@@ -56,7 +56,7 @@ const UI: React.FC<UIProviderProps> = ({
   defaultTheme = 'theme-default',
   defaultThemeScheme = enableSystem ? 'system' : 'light',
   defaultCbScheme = 'cbs-default',
-  defaultListingLayout = 'horizontal',
+  defaultListingLayout = 'vertical',
 
   attribute = 'data-theme-scheme',
   value,

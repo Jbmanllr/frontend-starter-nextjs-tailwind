@@ -1,0 +1,124 @@
+import React, { FC, useState } from 'react'
+import { Transition } from '@headlessui/react'
+import cn from 'clsx'
+import {  XMarkIcon } from '@heroicons/react/24/outline'
+
+interface OldLabelProps {
+    //prefixCls?: string;
+    className?: string;
+    unstyled?: boolean;
+    variant?: 'contained' | 'outlined';
+    size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    rounded?: boolean | 'rounded-sm' | 'rounded-md' | 'rounded-lg' | 'rounded-xl' | 'rounded-2xl' | 'rounded-3xl' | 'rounded-full';
+    fill?: boolean;
+    closable?: boolean;
+    closeIcon?: React.ReactNode;
+    onClose?: (e: React.MouseEvent<HTMLElement>) => void;
+    icon?: React.ReactNode;
+    children?: React.ReactNode;
+}
+
+interface OldContentProps {
+    //prefixCls?: string;
+    className?: string;
+    unstyled?: boolean;
+    children?: React.ReactNode;
+}
+
+const LabelRoot: FC<OldLabelProps> = ({ 
+    className,
+    buttonClassName,
+    children,
+    fill = false,
+    unstyled = false,
+    rounded,
+    variant = 'contained', 
+    closable = false,
+    closeIcon = <XMarkIcon className='close-icon' />,
+    size = 'md',
+    icon = false
+}) => {
+
+    const [visible, setIsVisible] = useState(true);
+    const iconOnly = icon && !children
+
+    const root = cn('label',
+    {
+       
+    },
+    className,
+);
+
+    return (
+        <div className={root}>
+            {children}
+        </div>
+    )
+}
+
+
+let OldContent: FC<ContentProps> = ({ 
+    className,
+    children,
+    unstyled = false,
+}) => {
+    const root = cn('label',
+    {},
+    className,
+);
+
+    return (
+        <div className={''}>
+            {children}
+        </div>
+    )
+}
+
+export let OldLabel = Object.assign(LabelRoot, { Content })
+
+
+
+
+
+interface LabelProps {
+    className?: string;
+    unstyled?: boolean;
+    children?: React.ReactNode;
+}
+
+const Label : FC<LabelProps> = ({ 
+    children,
+    className,
+    unstyled
+}) => {
+
+    const prefix = React.Children.map(children, child => child.type.displayName === 'Prefix' ? child : null);
+    const content = React.Children.map(children, child => child.type.displayName === 'Content' ? child : null);
+    const suffix = React.Children.map(children, child => child.type.displayName === 'Suffix' ? child : null);
+    
+    return (
+      <div className="card">
+        {prefix}
+        <div className="card-body">
+          {content}
+        </div>
+        <div className="card-footer">
+          {suffix}
+        </div>
+      </div>
+    );
+  }
+  
+  const Prefix = ({ children }) => children;
+  Prefix.displayName = 'Prefix';
+  Label.Prefix = Prefix;
+  
+  const Content = ({ children }) => children;
+  Content.displayName = 'Content';
+  Label.Content = Content;
+  
+  const Suffix = ({ children }) => children;
+  Suffix.displayName = 'Suffix';
+  Label.Suffix = Suffix;
+
+  export default Label;

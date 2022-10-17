@@ -8,7 +8,7 @@ import React, {
   useEffect,
   CSSProperties
 } from 'react'
-import mergeRefs from 'react-merge-refs'
+import { mergeRefs } from 'react-merge-refs'
 
 import { DotLoader, SyncLoader, BeatLoader, ClipLoader, PulseLoader, BarLoader, PropagateLoader } from "react-spinners";
 import { Loading } from '@components'

@@ -1,42 +1,46 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState } from 'react';
 import nookies from 'nookies'
 
+const userRoles = ['visitor', 'user', 'editor', 'moderator', 'admin']
 interface AppContextProps {
-    isLoggedIn?: boolean;
-    setIsLoggedIn?: React.SetStateAction<boolean>
-    userRole?: 'guest' | 'user' | 'editor' | 'moderator' | 'admin';
-    UI?: AppContextUIProps;
     children?: React.ReactNode;
+    environment?: 'development' | 'production' | 'test';
+    isLoggedIn?: boolean;
+    setIsLoggedIn?: React.Dispatch<React.SetStateAction<boolean | undefined>>;
+    userRole?: undefined | 'visitor' | 'user' | 'editor' | 'moderator' | 'admin';
+    setUserRole? : React.Dispatch<React.SetStateAction<undefined | 'visitor' | 'user' | 'editor' | 'moderator' | 'admin'>>;
 }
 
-interface AppContextUIProps {
-  theme?: 'default' | 'theme-2' | 'theme-3';
-  setTheme?: React.SetStateAction<'default' | 'theme-2' | 'theme-3'>
-  themeMode?:  'light' | 'dark' | 'system';
-  setThemeMode?: React.SetStateAction<'light' | 'dark' | 'system'>
-  colorBlindUI?: null | boolean | 'deuteranomalia' | 'protanopia' | 'tritanopia';
-  setColorBlindUI?: React.SetStateAction<null | boolean | 'deuteranomalia' | 'protanopia' | 'tritanopia'>
-}
+interface AppWrapperProps { children?: React.ReactNode }
 
 const AppContext = createContext<AppContextProps | null>(null);
 
-export default function AppWrapper({ children }) {
+const environment = process.env.NODE_ENV;
+
+const AppWrapper: React.FC<AppWrapperProps> = ({ children }) => {
     
     const [isLoggedIn, setIsLoggedIn] = useState<AppContextProps['isLoggedIn']>(false)
-    const [userRole, setUserRole] = useState<AppContextProps['userRole']>('guest')
+    const [userRole, setUserRole] = useState<AppContextProps['userRole']>('visitor')
 
-  console.log(`
-        APP CONTEXT:
-        Is Logged In: ${isLoggedIn},
-        ${ isLoggedIn ? `Logged in as: ${userRole}` : '' }
-  `)
+    { environment === 'development' && console.log(`
+        APP CONTEXT
+          Environment: ${environment}
+          Logged In: ${isLoggedIn}
+          User Role: ${isLoggedIn ? userRole : 'visitor'}
+          ${process.env.NEXT_PUBLIC_ENV_VARIABLE}
+          ${process.env.NEXT_PUBLIC_ENV_LOCAL_VARIABLE}
+          ${process.env.NEXT_PUBLIC_DEVELOPMENT_ENV_VARIABLE}
+          ${process.env.NEXT_PUBLIC_PRODUCTION_ENV_VARIABLE}
+    `)}
 
   return (
     <AppContext.Provider 
-        value={{ 
+        value={{
+            environment,
             isLoggedIn,
             setIsLoggedIn,
-            userRole
+            userRole,
+            setUserRole
         }}
     >
       {children}
@@ -47,3 +51,5 @@ export default function AppWrapper({ children }) {
 export function useAppContext() {
   return useContext(AppContext);
 }
+
+export default AppWrapper

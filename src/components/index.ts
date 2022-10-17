@@ -20,6 +20,9 @@ export { default as ThemeMenu } from "./theme-menu";
 export { default as ThemeSchemeMenu } from "./theme-scheme-menu";
 export { default as ListingLayoutMenu } from "./theme-listing-layout-menu";
 
+export { default as Contain } from "./ui/contain";
+
+
 export { default as Button } from "./ui/button";
 export { default as Tag } from "./ui/tag";
 export { default as Label } from "./ui/label";

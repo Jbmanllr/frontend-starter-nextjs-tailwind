@@ -208,13 +208,13 @@ const Footer: FC<Props> = ({ className }) => {
             </p>
             </div>
             <form className="mt-4 sm:flex sm:max-w-md lg:mt-0">
-            <label htmlFor="email-address" className="sr-only">
+            <label htmlFor="nlcta-email-address" className="sr-only">
                 Email address
             </label>
             <input
                 type="email"
                 name="email-address"
-                id="email-address"
+                id="nlcta-email-address"
                 autoComplete="email"
                 required
                 className="w-full min-w-0 appearance-none rounded-md border border-gray-300 bg-white py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:border-indigo-500 focus:placeholder-gray-400 focus:outline-none focus:ring-indigo-500 sm:max-w-xs"

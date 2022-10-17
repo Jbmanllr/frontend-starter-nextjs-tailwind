@@ -31,7 +31,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
-import { Container, Button, Listing, Table, Calendar, Tag, Label } from "@components";
+import { Container, Button, Listing, Table, Calendar, Tag, Label, Contain } from "@components";
 import { Profile, LogIn, SignIn } from "@views";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
@@ -1115,6 +1115,23 @@ const HomeView: FC = ( { data, isMounted } ) => {
               
             </Label>
 
+            {isMounted && 
+            <Contain as={'div'} className="rounded" visible={true} mounted={true}>
+     
+               
+                <Contain.Item className="p-1 bg-primary-300 rounded">
+                  <FunnelIcon className={'icon h-5 w-5'} />
+                </Contain.Item >
+                <Contain.Item  className="">
+                  XS
+                </Contain.Item >
+                <Contain.Close className={''}>
+                  <XMarkIcon className={'icon h-5 w-5'} />
+                </Contain.Close>
+     
+           
+            </Contain>}
+
             <div className="card rounded-none bg-rete my-theme:font-bold"></div>
             
           </div>
@@ -1721,11 +1738,11 @@ const HomeView: FC = ( { data, isMounted } ) => {
             <Calendar />
         </div>
 
-        {true && isMounted ?
+        {/*true && isMounted ?
             <div className="w-full max-w-screen-xl mx-auto mt-20">
                 <Table />
             </div> : 'LOADING TABLE'
-        }
+        */}
         
       
 

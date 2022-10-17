@@ -1,3 +1,4 @@
+import '../scripts/wdyr'
 import React from "react";
 import { AppProps } from "next/app";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
@@ -23,12 +24,18 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
 
     const queryClient = new QueryClient();
 
+    if (process.env.NODE_ENV === 'production') {
+        console.log = () => {}
+        console.error = () => {}
+        console.debug = () => {}
+    }
+
     return (
 
             <UIProvider attribute='class' defaultThemeScheme='light' enableSystem={true} disableTransitionOnChange={true}>
                 <AppWrapper>
                     <ToastPrimitive.Provider label='Notifications' swipeDirection="right">
-                        <Toast />
+                        {/*<Toast />*/}
                         <QueryClientProvider client={queryClient}>
                             <Hydrate state={pageProps.dehydratedState}>
                                 <Provider store={store}>
@@ -47,6 +54,8 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
             </UIProvider> 
     );
 }
+
+MyApp.whyDidYouRender = true
 
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to

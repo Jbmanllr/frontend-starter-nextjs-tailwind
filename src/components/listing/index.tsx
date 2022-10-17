@@ -55,54 +55,15 @@ console.log('LYOUT LISTING HOME', globalListingLayout)
 
   return (
   <>
-    <div className="flex pb-5">
-      <div className="ml-auto">
-        <RadioGroup value={globalListingLayout} onChange={setSelectedLayout}>
-          <RadioGroup.Label className="sr-only">Select List Layout</RadioGroup.Label>
-          <div className="flex">
-            {layouts.map((layout) => (
-              <RadioGroup.Option
-                key={layout.slug}
-                value={layout.slug}
-                className=''>
-                {({ active, checked }) => (
-                  <>
-                  <Button color={'light'} size={'xs'}><Bars3Icon className='h-5 w-5'/></Button>
-                    <div className="flex w-full items-center justify-between">
-                      <div className="flex items-center">
-                        <div className="text-sm">
-                          <RadioGroup.Label
-                            as="p"
-                            className={`font-medium sr-only`}
-                          >
-                           {layout.name}
-                          </RadioGroup.Label>
-                          <RadioGroup.Description
-                            as="span"
-                            className={`inline ${
-                              checked ? 'text-sky-100' : 'text-gray-500'
-                            }`}
-                          >
-                          </RadioGroup.Description>
-                        </div>
-                      </div>
-                    </div>
-                  </>
-                )}
-              </RadioGroup.Option>
-            ))}
-          </div>
-        </RadioGroup>
-      </div>
-    </div>
+    
 
     <ul role="list" className={rootClassName}>
         {data?.data?.rows?.map((item, i) => (
 
             <li key={i}>
-                <Link href={`/product`}>
+                
                   <Card item={item} layout={globalListingLayout}/>
-                </Link>
+               
             </li>
   
         ))}

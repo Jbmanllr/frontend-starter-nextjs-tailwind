@@ -132,8 +132,7 @@ class Options extends React.Component {
         </Select.Option>
       ));
      */}
-        const options = pageSizeOptions.map((size, i) => (
-            <>
+        const options = pageSizeOptions.map((size : number, i : number) => (
     
             <Listbox.Option
                 key={i}
@@ -161,7 +160,7 @@ class Options extends React.Component {
                     </>
                 )}
             </Listbox.Option>
-            </>
+
         ))
 
         changeSelect = (
