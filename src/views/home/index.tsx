@@ -31,7 +31,7 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
-import { Container, Button, Listing, Table, Calendar, Tag, Label, Contain } from "@components";
+import { Container, Button, Listing, Table, Calendar, Tag, Label, Contain, NewCard } from "@components";
 import { Profile, LogIn, SignIn } from "@views";
 
 const activeFilters = [{ value: 'objects', label: 'Objects' }]
@@ -1116,30 +1116,39 @@ const HomeView: FC = ( { data, isMounted } ) => {
             </Label>
 
             {isMounted && 
-            <Contain as={'div'} className="rounded" visible={true} mounted={true}>
-     
-               
-                <Contain.Item className="p-1 bg-primary-300 rounded">
+              <Contain 
+                as={'div'}
+                className="rounded" 
+                //visible={true} 
+                //mounted={true}
+              >  
+                <Contain.Item className={'p-1 bg-primary-300 rounded'}>
                   <FunnelIcon className={'icon h-5 w-5'} />
                 </Contain.Item >
-                <Contain.Item  className="">
+                <Contain.Item as={'div'} className="bg-red-500 p-1">
                   XSknkkn
                 </Contain.Item >
-                <Contain.Item className="p-1 bg-primary-300 rounded">
+                <Contain.Item className={'p-1 bg-primary-300 rounded'}>
                   <FunnelIcon className={'icon h-5 w-5'} />
                 </Contain.Item >
                 <Contain.Close className={''}>
                   <XMarkIcon className={'icon h-5 w-5'} />
                 </Contain.Close>
-                <Contain.Close className={''}>
-                  <XMarkIcon className={'icon h-5 w-5'} />
-                </Contain.Close>
-     
-     
-           
-            </Contain>}
+              </Contain>
+            }
 
             <div className="card rounded-none bg-rete my-theme:font-bold"></div>
+
+            <NewCard className={''}>
+             
+              <NewCard.Image className={'bg-red relative'} />
+              {/*<NewCard.Body>
+                Card Body
+              </NewCard.Body>
+              <NewCard.Footer>
+                Card Footer
+          </NewCard.Footer>*/}
+            </NewCard>
             
           </div>
 

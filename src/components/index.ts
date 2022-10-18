@@ -30,5 +30,6 @@ export { default as Label } from "./ui/label";
 export { default as Ripple } from "./ui/ripple";
 export { default as Loading } from "./ui/loading";
 export { default as Card } from "./ui/card";
+export { default as NewCard } from "./ui/newcard";
 export { default as Toast } from "./ui/toast";
 export { default as ImageComponent } from "./ui/image";
