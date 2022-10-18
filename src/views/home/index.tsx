@@ -1123,11 +1123,18 @@ const HomeView: FC = ( { data, isMounted } ) => {
                   <FunnelIcon className={'icon h-5 w-5'} />
                 </Contain.Item >
                 <Contain.Item  className="">
-                  XS
+                  XSknkkn
+                </Contain.Item >
+                <Contain.Item className="p-1 bg-primary-300 rounded">
+                  <FunnelIcon className={'icon h-5 w-5'} />
                 </Contain.Item >
                 <Contain.Close className={''}>
                   <XMarkIcon className={'icon h-5 w-5'} />
                 </Contain.Close>
+                <Contain.Close className={''}>
+                  <XMarkIcon className={'icon h-5 w-5'} />
+                </Contain.Close>
+     
      
            
             </Contain>}

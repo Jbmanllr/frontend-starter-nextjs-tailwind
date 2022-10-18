@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useMemo, useContext, Context, createContext } from 'react'
 import { Transition } from '@headlessui/react'
 import cn from 'clsx'
 import {  XMarkIcon } from '@heroicons/react/24/outline'
@@ -37,9 +37,10 @@ interface ContainerProps {
 }
 
 interface ItemProps {
-    className?: string;
-    unstyled?: boolean;
     children?: React.ReactNode;
+    id?: string;
+    className?: string;
+    as? : React.ElementType | 'div' |'span' | 'li'
 }
 
 interface CloseProps {
@@ -64,23 +65,40 @@ type Actions =
   | { type: ActionTypes.setIsMounted }
   | { type: ActionTypes.setIsVisible }
 
-const ContainerContext = createContext<[StateDefinition, React.Dispatch<Actions>] | null>(null);
-ContainerContext.displayName = 'ContainerContext'
+  //const ContainerContext = createContext<[StateDefinition, React.Dispatch<Actions>] | null>(null);
 
-const Container: React.FC<ContainerProps> = ({
-    visible = true,
-    mounted = true,
-    className,
-    unstyled,
-    children,
+const ContainerContext: Context<{ 
+    isMounted: string; 
+    setIsMounted: null;
+    isVisible: string; 
+    setIsVisible: null;
+}> = createContext({
+    isMounted:"", 
+    setIsMounted: null,
+    isVisible: "", 
+    setIsVisible: null
+})
+
+//ContainerContext.displayName = 'ContainerContext'
+
+const Container = ({ 
+    children, 
     closable = true,
+    className,
     as = 'div'
+} : { 
+    children? : React.ReactNode,
+    closable? : Boolean,
+    //visible? : Boolean,
+    //mounted? : Boolean,
+    className? : String,
+    as? : React.ElementType | 'div' |'span' | 'li',
 }) => {
 
-    const [isMounted, setIsMounted] = useState(mounted);
-    const [isVisible, setIsVisible] = useState(visible);
+    const [isMounted, setIsMounted] = useState(true);
+    const [isVisible, setIsVisible] = useState(true);
 
-    console.log('Container States', mounted, isMounted, visible, isVisible)
+    console.log('Container States', isMounted, isVisible)
 
     const handleClose = () => {
         setIsMounted(!isMounted);
@@ -90,14 +108,15 @@ const Container: React.FC<ContainerProps> = ({
         setIsVisible(!isVisible);
     };
 
-    const value = { 
+    const value = useMemo(() => ({ 
         isMounted, 
-        handleClose, 
+        setIsMounted,
+        handleClose,
         isVisible, 
-        handleVisibility 
-    };
-
-      
+        setIsVisible,
+        handleVisibility
+    }), [isMounted, isVisible]);
+    
     const childrenCount = React.Children.count(children)
     //const isCloseOnly = React.Children.only(children)
 
@@ -135,59 +154,48 @@ const Container: React.FC<ContainerProps> = ({
         className,
     );
 
-    const rootCN = cn(
-        'first:ml-2 last:mr-2 only:mx-2',
-        {},
-        className,
-    );
-
     const As = as
 
     return (
-        
         isMounted && 
         <ContainerContext.Provider value={value}>
             <As className={containerCN}>
-
-                {items.map((item : React.ReactNode | any, i : number)  =>
-
-                    <React.Fragment key={i}>
-                        {item}  
-                    </React.Fragment>
-                )}
-                {closable && close}
+              {children}
             </As>
         </ContainerContext.Provider>       
     )
 }
 
-const Item: React.FC<ItemProps> = ({ 
-    className,
+const Item: React.FC<ItemProps> = ({
     children,
-    unstyled = false,
+    id,
+    className,
+    as = 'span'
 }) => {
 
-    const itemCN = cn(
-        'first:ml-2 last:mr-2 only:mx-2',
-        {},
-        className,
-    );
+    const As = as;
+    const itemCN = cn('first:ml-2 last:mr-2 only:mx-2', {}, className );
 
+        const itemcont = React.Children.map(children, (child: any) => React.cloneElement(
+            <As className={itemCN}>{child}</As>
+            , { id }))
+        
+            console.log('itemcont', itemcont)
     return (
-        <span className={itemCN}>
-            {children}
-        </span>
+        itemcont
+       
     )
 }
 
-const Close: React.FC<CloseProps> = ({ 
-    className,
+const Close: React.FC<CloseProps> = ({
     children,
-    unstyled = false,
+    className,
+    as = 'button'
 }) => {
 
-    const { handleClose } = useContext(ContainerContext);
+    const { setIsMounted } = useContext(ContainerContext);
 
+    const As = as
     const closeCN = cn(
         'first:ml-2 last:mr-2 only:py-0',
         {},
@@ -196,11 +204,12 @@ const Close: React.FC<CloseProps> = ({
 
     return (
        
-        React.cloneElement(
-            <button className={closeCN} onClick={handleClose}>
-                {children}
-            </button>
-        )
+        <As 
+            className={closeCN} 
+            onClick={() => setIsMounted(false)}
+        >
+            {children}
+        </As>
     )
 }
 
@@ -215,4 +224,5 @@ Close.displayName = 'Close';
 
 export default Container
 
+ //WDYR
 Container.whyDidYouRender = true
