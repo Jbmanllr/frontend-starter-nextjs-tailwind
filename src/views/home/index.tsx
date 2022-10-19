@@ -1118,20 +1118,21 @@ const HomeView: FC = ( { data, isMounted } ) => {
             {isMounted && 
               <Contain 
                 as={'div'}
-                className="rounded" 
+                className="rounded"
+                //onClick={() => console.log(isMounted)}
                 //visible={true} 
                 //mounted={true}
               >  
-                <Contain.Item className={'p-1 bg-primary-300 rounded'}>
-                  <FunnelIcon className={'icon h-5 w-5'} />
+                <Contain.Item id={1} className={'p-1 bg-primary-300 rounded'}>
+                <FunnelIcon className={'icon h-5 w-5'} /><span>fdfd</span> Kolpi
                 </Contain.Item >
-                <Contain.Item as={'div'} className="bg-red-500 p-1">
+                <Contain.Item id={2} as={'div'} className="bg-red-500 p-1">
                   XSknkkn
                 </Contain.Item >
-                <Contain.Item className={'p-1 bg-primary-300 rounded'}>
+                <Contain.Item id={3} className={'p-1 bg-primary-300 rounded'}>
                   <FunnelIcon className={'icon h-5 w-5'} />
                 </Contain.Item >
-                <Contain.Close className={''}>
+                <Contain.Close className={isMounted ? "bg-red-400" : ""}>
                   <XMarkIcon className={'icon h-5 w-5'} />
                 </Contain.Close>
               </Contain>

@@ -11,6 +11,7 @@ import SEO from '../next-seo.config'
 import * as ToastPrimitive from '@radix-ui/react-toast';
 import {Toast} from '@components';
 import { AppWrapper, UIProvider } from '@context';
+import { WithUserAgentProps, withUserAgent } from 'next-useragent'
 
 //Style Imports
 import "tailwindcss/tailwind.css";
@@ -55,8 +56,6 @@ function MyApp({ Component, pageProps }: AppProps<{ dehydratedState: DehydratedS
     );
 }
 
-MyApp.whyDidYouRender = true
-
 // Only uncomment this method if you have blocking data requirements for
 // every single page in your application. This disables the ability to
 // perform automatic static optimization, causing every page in your app to
@@ -70,3 +69,5 @@ MyApp.whyDidYouRender = true
 // }
 
 export default MyApp;
+
+MyApp.whyDidYouRender = true

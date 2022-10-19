@@ -46,6 +46,7 @@
         "next-seo": "^5.5.0",
         "next-sitemap": "^3.1.22",
         "next-translate": "^1.6.0",
+        "next-useragent": "^2.8.0",
         "nookies": "^2.5.2",
         "postcss": "^8.4.17",
         "postcss-nesting": "^10.0.2",

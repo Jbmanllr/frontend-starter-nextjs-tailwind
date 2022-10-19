@@ -15,7 +15,7 @@ const Card: React.FC<CardProps> = ({
     as = 'div'
 }) => {
 
-    const cardCN = clsx('relative p-8 bg-dark-palette-900 shadow-xl border-none border-yellow-500 rounded highlight-white/20 ring-none ring-red-500 outline-0 outline-offset-none outline-primary-300',
+    const cardCN = clsx('text-dark-palette-100 text-opacity-70 group relative py-8 px-24 bg-dark-palette-900/90 shadow-xl border-none border-yellow-500 rounded highlight-white/20 ring-none ring-red-500 outline-0 outline-offset-none outline-primary-300',
         { [`hidden`] : false },
         className,
     );
@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({
 
     return (
         <div className='relative'>
-            <span className='absolute p-4 border blur inset-0 bg-gradient-to-r from-pink-600 to-purple-600'></span>
+            <span className='absolute mx-4 py-12 border blur-md opacity-50 group-hover:opacity-70 inset-0 bg-gradient-to-r from-pink-600 to-purple-600'></span>
         
         <As className={cardCN}>
            CLICK

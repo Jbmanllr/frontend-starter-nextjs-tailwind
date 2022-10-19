@@ -46,6 +46,16 @@ const closeErrorMessage = 'There is more than one "Close" children, only the fir
 
 const ContainerContext = createContext<ContextProps>(defaultState);
 
+function useContainerContext() {
+    const context = React.useContext(ContainerContext)
+    if (!context) {
+      throw new Error(
+        `Toggle compound components cannot be rendered outside the Toggle component`,
+      )
+    }
+    return context
+  }
+
 const Container : React.FC<ContainerProps> = ({ 
     children, 
     closable = true,
@@ -111,6 +121,7 @@ const Container : React.FC<ContainerProps> = ({
 const Item: React.FC<ItemProps> = ({
     children,
     className,
+    id,
     as = 'span'
 }) => {
 
@@ -118,8 +129,8 @@ const Item: React.FC<ItemProps> = ({
     const itemCN = clsx('first:ml-2 last:mr-2 only:mx-2', {}, className );
 
         const itemcont = React.Children.map(children, (child: any) => React.cloneElement(
-            <As>{child}</As>
-            , { className:itemCN }))
+            <As id={id}>{child}</As>
+            , { id, className:itemCN }))
         
             console.log('itemcont', itemcont)
             
@@ -135,7 +146,7 @@ const Close: React.FC<CloseProps> = ({
     as = 'button'
 }) => {
 
-    const { handleMounted } = useContext(ContainerContext);
+    const { handleMounted } = useContainerContext();
 
     const As = as
     const closeCN = clsx('first:ml-2 last:mr-2 only:py-0', {},
