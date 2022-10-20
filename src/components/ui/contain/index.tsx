@@ -128,14 +128,25 @@ const Item: React.FC<ItemProps> = ({
     const As = as;
     const itemCN = clsx('first:ml-2 last:mr-2 only:mx-2', {}, className );
 
-        const itemcont = React.Children.map(children, (child: any) => React.cloneElement(
-            <As id={id}>{child}</As>
-            , { id, className:itemCN }))
+        const clonedItem = React.Children.map(children, (child: any) => React.cloneElement(
+            <>{child}</>
+            , { id, className:itemCN }, [children]))
         
-            console.log('itemcont', itemcont)
-            
+            console.log('clonedItem', clonedItem)
+        
+        const tobecloned = <div key='ntm' className='bg-red-300'>To be cloned</div>
+        const testclone = React.cloneElement(tobecloned, {className:'p-3'}, [children])
+
+        console.log('TEST CLONING', tobecloned, 'Cloneded', testclone)
     return (
-        itemcont
+        <>
+        {tobecloned}
+        {testclone} 
+               {/*<As className={itemCN} id={id}>
+                    {clonedItem}
+                </As>*/}
+        </>
+    
        
     )
 }
