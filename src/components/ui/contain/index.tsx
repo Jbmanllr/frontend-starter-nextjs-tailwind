@@ -134,10 +134,10 @@ const Item: React.FC<ItemProps> = ({
         
             console.log('clonedItem', clonedItem)
         
-        const tobecloned = <div key='ntm' className='bg-red-300'>To be cloned</div>
+        const tobecloned = <div className='bg-red-300'>To be cloned</div>
         const testclone = React.cloneElement(tobecloned, {className:'p-3'}, [children])
 
-        console.log('TEST CLONING', tobecloned, 'Cloneded', testclone)
+        console.log('To be CLONed', tobecloned, 'Cloneded', testclone)
     return (
         <>
         {tobecloned}
