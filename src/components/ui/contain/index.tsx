@@ -135,16 +135,16 @@ const Item: React.FC<ItemProps> = ({
             console.log('clonedItem', clonedItem)
         
         const tobecloned = <div className='bg-red-300'>To be cloned</div>
-        const testclone = React.cloneElement(tobecloned, {className:'p-3'}, [children])
+        const testclone = React.cloneElement(tobecloned, {className:'p-3', children: 'lol'},)
 
         console.log('To be CLONed', tobecloned, 'Cloneded', testclone)
     return (
         <>
-        {tobecloned}
-        {testclone} 
-               {/*<As className={itemCN} id={id}>
+        {/*{tobecloned}
+        {testclone} */}
+               <As className={itemCN} id={id}>
                     {clonedItem}
-                </As>*/}
+                </As>
         </>
     
        

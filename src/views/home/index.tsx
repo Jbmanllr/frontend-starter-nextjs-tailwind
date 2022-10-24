@@ -1124,7 +1124,7 @@ const HomeView: FC = ( { data, isMounted } ) => {
                 //mounted={true}
               >  
                 <Contain.Item id={1} className={'p-1 bg-primary-300 rounded'}>
-                <FunnelIcon className={'icon h-5 w-5'} /><span>fdfd</span> Kolpi
+                <FunnelIcon className={'icon h-5 w-5'} />
                 </Contain.Item >
                 <Contain.Item id={2} as={'div'} className="bg-red-500 p-1">
                   XSknkkn
