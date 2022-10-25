@@ -10,36 +10,39 @@ interface ContextProps {
     handleVisibility: () => void;
 }
 interface ContainerProps {
-    children? : React.ReactNode,
-    closable? : Boolean,
-    className? : String,
-    as? : React.ElementType | 'div' |'span' | 'li',
-    Item?: ItemProps;
-    Close?: CloseProps;
-    Title?: TitleProps
+    children? : React.ReactNode;
+    closable? : Boolean;
+    className? : String;
+    as? : React.ElementType | 'div' |'span' | 'li';
+    //Prefix?: PrefixProps;
+    //Title?: TitleProps;
+    //Suffix?: SuffixProps;
+    //Close?: CloseProps;
+}
+interface PrefixProps {
+    children?: React.ReactNode;
+    className?: string;
+    as? : React.ElementType | 'div' |'span' | 'li';
 }
 interface TitleProps {
     children?: React.ReactNode;
     className?: string;
-    as? : React.ElementType | 'div' |'span' | 'li'
+    as? : React.ElementType | 'div' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
-interface ItemProps {
+interface SuffixProps {
     children?: React.ReactNode;
     className?: string;
-    as? : React.ElementType | 'div' |'span' | 'li'
+    as? : React.ElementType | 'div' |'span' | 'li';
 }
 interface CloseProps {
     children?: React.ReactNode;
     className?: string;
-    as? : React.ElementType | 'div' |'span' | 'li'
+    as? : React.ElementType | 'div' |'span' | 'li';
 }
 
-
 const defaultState = {
-    isMounted: true,
-    isVisible: true,
-    handleMounted: () => {},
-    handleVisibility: () => {},
+    isMounted: true, isVisible: true,
+    handleMounted: () => {}, handleVisibility: () => {},
 };
 
 const closeErrorMessage = 'There is more than one "Close" children, only the first one will be displayed.'
@@ -49,12 +52,14 @@ const ContainerContext = createContext<ContextProps>(defaultState);
 function useContainerContext() {
     const context = React.useContext(ContainerContext)
     if (!context) {
-      throw new Error(
-        `Toggle compound components cannot be rendered outside the Toggle component`,
-      )
+        throw new Error(
+            `Toggle compound components cannot be rendered outside the Toggle component`,
+        )
     }
     return context
-  }
+}
+
+const itemCN = 'first:ml-2 last:mr-2 only:mx-2 p-1';
 
 const Container : React.FC<ContainerProps> = ({ 
     children, 
@@ -87,10 +92,12 @@ const Container : React.FC<ContainerProps> = ({
     const childrenCount = React.Children.count(children)
     //const isCloseOnly = React.Children.only(children)
 
-    const items = findByType(children, Item);
-    const close = findByType(children, Close);
+    const prefix = findByType(children, Prefix)[0];
+    const title = findByType(children, Title)[0];
+    const suffix = findByType(children, Suffix)[0];
+    const close = findByType(children, Close)[0];
 
-    console.log('Items', items, 'close', close)
+    console.log('Prefix', prefix, 'Suffix', prefix, 'Title', title, 'close', close)
 
     console.log('Children Count', childrenCount)
 
@@ -99,7 +106,7 @@ const Container : React.FC<ContainerProps> = ({
     }
 
     const containerCN = clsx(
-        'h-10 inline-flex gap-2 box-border items-center cursor-default select-none transition bg-primary',
+        'label h-10 inline-flex gap-2 box-border items-center cursor-default select-none transition bg-primary',
         {
             [`hidden`] : !isVisible
         },
@@ -112,77 +119,64 @@ const Container : React.FC<ContainerProps> = ({
         isMounted &&
         <ContainerContext.Provider value={value}>
             <As id='label-root' className={containerCN}>
-              {items}{closable && close[0]}
+                {prefix && prefix}
+                {title && title}
+                {suffix && suffix}
+                {closable && close && close}
             </As>
         </ContainerContext.Provider>
     )
 }
 
-const Item: React.FC<ItemProps> = ({
-    children,
-    className,
-    id,
-    as = 'span'
-}) => {
-
+const Prefix: React.FC<PrefixProps> = ({ children, className, as = 'span' }) => 
+{
     const As = as;
-    const itemCN = clsx('first:ml-2 last:mr-2 only:mx-2', {}, className );
-
-        const clonedItem = React.Children.map(children, (child: any) => React.cloneElement(
-            <>{child}</>
-            , { id, className:itemCN }, [children]))
-        
-            console.log('clonedItem', clonedItem)
-        
-        const tobecloned = <div className='bg-red-300'>To be cloned</div>
-        const testclone = React.cloneElement(tobecloned, {className:'p-3', children: 'lol'},)
-
-        console.log('To be CLONed', tobecloned, 'Cloneded', testclone)
-    return (
-        <>
-        {/*{tobecloned}
-        {testclone} */}
-               <As className={itemCN} id={id}>
-                    {clonedItem}
-                </As>
-        </>
-    
-       
-    )
+    const prefixCN = clsx('label-prefix', itemCN, {}, className);
+    return (<As className={prefixCN}>{children}</As>)
 }
 
-const Close: React.FC<CloseProps> = ({
-    children,
-    className,
-    as = 'button'
-}) => {
+const Title: React.FC<TitleProps> = ({children, className, as = 'p'}) => 
+{
+    const As = as;
+    const titleCN = clsx('label-title', itemCN, {}, className);
+    return (<As className={titleCN} title={children}>{children}</As>)
+}
 
+const Suffix: React.FC<SuffixProps> = ({children, className, as = 'span'}) => 
+{
+    const As = as;
+    const suffixCN = clsx('label-suffix', itemCN, {}, className);
+    return (<As className={suffixCN}>{children}</As>);
+}
+
+const Close: React.FC<CloseProps> = ({children, className}) => 
+{
     const { handleMounted } = useContainerContext();
-
-    const As = as
-    const closeCN = clsx('first:ml-2 last:mr-2 only:py-0', {},
-        className,
-    );
-
+    const closeCN = clsx('label-close', itemCN, {}, className);
     return (      
-        <As 
+        <button 
             className={closeCN} 
             onClick={() => handleMounted()}
         >
             {children}
-        </As>
+        </button>
     )
 }
 
 //ContainerContext.displayName = 'ContainerContext'
 //Container.displayName = 'Container';
 
-Container.Item = Item
-Item.displayName = 'Item';
+Container.Title = Title
+Title.displayName = 'Title';
+
+Container.Prefix = Prefix
+Prefix.displayName = 'Prefix';
+
+Container.Suffix = Suffix
+Suffix.displayName = 'Suffix';
 
 Container.Close = Close
 Close.displayName = 'Close';
-
 
 export default Container
 
