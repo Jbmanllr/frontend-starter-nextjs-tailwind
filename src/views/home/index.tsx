@@ -29,6 +29,7 @@ import {
 
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
+import Link from 'next/link'
 import { fetchData } from '../../mock-api/fake-posts'
 import axios from "axios";
 import { Container, Button, Listing, Table, Calendar, Tag, Label, Contain, NewCard } from "@components";
@@ -250,7 +251,15 @@ const fetchDataOptions = {
   pageSize: 8,
 }
 
+
 const HomeView: FC = ( { data, isMounted } ) => {
+
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleBtnclick = () => {
+    setIsLoading(isLoading ? false : true)
+    console.log('POOOOOI', isLoading)
+  }
 
    {/* const dataQuery = useQuery(
       ['data', fetchDataOptions],
@@ -484,284 +493,373 @@ const HomeView: FC = ( { data, isMounted } ) => {
             Our thoughtfully designed workspace objects are crafted in limited runs. Improve your productivity and
             organization with these sale items before we run out, workspace objects are crafted in limited runs.
           </p>
-        <div className="mt-4 py-4 gap-4 grid grid-cols-2 md:grid-cols-4">
-          <Button className="h-3" color="primary" size="lg" rounded='md' scale>Button</Button>
-          <Button color="secondary" size="lg" rounded='md' scale>Button</Button>
-          <Button color="tertiary" size="lg" rounded scale>Button</Button>
-          <Button color="light" size="lg" rounded='md' scale>Button</Button>
-          <Button color="dark" size="lg" rounded='md' scale>Button</Button>
-          <Button color="dark" size="lg" rounded='full' scale>Button</Button>
+          <div className="mt-4 flex flex-wrap items-center gap-4 py-4">
+            <Button className="primary contained xs rounded shadow">
+              <ChatBubbleLeftEllipsisIcon
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              />
+              Button XS
+            </Button>
+            <Button 
+              className="primary contained xs rounded shadow" 
+              color="primary"
+              type="button"
+            >
+              <ChatBubbleLeftEllipsisIcon
+                className="h-3.5 w-3.5"
+                aria-hidden="true"
+              />
+            </Button>
+            <Button className="primary contained sm rounded shadow">
+              <StarIcon
+                className="h-4 w-4"
+                aria-hidden="true"
+              />
+                Button SM
+            </Button>
+            <Button className="primary contained sm rounded shadow">
+              <StarIcon
+                  className="h-4 w-4"
+                  aria-hidden="true"
+                />
+            </Button>
+            <Button className="primary contained md rounded shadow">
+            <FunnelIcon
+                className="h-4.5 w-4.5"
+                aria-hidden="true"
+              />
+              Button MD
+            </Button>
+            <Button 
+              className="primary contained lg rounded shadow"
+              onPress={() => handleBtnclick()}
+              //onKeyDown={() => handleBtnclick()}
+              >
+              <AdjustmentsHorizontalIcon
+                className="h-4.5 w-4.5"
+                aria-hidden="true"
+              />
+              Button LG CTL
+            </Button>
+            <Button className="primary contained lg rounded shadow">
+              <AdjustmentsHorizontalIcon
+                className="h-4.5 w-4.5"
+                aria-hidden="true"
+              />
+            </Button>
+            <Button
+                className="primary contained xl rounded-lg shadow" 
+                //type="submit"
+                loading={isLoading}
+                loadingMessage='Sending..'
+                asChild        
+                //toggle
+              >
+            
+                <Link href={'/demo'}>
+                  <ChatBubbleLeftEllipsisIcon
+                  className="h-5 w-5"
+                  aria-hidden="true"
+                  />
+                  Div Button
+                </Link>
+                
+              </Button>
+            <Button className="primary contained xl rounded-lg shadow">
+              <ChatBubbleLeftEllipsisIcon
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
+            </Button>
+ 
+            <Button loading={isLoading} className="primary contained md rounded shadow">
+            <FunnelIcon
+                className="h-5 w-5"
+                aria-hidden="true"
+              />
+              Button FILL
+            </Button>
           </div>
-          <div className="flex mt-4 py-4 gap-5">
-            <div className="flex gap-2">
-              <Button color="primary" size="2xs" rounded='md' icon={<FunnelIcon className="w-3.5" aria-hidden="true" />}  ripple>
-                Contain 2XS
-              </Button>
-              <Button 
-                color="primary" 
-                size="2xs" 
-                rounded='md' 
-                iconOnly 
-                icon={<FunnelIcon className="w-3.5" aria-hidden="true" />}
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="secondary" size="xs" rounded='md' ripple icon={<EnvelopeIcon className="w-4" aria-hidden="true" />} >
-                Contain XS
-              </Button>
-              <Button 
-                color="secondary" 
-                size="xs" 
-                rounded='md' 
-                iconOnly 
-                icon={<EnvelopeIcon className="w-4" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="tertiary" size="sm" rounded='md' ripple icon={<PhoneIcon className="w-4" aria-hidden="true" />}>
-                Contain SM
-              </Button>
-              <Button 
-                color="tertiary" 
-                size="sm" 
-                rounded='md' 
-                iconOnly 
-                icon={<PhoneIcon className="w-4" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="dark" size="md" rounded='md' ripple icon={<MagnifyingGlassIcon className="w-5" aria-hidden="true" />}>
-                Contain MD
-              </Button>
-              <Button 
-                color="dark" 
-                size="md" 
-                rounded='md' 
-                iconOnly
-                ripple
-                icon={<MagnifyingGlassIcon className="w-5" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="light" size="lg" rounded='md' ripple icon={<AtSymbolIcon className="w-5" aria-hidden="true" />}>
-                Contain LG
-              </Button>
-              <Button 
-                color="light" 
-                size="lg" 
-                rounded='md' 
-                iconOnly
-                ripple
-                icon={<AtSymbolIcon className="w-5" aria-hidden="true" />} 
-              />
-            </div>
+
+
+          <div className="flex flex-wrap items-center gap-4 py-3">
+            <Button 
+              className="primary contained md rounded shadow"
+              type="button"
+            >
+              Primary
+            </Button>
+            <Button 
+              className="secondary contained md rounded shadow"
+              type="button"
+            >
+              Secondary
+            </Button>
+            <Button 
+              className="tertiary contained md rounded shadow"
+              type="button"
+            >
+              Tertiary
+            </Button>
+            <Button 
+              className="info contained md rounded shadow"
+              type="button"
+            >
+              Info
+            </Button>
+            <Button 
+              className="success contained md rounded shadow"
+              type="button"
+            >
+              Success
+            </Button>
+            <Button 
+              className="warning contained md rounded shadow"
+              type="button"
+            >
+              Warning
+            </Button>
+            <Button 
+              className="danger contained md rounded shadow" 
+              type="button"
+            >
+              Danger
+            </Button>
+
           </div>
-  
-  
-          <div className="grid grid-cols-2 md:grid-cols-4 mt-2 py-2 gap-5">
-            <div className="flex gap-2">
-              <Button variant='outlined' color="primary" size="2xs" rounded='md' icon={<FunnelIcon className="w-3.5" aria-hidden="true" />}  ripple>
-                Outline 2XS
-              </Button>
-              <Button
-                variant='outlined'
-                color="primary" 
-                size="2xs" 
-                rounded='md' 
-                iconOnly 
-                icon={<FunnelIcon className="w-3.5" aria-hidden="true" />}
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button variant='outlined' color="secondary" size="xs" rounded='md' ripple icon={<EnvelopeIcon className="w-4" aria-hidden="true" />} >
-              Outline XS
-              </Button>
-              <Button
-                variant='outlined' 
-                color="secondary" 
-                size="xs" 
-                rounded='md' 
-                iconOnly 
-                icon={<EnvelopeIcon className="w-4" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button variant='outlined' color="tertiary" size="sm" rounded='md' ripple icon={<PhoneIcon className="w-4" aria-hidden="true" />}>
-              Outline SM
-              </Button>
-              <Button
-                variant='outlined'
-                color="tertiary" 
-                size="sm" 
-                rounded='md' 
-                iconOnly 
-                icon={<PhoneIcon className="w-4" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button variant='outlined' color="dark" size="md" rounded='md' ripple icon={<MagnifyingGlassIcon className="w-5" aria-hidden="true" />}>
-              Outline MD
-              </Button>
-              <Button 
-                variant='outlined'
-                color="dark" 
-                size="md" 
-                rounded='md' 
-                iconOnly
-                ripple
-                icon={<MagnifyingGlassIcon className="w-5" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button variant='outlined' color="light" size="lg" rounded='md' ripple icon={<AtSymbolIcon className="w-5" aria-hidden="true" />}>
-              Outline LG
-              </Button>
-              <Button
-                variant='outlined'
-                color="light" 
-                size="lg" 
-                rounded='md' 
-                iconOnly
-                ripple
-                icon={<AtSymbolIcon className="w-5" aria-hidden="true" />} 
-              />
-            </div>
+
+          <div className="flex flex-wrap items-center gap-4 py-3">
+            <Button 
+              className="primary-light contained md rounded shadow-sm"
+              type="button"
+            >
+              Primary
+            </Button>
+            <Button 
+              className="secondary-light contained md rounded shadow-sm"
+              type="button"
+            >
+              Secondary
+            </Button>
+            <Button 
+              className="tertiary-light contained md rounded shadow-sm"
+              type="button"
+            >
+              Tertiary
+            </Button>
+            <Button 
+              className="info-light contained md rounded shadow-sm"
+              type="button"
+            >
+              Info
+            </Button>
+            <Button 
+              className="success-light contained md rounded shadow-sm"
+              type="button"
+            >
+              Success
+            </Button>
+            <Button 
+              className="warning-light contained md rounded shadow-sm"
+              type="button"
+            >
+              Warning
+            </Button>
+            <Button 
+              className="danger-light contained md rounded shadow-sm" 
+              type="button"
+            >
+              Danger
+            </Button>
+
           </div>
-  
-          <div className="flex py-3 mt-4 gap-5">
-          <div className="flex gap-2">
-          <Button color="white" size="xl" rounded='lg' ripple icon={<AcademicCapIcon className="w-6" aria-hidden="true" />}>
-          Contain XL
-          </Button>
-          <Button 
-            color="white" 
-            size="xl" 
-            rounded='lg' 
-            iconOnly 
-            icon={<AcademicCapIcon className="w-6" aria-hidden="true" />} 
-          />
-        </div>
-        <div className="flex gap-2">
-          <Button color="dark" size="2xl" rounded='lg' ripple icon={<PlusIcon className="w-6" aria-hidden="true" />}>
-            Contain 2XL
-          </Button>
-          <Button 
-            color="dark" 
-            size="2xl" 
-            rounded='lg' 
-            iconOnly 
-            icon={<PlusIcon className="w-7" aria-hidden="true" />} 
-          />
+
+        
+          <div className="flex flex-wrap items-center gap-4 py-3">
+            <Button 
+              className="primary outlined md rounded shadow"
+              type="button"
+            >
+              Primary
+            </Button>
+            <Button 
+              className="secondary outlined md rounded shadow"
+              type="button"
+            >
+              Secondary
+            </Button>
+            <Button 
+              className="tertiary outlined md rounded shadow"
+              type="button"
+            >
+              Tertiary
+            </Button>
+            <Button 
+              className="info outlined md rounded shadow"
+              type="button"
+            >
+              Info
+            </Button>
+            <Button 
+              className="success outlined md rounded shadow"
+              type="button"
+            >
+              Success
+            </Button>
+            <Button 
+              className="warning outlined md rounded shadow"
+              type="button"
+            >
+              Warning
+            </Button>
+            <Button 
+              className="danger outlined md rounded shadow" 
+              type="button"
+            >
+              Danger
+            </Button>
+
           </div>
-        </div>
-  
-        <div className="grid grid-cols-2 md:grid-cols-4 mt-4 py-4 gap-5">
-            <div className="flex gap-1">
-              <Button color="primary" size="2xs" rounded='md' ripple>
-                Lorem 2XS
-              </Button>
-              <Button 
-                color="primary" 
-                size="2xs" 
-                rounded='md' 
-                iconOnly 
-                icon={<FunnelIcon className="w-3" aria-hidden="true" />}
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="secondary" size="xs" rounded='md' ripple>
-                Ipsum XS
-              </Button>
-              <Button 
-                color="secondary" 
-                size="xs" 
-                rounded='md' 
-                iconOnly 
-                icon={<EnvelopeIcon className="w-4" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="tertiary" size="sm" rounded='md' ripple>
-                Dolor sit SM
-              </Button>
-              <Button 
-                color="tertiary" 
-                size="sm" 
-                rounded='md' 
-                iconOnly 
-                icon={<PhoneIcon className="w-4" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="dark" size="md" rounded='md' ripple>
-                Button MD
-              </Button>
-              <Button 
-                color="dark" 
-                size="md" 
-                rounded='md' 
-                iconOnly
-                ripple
-                icon={<MagnifyingGlassIcon className="w-5" aria-hidden="true" />} 
-              />
-            </div>
-            <div className="flex gap-2">
-              <Button color="light" size="lg" rounded='md' ripple>
-                Button LG
-              </Button>
-              <Button 
-                color="light" 
-                size="lg" 
-                rounded='md' 
-                iconOnly
-                ripple
-                icon={<AtSymbolIcon className="w-5" aria-hidden="true" />} 
-              />
-            </div>
+
+          <div className="flex flex-wrap items-center gap-4 py-3">
+            <Button 
+              className="primary-light outlined md rounded shadow-sm"
+              type="button"
+            >
+              Primary
+            </Button>
+            <Button 
+              className="secondary-light outlined md rounded shadow-sm"
+              type="button"
+            >
+              Secondary
+            </Button>
+            <Button 
+              className="tertiary-light outlined md rounded shadow-sm"
+              type="button"
+            >
+              Tertiary
+            </Button>
+            <Button 
+              className="info-light outlined md rounded shadow-sm"
+              type="button"
+            >
+              Info
+            </Button>
+            <Button 
+              className="success-light outlined md rounded shadow-sm"
+              type="button"
+            >
+              Success
+            </Button>
+            <Button 
+              className="warning-light outlined md rounded shadow-sm"
+              type="button"
+            >
+              Warning
+            </Button>
+            <Button 
+              className="danger-light outlined md rounded shadow-sm" 
+              type="button"
+            >
+              Danger
+            </Button>
+
           </div>
-  
-          <div className="grid grid-cols-2 md:grid-cols-4 py-3 gap-5">
-          <div className="flex gap-2">
-          <Button color="white" size="xl" rounded='lg' ripple>
-            Button XL
-          </Button>
-          <Button 
-            color="white" 
-            size="xl" 
-            rounded='lg' 
-            iconOnly 
-            icon={<AcademicCapIcon className="h-6 w-6" aria-hidden="true" />} 
-          />
-        </div>
-        <div className="flex gap-2">
-          <Button color="dark" size="2xl" rounded='lg' ripple>
-            Button 2XL
-          </Button>
-          <Button 
-            color="dark" 
-            size="2xl" 
-            rounded='lg' 
-            iconOnly 
-            icon={<PlusIcon className="h-7 w-7" aria-hidden="true" />} 
-          />
+
+          <div className="mt-2 flex flex-wrap items-center gap-4 py-4">
+            <Button 
+              className="tot contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s1 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s2 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s3 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s4 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s5 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s6 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s7 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s8 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s9 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+            <Button 
+              className="tot-s10 contained md rounded shadow" 
+              color="primary"
+              type="button"
+              scale
+            >
+              Button
+            </Button>
+
           </div>
-        </div>
-  
-        <div className="grid grid-cols-2 md:grid-cols-4 mt-4 py-4 gap-6">
-          <Button variant='contained' color="primary">Button</Button>
-          <Button variant='outlined' color="primary">Button</Button>
-          <Button variant='text' color="primary">Button</Button>
-        </div>
-  
-        <div className="grid grid-cols-2 md:grid-cols-4 mt-4 py-4 gap-6">
-          <Button color="info">Button</Button>
-          <Button color="success">Button</Button>
-          <Button color="danger">Button</Button>
-          <Button color="warning">Button</Button>
-          <Button disabled>Button</Button>
-        </div>
-  
-  
+       
         </div>
   
         
@@ -1088,54 +1186,25 @@ const HomeView: FC = ( { data, isMounted } ) => {
         <div className="mt-20">
           <div className="flex flex-wrap items-center gap-4 py-4">
 
-            <Label className="border-1.5 border-primary bg-primary my-theme:font-bold">
-              <Label.Prefix>
-                <FunnelIcon className={'icon h-5 w-5'} />
-              </Label.Prefix>
-              
-              <Label.Content>
-                LabelLabelLabelLabelLabel
-              </Label.Content>
-
-              <Label.Suffix>
-                <FunnelIcon className={'icon h-5 w-5'} />
-              </Label.Suffix>
-
-              <Label.Close>
-                <XMarkIcon className={'icon h-5 w-5'} />
-              </Label.Close>
-
-              <Label.Item>
-                Item 1
-              </Label.Item>
-
-              <Label.Item>
-              Item 2
-              </Label.Item>
-              
-            </Label>
-
             {isMounted && 
-              <Contain 
+              <Label
                 as={'div'}
                 className="rounded"
                 //onClick={() => console.log(isMounted)}
                 //visible={true} 
                 //mounted={true}
-              >  
-                <Contain.Prefix id={1} className={'bg-primary-300 rounded'}>
+              >
+                <Label.Prefix className={'bg-primary-300 rounded'}>
                   <FunnelIcon className={'icon h-5 w-5'} />
-                </Contain.Prefix >
-                <Contain.Title id={2} as={'div'} className="">
-                  XSknkkn
-                </Contain.Title >
-                <Contain.Suffix id={2} as={'div'} className="">
+                </Label.Prefix >
+                <Label.Title>Label SM</Label.Title >
+                <Label.Suffix>
                   <FunnelIcon className={'icon h-5 w-5'} />
-                </Contain.Suffix >
-                <Contain.Close className={isMounted ? "bg-red-400" : ""}>
+                </Label.Suffix >
+                <Label.Close className={isMounted ? "bg-red-400" : ""}>
                   <XMarkIcon className={'icon h-5 w-5'} />
-                </Contain.Close>
-              </Contain>
+                </Label.Close>
+              </Label>
             }
 
             <div className="card rounded-none bg-rete my-theme:font-bold"></div>

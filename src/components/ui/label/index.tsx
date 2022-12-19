@@ -1,110 +1,184 @@
-import React, { FC, useState } from 'react'
-import { Transition } from '@headlessui/react'
-import cn from 'clsx'
-import {  XMarkIcon } from '@heroicons/react/24/outline'
+import React, { useState, useMemo, createContext, useContext } from 'react'
+import { unmountComponentAtNode, render } from "react-dom";
+import clsx from 'clsx'
+import { findByType } from '@utils'
 
-const findByType = (children : any, component : any) => {
-    const result = [];
-    /* This is the array of result since Article can have multiple times the same sub-component */
-    const type = [component.displayName] || [component.name];
-    /* We can store the actual name of the component through the displayName or name property of our sub-component */
-    React.Children.forEach(children, (child) => {
-
-        const childType = child && child.type && (child.type.displayName || child.type.name);
-
-        if (type.includes(childType)) {
-            result.push(child);
-        }
-    });
-
-    /* Then we go through each React children, if one of matches the name of the sub-component we’re looking for we put it in the result array */
-    return result[0];
-  };
-
-  const Title = () => null;
-  
+interface LabelContextProps {
+    isMounted: boolean; 
+    handleMounted: () => void;
+    isVisible: boolean; 
+    handleVisibility: () => void;
+}
 interface LabelProps {
-    className?: string;
+    children? : React.ReactNode;
+    closable? : Boolean;
+    className? : String;
+    as? : React.ElementType | 'div' |'span' | 'li';
+    //Prefix?: PrefixProps;
+    //Title?: TitleProps;
+    //Suffix?: SuffixProps;
+    //Close?: CloseProps;
+}
+interface PrefixProps {
     children?: React.ReactNode;
-    unstyled?: boolean;
-    closable?: boolean;
-    Prefix?: any;
-    Content?: any;
-    Suffix?: any;
+    className?: string;
+    as? : React.ElementType | 'div' |'span' | 'li';
+}
+interface TitleProps {
+    children?: React.ReactNode;
+    className?: string;
+    as? : React.ElementType | 'div' | 'span' | 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+}
+interface SuffixProps {
+    children?: React.ReactNode;
+    className?: string;
+    as? : React.ElementType | 'div' |'span' | 'li';
+}
+interface CloseProps {
+    children?: React.ReactNode;
+    className?: string;
+    as? : React.ElementType | 'div' |'span' | 'li';
 }
 
-const Label : FC<LabelProps> = ({
+const defaultState = {
+    isMounted: true, isVisible: true,
+    handleMounted: () => {}, handleVisibility: () => {},
+};
+
+const closeErrorMessage = 'There is more than one "Close" children, only the first one will be displayed.'
+
+const LabelContext = createContext<LabelContextProps>(defaultState);
+
+function useContainerContext() {
+    const context = React.useContext(LabelContext)
+    if (!context) {
+        throw new Error(
+            `Toggle compound components cannot be rendered outside the Toggle component`,
+        )
+    }
+    return context
+}
+
+const itemCN = 'first:ml-2 last:mr-2 only:mx-2 p-1';
+
+const Label : React.FC<LabelProps> = ({ 
+    children, 
+    closable = true,
     className,
-    children,
-    unstyled,
-    closable = true
+    as = 'div'
 }) => {
 
-    //const prefix = React.Children.map(children, child => child.type?.displayName === 'Prefix' ? child : null);
-    //const content = React.Children.map(children, child => child.type?.displayName === 'Content' ? child : null);
-    //const suffix = React.Children.map(children, child => child.type?.displayName === 'Suffix' ? child : null);
+    const [isMounted, setIsMounted] = useState(defaultState.isMounted);
+    const [isVisible, setIsVisible] = useState(defaultState.isVisible);
+
+    console.log('Label States', isMounted, isVisible)
+
+    const handleMounted = () => {
+        //unmountComponentAtNode(document.getElementById('label-root'));
+        setIsMounted(!isMounted);
+    };
+
+    const handleVisibility = () => {
+        setIsVisible(!isVisible);
+    };
+
+    const value = useMemo(() => ({ 
+        isMounted, 
+        handleMounted,
+        isVisible, 
+        handleVisibility
+    }), [isMounted, isVisible]);
     
-    //const type = [component.displayName] || [component.name];
+    const childrenCount = React.Children.count(children)
+    //const isCloseOnly = React.Children.only(children)
 
+    const prefix = findByType(children, Prefix)[0];
+    const title = findByType(children, Title)[0];
+    const suffix = findByType(children, Suffix)[0];
+    const close = findByType(children, Close)[0];
 
-    let subComponentList = Object.keys(Label);
+    console.log('Prefix', prefix, 'Suffix', prefix, 'Title', title, 'close', close)
 
-    let subComponents = subComponentList.map((key) => {
-        return React.Children.map(children, (child) =>
-            child.type?.name === key ? child : null
-        );
-    });
+    console.log('Children Count', childrenCount)
 
+    if (React.Children.count(close) > 1) { 
+        console.error(closeErrorMessage);
+    }
 
+    const containerCN = clsx(
+        'label h-10 inline-flex gap-2 box-border items-center cursor-default select-none transition bg-primary',
+        {
+            [`hidden`] : !isVisible
+        },
+        className,
+    );
 
-    let childrens = [];
-    React.Children.forEach(children, (child) => {});
-
-      const prefix = findByType(children, Prefix);
-      const content = findByType(children, Content);
-      const suffix = findByType(children, Suffix);
-      const close = findByType(children, Close);
-      const item = findByType(children, Item);
+    const As = as
 
     return (
-      <div className="h-10 inline-flex gap-2 box-border items-center cursor-default select-none transition bg-primary rounded-md">
-        <div className="first:ml-2 last:mr-2 text-white bg-primary-300 p-1 rounded-md only:mx-2">
-        {prefix}
-        </div>
-        <div className="first:ml-2 last:mr-2 text-primary-100 only:py-0">
-          {content}
-        </div>
-        <div className="first:ml-2 last:mr-2 p-1 rounded-md only:py-0">
-          {suffix}
-        </div>
-        {closable && close && <div className="first:ml-2 last:mr-2 bg-white p-1 rounded-md only:py-0">
-          {close}
-        </div>}
-        <div>
-            {item}
-        </div>
-      </div>
-    );
+        isMounted &&
+        <LabelContext.Provider value={value}>
+            <As id='label-root' className={containerCN}>
+                {prefix && prefix}
+                {title && title}
+                {suffix && suffix}
+                {closable && close && close}
+            </As>
+        </LabelContext.Provider>
+    )
 }
-  
-  const Prefix = ({ children }) => children;
-  Prefix.displayName = 'Prefix';
-  Label.Prefix = Prefix;
-  
-  const Content = ({ children }) => children;
-  Content.displayName = 'Content';
-  Label.Content = Content;
-  
-  const Suffix = ({ children }) => children;
-  Suffix.displayName = 'Suffix';
-  Label.Suffix = Suffix;
 
-  const Close = ({ children }) => children;
-  Close.displayName = 'Close';
-  Label.Close = Close;
+const Prefix: React.FC<PrefixProps> = ({ children, className, as = 'span' }) => 
+{
+    const As = as;
+    const prefixCN = clsx('label-prefix', itemCN, {}, className);
+    return (<As className={prefixCN}>{children}</As>)
+}
 
-  const Item = ({ children }) => children;
-  Item.displayName = 'Item';
-  Label.Item = Item;
+const Title: React.FC<TitleProps> = ({children, className, as = 'p'}) => 
+{
+    const As = as;
+    const titleCN = clsx('label-title', itemCN, {}, className);
+    return (<As className={titleCN} title={children}>{children}</As>)
+}
 
-  export default Label;
+const Suffix: React.FC<SuffixProps> = ({children, className, as = 'span'}) => 
+{
+    const As = as;
+    const suffixCN = clsx('label-suffix', itemCN, {}, className);
+    return (<As className={suffixCN}>{children}</As>);
+}
+
+const Close: React.FC<CloseProps> = ({children, className}) => 
+{
+    const { handleMounted } = useContainerContext();
+    const closeCN = clsx('label-close', itemCN, {}, className);
+    return (      
+        <button 
+            className={closeCN} 
+            onClick={() => handleMounted()}
+        >
+            {children}
+        </button>
+    )
+}
+
+//LabelContext.displayName = 'LabelContext'
+//Label.displayName = 'Label';
+
+Label.Title = Title
+Title.displayName = 'Title';
+
+Label.Prefix = Prefix
+Prefix.displayName = 'Prefix';
+
+Label.Suffix = Suffix
+Suffix.displayName = 'Suffix';
+
+Label.Close = Close
+Close.displayName = 'Close';
+
+export default Label
+
+//WDYR
+//Label.whyDidYouRender = true

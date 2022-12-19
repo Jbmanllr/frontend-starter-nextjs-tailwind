@@ -1,5 +1,5 @@
 import React, { FC, CSSProperties, useState } from 'react'
-import Image, { ImageProps } from 'next/future/image'
+import Image, { ImageProps } from 'next/image'
 import { ClipLoader } from "react-spinners";
 import { useToBase64 } from '@utils'
 

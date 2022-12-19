@@ -407,7 +407,7 @@ $bg: red;
 
 
     .primary.contained {
-        @apply bg-primary border-primary text-white;
+        @apply bg-primary border-primary text-white outline-primary-500 ring-primary-300;
     }
     .secondary.contained {
         @apply bg-secondary border-secondary text-white;
@@ -591,6 +591,40 @@ $bg: red;
         padding: theme('spacing.6');
         box-shadow: theme('boxShadow.xl');
     }
+
+    .button {
+        @apply active:outline-none active:ring-4 active:ring-offset-2 dark:highlight-white/10 disabled:cursor-not-allowed disabled:opacity-60 inline-flex items-center box-border select-none;
+    }
+
+    .button.focused {
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+
+    .button.loading {
+        @apply cursor-progress disabled:cursor-progress disabled:opacity-60;
+    }
+
+    .button.xs {
+        @apply px-2.5 h-7 text-xs font-normal gap-2;
+    }
+    .button.sm {
+        @apply px-3 h-8 text-sm font-normal gap-2 leading-4;
+    }
+    .button.md {
+        @apply px-3 h-9 text-sm font-medium gap-2.5;
+    }
+    .button.lg {
+        @apply px-3.5 h-10 text-base font-medium gap-3;
+    }
+    .button.xl {
+        @apply px-4 h-12 text-base font-medium gap-3;
+    }
+    .button.fill {
+        @apply py-3 text-base font-medium w-full px-[8%] flex justify-between;
+    }
+
+
+
 
     .label {
         @apply inline-flex items-center box-border cursor-default select-none;
